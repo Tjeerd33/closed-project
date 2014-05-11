@@ -1,6 +1,3 @@
-datie9
-======
-
 Icarus project
 
 #Icarus project
@@ -183,6 +180,13 @@ while(question_answer==0):
             shieldfront=shieldfront+1
             energy_transferd=energy_transferd+1
         print(energy_transferd,' energy transferred from cannon batteries 2 to the front shield')
+        energy_transferd=0
+        while(shieldmid<600)and(canon_batterys2>0):
+            canon_batterys2=canon_batterys2-1
+            shieldmid=shieldmid+1
+            energy_fransferd=energy_transferd+1
+        print(energy_transferd,' energy transferred from cannon batteris 2 to mid shield')
+        energy_transferd=0
         time.sleep(4)
         print('shields are fully powerd and opperational')
         print('weapons offline')
