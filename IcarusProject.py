@@ -222,10 +222,12 @@ while(ftl_overload==1):
 
 #Mission 2
 #Introducing storyline
+import time
 print('You have arrived at Gamma-492b')
 print('scanners show nothing more than dust')
 print('We need water to cool down the engines!')
 #Interactive question_1
+scan=0
 while(scan==0):
     answer_1 = input('scan for nearby star systems?')
 
@@ -237,16 +239,130 @@ while(scan==0):
         print('Scanner booted!')
         time.sleep(3)
         print('Three nearby places have been found!')
-        print('Fruhka-2, Zdeta-5 and Phiksi-1')
-        answer_2 = input('Where should we go?')
+        print('Fruhka-2, Zdelta-5 and Phiksi-1')
+        scan=1
 
-        if answer_2 == "fruhka-2":
-            print("Moving to Fruhka-2")
-        elif answer_2 == "zdeta-5":
-            print("Moving to Zdeta-5")
-        elif answer_2 == "phiksi-1":
-            print("Moving to Phiksi-1")
+ftl_active=0
+while(ftl_active==0):#will repeat the question untill the ftl drive is active (will be active once ftl_active=1)
+    options=['plot course to','repair damaged areas']
+    answer_2= input('input:')
 
+    if answer_2=='options':
+        print(options)
+
+    if answer_2=='plot course to':
+        answer_3=input('    ')
+        if answer_3 == "Fruhka-2":
+            print("plotting course to Fruhka-2")
+            time.sleep(3)
+            print('course plotted')
+            print('we will jump to ftl in 20 seconds')
+            time.sleep(10)
+            print('10')
+            time.sleep(1)
+            print('9')
+            time.sleep(1)
+            print('8')
+            time.sleep(1)
+            print('7')
+            time.sleep(1)
+            print('6')
+            time.sleep(1)
+            print('5')
+            time.sleep(1)
+            print('4')
+            time.sleep(1)
+            print('3')
+            time.sleep(1)
+            print('2')
+            time.sleep(1)
+            print('1')
+            time.sleep(2)
+            print('jump succesfull')
+            time.sleep(1)
+            print('all systems fuctioning')
+            print('dropp out in T minus 3 seconds')
+            time.sleep(1)
+            print('3')
+            time.sleep(1)
+            print('2')
+            time.sleep(1)
+            print('1')
+            ftl_active=1
+        elif answer_3 == "Zdelta-5":
+            print("plotting course to Zdelta-5")
+            time.sleep(3)
+            print('course plotted')
+            prtin('we will jump to ftl in 20 seconds')
+            time.sleep(10)
+            print('10')
+            time.sleep(1)
+            print('9')
+            time.sleep(1)
+            print('8')
+            time.sleep(1)
+            print('7')
+            time.sleep(1)
+            print('6')
+            time.sleep(1)
+            print('5')
+            time.sleep(1)
+            print('4')
+            time.sleep(1)
+            print('3')
+            time.sleep(1)
+            print('2')
+            time.sleep(1)
+            print('1')
+            time.sleep(2)
+            print('jump succesfull')
+            time.sleep(1)
+            print('all systems fuctioning')
+            print('dropp out in T minus 3 seconds')
+            time.sleep(1)
+            print('3')
+            time.sleep(1)
+            print('2')
+            time.sleep(1)
+            print('1')
+            ftl_active=1
+        elif answer_3 == "Phiksi-1":
+            print("plotting course to Phiksi-1")
+            time.sleep(3)
+            print('course plotted')
+            prtin('we will jump to ftl in 20 seconds')
+            time.sleep(10)
+            print('10')
+            time.sleep(1)
+            print('9')
+            time.sleep(1)
+            print('8')
+            time.sleep(1)
+            print('7')
+            time.sleep(1)
+            print('6')
+            time.sleep(1)
+            print('5')
+            time.sleep(1)
+            print('4')
+            time.sleep(1)
+            print('3')
+            time.sleep(1)
+            print('2')
+            time.sleep(1)
+            print('1')
+            time.sleep(2)
+            print('jump succesfull')
+            time.sleep(1)
+            print('all systems fuctioning')
+            print('dropp out in T minus 3 seconds')
+            time.sleep(1)
+            print('3')
+            time.sleep(1)
+            print('2')
+            time.sleep(1)
+            print('1')
+            ftl_active=1
 
 
 
