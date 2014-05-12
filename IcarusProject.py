@@ -105,6 +105,7 @@ while(question_answer<1):
         print('1')
         time.sleep(2)
         print('we just jumped to ftl')
+        time.sleep(5)
         print('error')
         print('system overload')
         print('ship damaged')
@@ -145,6 +146,7 @@ while(ftl_overload<1):
         print('1')
         time.sleep(2)
         print('we just jumped to ftl')
+        time.sleep(5)
         print('error')
         print('system overload')
         print('ship damaged')
@@ -200,5 +202,19 @@ while(question_answerd==0):
         powera=(power/1000)*100
         print('power is',powera,'%')
                 
+print('starting to sweep area')
+print('distance to nearest star:')
+time.sleep(2)
+print('1,323 lightyears')
+
+question_answerd=0
+options=['diagnose ftl drive','repair ftl drive','run repair program']
+while(ftl_overload==1):
+    action=input('input:')
+
+
+
+
+
 input('pres enter to exit')
 
