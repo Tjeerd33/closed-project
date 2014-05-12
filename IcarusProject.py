@@ -173,12 +173,14 @@ while(question_answer==0):
             canon_batterys1=canon_batterys1-1
             shieldfront=shieldfront+1
             energy_transferd=energy_transferd+1
+        time.sleep(2)
         print(energy_transferd,' energy transferred from cannon batteries 1 to the front shield')
         energy_transferd=0
         while(shieldfront<600)and(canon_batterys2>0):
             canon_batterys2=canon_batterys2-1
             shieldfront=shieldfront+1
             energy_transferd=energy_transferd+1
+        time.sleep(2)
         print(energy_transferd,' energy transferred from cannon batteries 2 to the front shield')
         time.sleep(4)
         print('shields are fully powerd and opperational')
