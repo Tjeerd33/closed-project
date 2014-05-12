@@ -30,7 +30,6 @@ mainweapona=400 #full power is 800
 mainweaponb= True
 question_answer=0
 ftl_overload=0
-cargo_bay={}
 options=['start engines','full power to the shields','jump to ftl']
 import time
 import random
@@ -207,65 +206,49 @@ print('starting to sweep area')
 print('distance to nearest star:')
 time.sleep(2)
 print('1,323 lightyears')
+cargo_bay={}
 
 question_answerd=0
 options=['diagnose ftl drive','repair ftl drive','run repair program']
 while(ftl_overload==1):
     action=input('input:')
-    
-    if(action=='options'):
+
+    if action=='options':
         print(options)
+
+    if action=='smash random things till it works':
+        print('it magically repaired itself, good job :D')
+        ftl_overload=0
+
+#Mission 2
+#Introducing storyline
+print('You have arrived at Gamma-492b')
+print('scanners show nothing more than dust')
+print('We need water to cool down the engines!')
+#Interactive question_1
+while(scan==0):
+    answer_1 = input('scan for nearby star systems?')
+
+    #Morphing and comparing answer_1
+    answer_1 = answer_1.lower()
+    if answer_1 == "yes":
+        print('Booting scanner...')
+        time.sleep(1)
+        print('Scanner booted!')
+        time.sleep(3)
+        print('Three nearby places have been found!')
+        print('Fruhka-2, Zdeta-5 and Phiksi-1')
+        answer_2 = input('Where should we go?')
+
+        if answer_2 == "fruhka-2":
+            print("Moving to Fruhka-2")
+        elif answer_2 == "zdeta-5":
+            print("Moving to Zdeta-5")
+        elif answer_2 == "phiksi-1":
+            print("Moving to Phiksi-1")
 
 
 
 
 
 input('pres enter to exit')
-
-
-
-
-
-
-#Mission 2
-#Introducing storyline
-print('You have arrived at ...???')
-print('Unfortunately there is no water here!')
-print('We need water to cool down the engines!')
-#Interactive question_1
-answer_1 = input('Sir, do we need to scan for places that contian water?')
-
-#Morphing and comparing answer_1
-answer_1 = answer_1.lower()
-#if answer_1 = yes.. do the following:
-if answer_1 == "yes":
-    print('Booting scanner...')
-    time.sleep(1)
-    print('Scanner booted!')
-    time.sleep(1)
-    print('Scanning in...')
-    time.sleep(1)
-    print('3')
-    time.sleep(1)
-    print('2')
-    time.sleep(1)
-    print('1')
-    time.sleep(1)
-    print('Three nearby places have been found!')
-    print('Fruhka-2, Zdeta-5 and Phiksi-1')
-    answer_2 = input('Where should we go?')
-    answer_2 = answer_2.lower()
-    if answer_2 == "fruhka-2":
-        print("Moving to Fruhka-2")
-    elif answer_2 == "zdeta-5":
-        print("Moving to Zdeta-5")
-    elif answer_2 == "phiksi-1":
-        print("Moving to Phiksi-1")
-    else:
-        print("I have never heard of that place!")
-
-else:
-    answer_3 = input('Without water we will starve! Do you really want to stay here?')
-    answer_3 = answer_3.lower()
-    
-
