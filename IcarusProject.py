@@ -200,8 +200,8 @@ while(question_answerd==0):
             energy_transferd=energy_transferd+1
         print('    ',energy_transferd,' energy transferred from cannon batteries 2 to the mid shield')
         energy_transferd=0
-        while(shieldmid<600)and(cannon_batterys3>0):
-            cannon_batterys3=cannon_batterys3-1
+        while(shieldmid<600)and(canon_batterys3>0):
+            canon_batterys3=canon_batterys3-1
             shieldmid=shieldmid+1
             energy_transferd=energy_transferd+1
         print('    ',energy_transferd,' energy transferred from cannon batteries 3 to the mid shield')
