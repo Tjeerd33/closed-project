@@ -30,6 +30,7 @@ mainweapona=400 #full power is 800
 mainweaponb= True
 question_answer=0
 ftl_overload=0
+cargo_bay={}
 options=['start engines','full power to the shields','jump to ftl']
 import time
 import random
