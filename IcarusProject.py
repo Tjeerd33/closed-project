@@ -152,6 +152,9 @@ options=['scan area','repair damaged parts','full power to the shields','functio
 while(question_answerd==0):
     action=input('input:')
 
+    if action=='options':
+        print(options)
+        
     if action=='scan area':
         print('area scanned')
         print('computer reports:')
