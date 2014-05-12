@@ -211,6 +211,9 @@ question_answerd=0
 options=['diagnose ftl drive','repair ftl drive','run repair program']
 while(ftl_overload==1):
     action=input('input:')
+    
+    if(action=='options'):
+        print(options)
 
 
 
