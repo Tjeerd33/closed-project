@@ -1,4 +1,4 @@
-
+#this part is only for the interface to work independently
 power=1000
 canon_batterys1=200
 canon_battery1= True
