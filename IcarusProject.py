@@ -114,6 +114,10 @@ while(question_answer<1):
 
 while(ftl_overload<1):
     action=input('input:')
+    
+    if(action=='options'):
+        print(options)
+        
     if(action=='full power to the shields'):
         print('there is no need')
 
