@@ -222,3 +222,50 @@ while(ftl_overload==1):
 
 input('pres enter to exit')
 
+
+
+
+
+
+#Mission 2
+#Introducing storyline
+print('You have arrived at ...???')
+print('Unfortunately there is no water here!')
+print('We need water to cool down the engines!')
+#Interactive question_1
+answer_1 = input('Sir, do we need to scan for places that contian water?')
+
+#Morphing and comparing answer_1
+answer_1 = answer_1.lower()
+#if answer_1 = yes.. do the following:
+if answer_1 == "yes":
+    print('Booting scanner...')
+    time.sleep(1)
+    print('Scanner booted!')
+    time.sleep(1)
+    print('Scanning in...')
+    time.sleep(1)
+    print('3')
+    time.sleep(1)
+    print('2')
+    time.sleep(1)
+    print('1')
+    time.sleep(1)
+    print('Three nearby places have been found!')
+    print('Fruhka-2, Zdeta-5 and Phiksi-1')
+    answer_2 = input('Where should we go?')
+    answer_2 = answer_2.lower()
+    if answer_2 == "fruhka-2":
+        print("Moving to Fruhka-2")
+    elif answer_2 == "zdeta-5":
+        print("Moving to Zdeta-5")
+    elif answer_2 == "phiksi-1":
+        print("Moving to Phiksi-1")
+    else:
+        print("I have never heard of that place!")
+
+else:
+    answer_3 = input('Without water we will starve! Do you really want to stay here?')
+    answer_3 = answer_3.lower()
+    
+
