@@ -149,7 +149,7 @@ while(ftl_overload<1):
 
 question_answerd=0
 options=['scan area','repair damaged parts','full power to the shields','functionality report']
-while(question_answer==0):
+while(question_answerd==0):
     action=input('input:')
 
     if action=='scan area':
@@ -161,6 +161,7 @@ while(question_answer==0):
         print('estimated distance to earth:')
         time.sleep(2)
         print('unkown')
+        question_answerd=1
 
     if action=='repair damaged parts':
         print('started to repair damaged parts')
