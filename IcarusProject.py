@@ -189,7 +189,7 @@ while(question_answer==0):
     if action=='functionality report':
         print('weapons 5 to 9 offline')
         print('hull: damaged')
-        power%=70
-        print('power is')
+        power%=(power/1000)*100
+        print('power is',power%,'%')
                 
 input('pres enter to exit')
