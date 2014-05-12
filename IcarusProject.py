@@ -166,6 +166,7 @@ while(question_answerd==0):
         print('computer reports:')
         print('we are in the middle of empty space')
         print('locating near stars and calculating distance to earth')
+        print('trolololol dit deel is erin gezet door datie9')
         time.sleep(5)
         print('estimated distance to earth:')
         time.sleep(2)
