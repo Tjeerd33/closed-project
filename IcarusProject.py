@@ -37,12 +37,12 @@ import random
 #mission 1 earth
 print('you can use options at all time to display your options')
 print('mission 1 earth')
-print('you are part of a secret milatary program, project icarus')
+print('you are part of a secret military program, project Icarus')
 print('the project made a spaceship that is capable of ftl')
 print('(ftl=faster than light)')
-print('you are the captain and the ship wil be launched today, you will control it through this control pannel.')
-print('the ship is completely drone opperated')
-print('it is controlled through a series of entagled particels')
+print('you are the captain and the ship will be launched today, you will control it through this control panel.')
+print('the ship is completely drone operated')
+print('it is controlled through a series of entangled particles')
 print('http://en.wikipedia.org/wiki/Quantum_entanglement')
 print('all systems online')
 while(question_answer<1):
@@ -163,7 +163,7 @@ while(question_answerd==0):
         time.sleep(5)
         print('estimated distance to earth:')
         time.sleep(2)
-        print('unkown')
+        print('unknown')
         question_answerd=1
 
     if action=='repair damaged parts':
@@ -187,13 +187,14 @@ while(question_answerd==0):
         time.sleep(2)
         print(energy_transferd,' energy transferred from cannon batteries 2 to the front shield')
         time.sleep(4)
-        print('shields are fully powerd and opperational')
+        print('shields are fully powered and operational')
         print('weapons offline')
 
     if action=='functionality report':
         print('weapons 5 to 9 offline')
         print('hull: damaged')
-        power%=(power/1000)*100
-        print('power is',power%,'%')
+        powera=(power/1000)*100
+        print('power is',powera,'%')
                 
 input('pres enter to exit')
+
