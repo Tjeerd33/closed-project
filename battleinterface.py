@@ -141,7 +141,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             print('signal lost')
                 elif(position1=='mid'):
                     if(shieldback>0):
-                        shieldback=shieldmid-damage
+                        shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
                             hull=hull+shieldmid
@@ -154,7 +154,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                 elif(position1=='front'):
                     if(shieldfront>0):
-                        shieldback=shieldfront-damage
+                        shieldfront=shieldfront-damage
                         if(shieldfront<0):
                             print('front shields depleted')
                             hull=hull+shieldfront
@@ -192,7 +192,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             print('signal lost')
                 elif(position2=='mid'):
                     if(shieldback>0):
-                        shieldback=shieldmid-damage
+                        shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
                             hull=hull+shieldmid
@@ -205,7 +205,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                 elif(position2=='front'):
                     if(shieldfront>0):
-                        shieldback=shieldfront-damage
+                        shieldfront=shieldfront-damage
                         if(shieldfront<0):
                             print('front shields depleted')
                             hull=hull+shieldfront
@@ -243,7 +243,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             print('signal lost')
                 elif(position3=='mid'):
                     if(shieldback>0):
-                        shieldback=shieldmid-damage
+                        shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
                             hull=hull+shieldmid
@@ -256,7 +256,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                 elif(position3=='front'):
                     if(shieldfront>0):
-                        shieldback=shieldfront-damage
+                        shieldfront=shieldfront-damage
                         if(shieldfront<0):
                             print('front shields depleted')
                             hull=hull+shieldfront
