@@ -1,6 +1,4 @@
 
-
-
 power=10000
 canon_batterys1=500
 canon_battery1= True
@@ -183,6 +181,9 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(enemy_shields1==0):
                 enemy_hull1=enemy_hull1-total_damage
                 print('you did',total_damage,"to enemy 1's hull")
+                random=random.randint(0,10)
+                if(random==1):
+                    enemy_weapons1= False
         if(target=='2'):
             if(enemy_shields2>0):
                 enemy_shields2=enemy_shields2-total_damage
@@ -194,6 +195,9 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(enemy_shields2==0):
                 enemy_hull2=enemy_hull2-total_damage
                 print('you did',total_damage,"to enemy 2's hull")
+                random=random.randint(0,10)
+                if(random==1):
+                    enemy_weapons2= False
         if(target=='3'):
             if(enemy_shields3>0):
                 enemy_shields3=enemy_shields3-total_damage
@@ -205,6 +209,9 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(enemy_shields3==0):
                 enemy_hull3=enemy_hull3-total_damage
                 print('you did',total_damage,"to enemy 3's hull")
+                random=random.randint(0,10)
+                if(random==1):
+                    enemy_weapons3= False
         if(enemy_hull1>0):
             if(enemy_weapon1>0)and(enemy_weapons1==True)and(hull>0):
                 print('enemy 1 is locking on')
