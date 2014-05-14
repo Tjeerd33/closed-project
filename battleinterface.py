@@ -59,6 +59,7 @@ ftl_active=0
 repair=0
 shield_total=shieldfront+shieldmid+shieldback
 course_plot=0
+rand=0
 options=['jump to ftl','fire weapons','start repairing','transfer power','status report',
 'plot course','scan area','quit']
 while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
@@ -498,48 +499,48 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 enemy_weapon3=500
         time.sleep(1)
         if(shieldfront==0)and(frontdammage==1):
-            random=random.randint(0,40)
-            if(random==1):
+            rand=random.randint(0,40)
+            if(rand==1):
                 canon_battery1= False
                 print('cannon battery 1 offline')
-            elif(random==2):
+            elif(rand==2):
                 canon_battery2= False
                 print('cannon battery 2 offline')
-            elif(random==3):
+            elif(rand==3):
                 shield_front= False
                 print('shieldgenerator front offline')
         if(shieldmid==0)and(middamage==1):
-            random=random.randint(0,40)
-            if(random==0):
+            rand=random.randint(0,40)
+            if(rand==0):
                 canon_battery3= False
                 print('cannon battery 3 offline')
-            elif(random==1):
+            elif(rand==1):
                 canon_battery4= False
                 print('cannon battery 4 offline')
-            elif(random==2):
+            elif(rand==2):
                 canon_battery5= False
                 print('cannon battery 5 offline')
-            elif(random==3):
+            elif(rand==3):
                 mainweaponb= False
                 print('main weapon offline')
-            elif(random==4):
+            elif(rand==4):
                 canon_battery6= False
                 print('cannon battery 6 offline')
-            elif(random==5):
+            elif(rand==5):
                 shield_mid= False
                 print('shieldgenerator mid offline')
         if(shieldback==0)and(backdamage==1):
-            random=random.randint(0,40)
-            if(random==0):
+            rand=random.randint(0,40)
+            if(rand==0):
                 canon_battery7= False
                 print('cannon battery 7 offline')
-            elif(random==1):
+            elif(rand==1):
                 canon_battery8= False
                 print('cannon battery 8 offline')
-            elif(random==2):
+            elif(rand==2):
                 canon_battery9= False
                 print('cannon battery 9 offline')
-            elif(random==3):
+            elif(rand==3):
                 shieldback= False
                 print('shieldgenerator back offline')
 
@@ -702,48 +703,48 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 enemy_weapon3=500
         time.sleep(1)
         if(shieldfront==0):
-            random=random.randint(0,40)
-            if(random==1):
+            rand=random.randint(0,40)
+            if(rand==1):
                 canon_battery1= False
                 print('cannon battery 1 offline')
-            elif(random==2):
+            elif(rand==2):
                 canon_battery2= False
                 print('cannon battery 2 offline')
-            elif(random==3):
+            elif(rand==3):
                 shield_front= False
                 print('shieldgenerator front offline')
         if(shieldmid==0):
-            random=random.randint(0,40)
-            if(random==0):
+            rand=random.randint(0,40)
+            if(rand==0):
                 canon_battery3= False
                 print('cannon battery 3 offline')
-            elif(random==1):
+            elif(rand==1):
                 canon_battery4= False
                 print('cannon battery 4 offline')
-            elif(random==2):
+            elif(rand==2):
                 canon_battery5= False
                 print('cannon battery 5 offline')
-            elif(random==3):
+            elif(rand==3):
                 mainweaponb= False
                 print('main weapon offline')
-            elif(random==4):
+            elif(rand==4):
                 canon_battery6= False
                 print('cannon battery 6 offline')
-            elif(random==5):
+            elif(rand==5):
                 shield_mid= False
                 print('shieldgenerator mid offline')
         if(shieldback==0):
-            random=random.randint(0,40)
-            if(random==0):
+            rand=random.randint(0,40)
+            if(rand==0):
                 canon_battery7= False
                 print('cannon battery 7 offline')
-            elif(random==1):
+            elif(rand==1):
                 canon_battery8= False
                 print('cannon battery 8 offline')
-            elif(random==2):
+            elif(rand==2):
                 canon_battery9= False
                 print('cannon battery 9 offline')
-            elif(random==3):
+            elif(rand==3):
                 shieldback= False
                 print('shieldgenerator back offline')
 
@@ -844,8 +845,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(enemy_shields1==0):
                 enemy_hull1=enemy_hull1-total_damage
                 print('you did',total_damage,"to enemy 1's hull")
-                random=random.randint(0,20)
-                if(random==1):
+                rand=random.randint(0,20)
+                if(rand==1):
                     enemy_weapons1= False
                     print('enemy weapons disabled')
         if(target=='2'):
@@ -859,8 +860,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(enemy_shields2==0):
                 enemy_hull2=enemy_hull2-total_damage
                 print('you did',total_damage,"to enemy 2's hull")
-                random=random.randint(0,20)
-                if(random==1):
+                rand=random.randint(0,20)
+                if(rand==1):
                     enemy_weapons2= False
                     print('enemy weapons disabled')
         if(target=='3'):
@@ -874,8 +875,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(enemy_shields3==0):
                 enemy_hull3=enemy_hull3-total_damage
                 print('you did',total_damage,"to enemy 3's hull")
-                random=random.randint(0,20)
-                if(random==1):
+                rand=random.randint(0,20)
+                if(rand==1):
                     enemy_weapons3= False
                     print('enemy weapons disabled')
         if(enemy_hull1>0):
@@ -1042,48 +1043,48 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 enemy_weapon3=500
         time.sleep(1)
         if(shieldfront==0)and(frontdammage==1):
-            random=random.randint(0,40)
-            if(random==1):
+            rand=random.randint(0,40)
+            if(rand==1):
                 canon_battery1= False
                 print('cannon battery 1 offline')
-            elif(random==2):
+            elif(rand==2):
                 canon_battery2= False
                 print('cannon battery 2 offline')
-            elif(random==3):
+            elif(rand==3):
                 shield_front= False
                 print('shieldgenerator front offline')
         if(shieldmid==0)and(middamage==1):
-            random=random.randint(0,40)
-            if(random==0):
+            rand=random.randint(0,40)
+            if(rand==0):
                 canon_battery3= False
                 print('cannon battery 3 offline')
-            elif(random==1):
+            elif(rand==1):
                 canon_battery4= False
                 print('cannon battery 4 offline')
-            elif(random==2):
+            elif(rand==2):
                 canon_battery5= False
                 print('cannon battery 5 offline')
-            elif(random==3):
+            elif(rand==3):
                 mainweaponb= False
                 print('main weapon offline')
-            elif(random==4):
+            elif(rand==4):
                 canon_battery6= False
                 print('cannon battery 6 offline')
-            elif(random==5):
+            elif(rand==5):
                 shield_mid= False
                 print('shieldgenerator mid offline')
         if(shieldback==0)and(backdamage==1):
-            random=random.randint(0,40)
-            if(random==0):
+            rand=random.randint(0,40)
+            if(rand==0):
                 canon_battery7= False
                 print('cannon battery 7 offline')
-            elif(random==1):
+            elif(rand==1):
                 canon_battery8= False
                 print('cannon battery 8 offline')
-            elif(random==2):
+            elif(rand==2):
                 canon_battery9= False
                 print('cannon battery 9 offline')
-            elif(random==3):
+            elif(rand==3):
                 shieldback= False
                 print('shieldgenerator back offline')
         
@@ -1331,48 +1332,48 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     enemy_weapon3=500
             time.sleep(1)
             if(shieldfront==0)and(frontdammage==1):
-                random=random.randint(0,40)
-                if(random==1):
+                rand=random.randint(0,40)
+                if(rand==1):
                     canon_battery1= False
                     print('cannon battery 1 offline')
-                elif(random==2):
+                elif(rand==2):
                     canon_battery2= False
                     print('cannon battery 2 offline')
-                elif(random==3):
+                elif(rand==3):
                     shield_front= False
                     print('shieldgenerator front offline')
             if(shieldmid==0)and(middamage==1):
-                random=random.randint(0,40)
-                if(random==0):
+                rand=random.randint(0,40)
+                if(rand==0):
                     canon_battery3= False
                     print('cannon battery 3 offline')
-                elif(random==1):
+                elif(rand==1):
                     canon_battery4= False
                     print('cannon battery 4 offline')
-                elif(random==2):
+                elif(rand==2):
                     canon_battery5= False
                     print('cannon battery 5 offline')
-                elif(random==3):
+                elif(rand==3):
                     mainweaponb= False
                     print('main weapon offline')
-                elif(random==4):
+                elif(rand==4):
                     canon_battery6= False
                     print('cannon battery 6 offline')
-                elif(random==5):
+                elif(rand==5):
                     shield_mid= False
                     print('shieldgenerator mid offline')
             if(shieldback==0)and(backdamage==1):
-                random=random.randint(0,40)
-                if(random==0):
+                rand=random.randint(0,40)
+                if(rand==0):
                     canon_battery7= False
                     print('cannon battery 7 offline')
-                elif(random==1):
+                elif(rand==1):
                     canon_battery8= False
                     print('cannon battery 8 offline')
-                elif(random==2):
+                elif(rand==2):
                     canon_battery9= False
                     print('cannon battery 9 offline')
-                elif(random==3):
+                elif(rand==3):
                     shieldback= False
                     print('shieldgenerator back offline')
             if(hull>0)and(go==1):
@@ -1544,48 +1545,48 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     enemy_weapon3=500
             time.sleep(1)
             if(shieldfront==0)and(frontdammage==1):
-                random=random.randint(0,40)
-                if(random==1):
+                rand=random.randint(0,40)
+                if(rand==1):
                     canon_battery1= False
                     print('cannon battery 1 offline')
-                elif(random==2):
+                elif(rand==2):
                     canon_battery2= False
                     print('cannon battery 2 offline')
-                elif(random==3):
+                elif(rand==3):
                     shield_front= False
                     print('shieldgenerator front offline')
             if(shieldmid==0)and(middamage==1):
-                random=random.randint(0,40)
-                if(random==0):
+                rand=random.randint(0,40)
+                if(rand==0):
                     canon_battery3= False
                     print('cannon battery 3 offline')
-                elif(random==1):
+                elif(rand==1):
                     canon_battery4= False
                     print('cannon battery 4 offline')
-                elif(random==2):
+                elif(rand==2):
                     canon_battery5= False
                     print('cannon battery 5 offline')
-                elif(random==3):
+                elif(rand==3):
                     mainweaponb= False
                     print('main weapon offline')
-                elif(random==4):
+                elif(rand==4):
                     canon_battery6= False
                     print('cannon battery 6 offline')
-                elif(random==5):
+                elif(rand==5):
                     shield_mid= False
                     print('shieldgenerator mid offline')
             if(shieldback==0)and(backdamage==1):
-                random=random.randint(0,40)
-                if(random==0):
+                rand=random.randint(0,40)
+                if(rand==0):
                     canon_battery7= False
                     print('cannon battery 7 offline')
-                elif(random==1):
+                elif(rand==1):
                     canon_battery8= False
                     print('cannon battery 8 offline')
-                elif(random==2):
+                elif(rand==2):
                     canon_battery9= False
                     print('cannon battery 9 offline')
-                elif(random==3):
+                elif(rand==3):
                     shieldback= False
                     print('shieldgenerator back offline')
         if(hull>0)and(go==1):
@@ -1786,48 +1787,48 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 enemy_weapon3=500
         time.sleep(1)
         if(shieldfront==0)and(frontdammage==1):
-            random=random.randint(0,40)
-            if(random==1):
+            rand=random.randint(0,40)
+            if(rand==1):
                 canon_battery1= False
                 print('cannon battery 1 offline')
-            elif(random==2):
+            elif(rand==2):
                 canon_battery2= False
                 print('cannon battery 2 offline')
-            elif(random==3):
+            elif(rand==3):
                 shield_front= False
                 print('shieldgenerator front offline')
         if(shieldmid==0)and(middamage==1):
-            random=random.randint(0,40)
-            if(random==0):
+            rand=random.randint(0,40)
+            if(rand==0):
                 canon_battery3= False
                 print('cannon battery 3 offline')
-            elif(random==1):
+            elif(rand==1):
                 canon_battery4= False
                 print('cannon battery 4 offline')
-            elif(random==2):
+            elif(rand==2):
                 canon_battery5= False
                 print('cannon battery 5 offline')
-            elif(random==3):
+            elif(rand==3):
                 mainweaponb= False
                 print('main weapon offline')
-            elif(random==4):
+            elif(rand==4):
                 canon_battery6= False
                 print('cannon battery 6 offline')
-            elif(random==5):
+            elif(rand==5):
                 shield_mid= False
                 print('shieldgenerator mid offline')
         if(shieldback==0)and(backdamage==1):
-            random=random.randint(0,40)
-            if(random==0):
+            rand=random.randint(0,40)
+            if(rand==0):
                 canon_battery7= False
                 print('cannon battery 7 offline')
-            elif(random==1):
+            elif(rand==1):
                 canon_battery8= False
                 print('cannon battery 8 offline')
-            elif(random==2):
+            elif(rand==2):
                 canon_battery9= False
                 print('cannon battery 9 offline')
-            elif(random==3):
+            elif(rand==3):
                 shieldback= False
                 print('shieldgenerator back offline')
 
