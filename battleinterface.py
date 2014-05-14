@@ -70,7 +70,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     if(shieldback==0):
         print('warning! rear shield is down')
     if(shieldback==0)or(shieldmid==0)or(shieldfront==0):
-        print('warning! if you go to ftl with depleted shields the ship will tear appart')
+        print('warning! if you go to ftl with depleted shields the ship will tear apart')
     target=0
     #preset for damage
     damage1=0
