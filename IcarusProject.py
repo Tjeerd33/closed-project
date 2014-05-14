@@ -304,7 +304,7 @@ while(question_answer==0)and(ftl_active==0):
 #Introducing storyline
 print('You have arrived at Gamma-492b')
 print('scanners show nothing more than dust')
-print('We need water to cool down the engines!')
+print('We need nitrogen to cool down the engines!')
 #Interactive question_1
 scan=0
 while(scan==0):
@@ -453,7 +453,7 @@ while(ftl_active==0):#will repeat the question untill the ftl drive is active (w
             print("plotting course to Zdelta-5")
             time.sleep(3)
             print('course plotted')
-            prtin('we will jump to ftl in 20 seconds')
+            print('we will jump to ftl in 20 seconds')
             time.sleep(10)
             print('10')
             time.sleep(1)
@@ -490,7 +490,7 @@ while(ftl_active==0):#will repeat the question untill the ftl drive is active (w
             print("plotting course to Phiksi-1")
             time.sleep(3)
             print('course plotted')
-            prtin('we will jump to ftl in 20 seconds')
+            print('we will jump to ftl in 20 seconds')
             time.sleep(10)
             print('10')
             time.sleep(1)
