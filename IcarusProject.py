@@ -3,14 +3,14 @@ Icarus project
 #Icarus project
 
 #beginning conditions
-power=1000
-canon_batterys1=200
+power=10000
+canon_batterys1=500
 canon_battery1= True
-canon_batterys2=200
+canon_batterys2=500
 canon_battery2= True
-canon_batterys3=200
+canon_batterys3=500
 canon_battery3= True
-canon_batterys4=10 #normal is 200
+canon_batterys4=300 #normal is 500
 canon_battery4= True
 canon_batterys5=0
 canon_battery5= False
@@ -23,10 +23,10 @@ canon_battery8= False
 canon_batterys9=0
 canon_battery9= False
 hull=1654 #full is 2000
-shieldfront=300 #shields max is 600
+shieldfront=300 #shields max is 1000
 shieldmid=350
 shieldback=200
-mainweapona=400 #full power is 800
+mainweapona=800 #full power is 1000
 mainweaponb= True
 question_answer=0
 ftl_overload=0
@@ -211,7 +211,7 @@ while(question_answerd==0):
     if action=='functionality report':
         print('weapons 5 to 9 offline')
         print('hull: damaged')
-        powera=(power/1000)*100
+        powera=(power/10000)*100
         print('power is',powera,'%')
                 
 print('starting to sweep area')
