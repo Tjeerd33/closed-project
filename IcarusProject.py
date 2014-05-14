@@ -192,7 +192,7 @@ cargo_bay={}
 
 question_answerd=0
 problem_identify=0
-repair program=0
+repair_program=0
 options=['diagnose ftl drive','repair ftl drive','run repair program']
 while(ftl_overload==1):
     action=input('input:')
@@ -231,7 +231,7 @@ while(ftl_overload==1):
         if(problem_identify==1)and(repair_program==1):
             print('fixing problem')
             time.sleep(10)
-            print('problem fixed)
+            print('problem fixed')
             ftl_overload=0
 
     if action=='smash random things till it works':
@@ -308,7 +308,7 @@ print('We need water to cool down the engines!')
 #Interactive question_1
 scan=0
 while(scan==0):
-     repaired=random.randint(0,100)
+    repaired=random.randint(0,100)
     if(repaired==1)and(repair==1)and(canon_batterys1==False):
         canon_batterys1= True
     if(repaired==2)and(repair==1)and(canon_batterys2==False):
@@ -345,7 +345,7 @@ while(scan==0):
 ftl_active=0
 while(ftl_active==0):#will repeat the question untill the ftl drive is active (will be active once ftl_active=1)
     options=['plot course to','repair damaged areas']
-     repaired=random.randint(0,100)
+    repaired=random.randint(0,100)
     if(repaired==1)and(repair==1)and(canon_batterys1==False):
         canon_batterys1= True
         print('cannon 1 repaired')
