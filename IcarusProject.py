@@ -240,7 +240,7 @@ while(ftl_overload==1):
 
 ftl_active=0
 options=['jump to ftl',"repair damaged areas"]
-while(question_answer==0)and(ftl_active==0):
+while(ftl_active==0):
     repaired=random.randint(0,100)
     if(repaired==1)and(repair==1)and(canon_batterys1==False):
         canon_batterys1= True
