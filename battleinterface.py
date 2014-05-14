@@ -67,6 +67,19 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     backdamage=0
     frontdamage=0
     middamage=0
+    if(enemy_hull1>0):
+        number1=1
+    elif(enemy_hull1<=0):
+        number1=0
+    if(enemy_hull2>0):
+        number2=1
+    elif(enemy_hull2<=0):
+        number2=0
+    if(enemy_hull3>0):
+        number3=1
+    elif(enemy_hull3<=0):
+        number3=0
+    enemy_numbers=number1+number2+number3
     if(repaired==1)and(repair==1)and(canon_batterys1==False):
         canon_battery1= True
         print('cannon 1 repaired')
