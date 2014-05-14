@@ -24,7 +24,9 @@ canon_batterys9=0
 canon_battery9= False
 hull=1654 #full is 2000
 shieldfront=300 #shields max is 1000
+shield_front= True
 shieldmid=350
+shield_mid= True
 shieldback=200
 mainweapona=800 #full power is 1000
 mainweaponb= True
@@ -174,7 +176,7 @@ while(question_answerd==0):
 
     if action=='repair damaged parts':
         print('started to repair damaged parts')
-        damage_repair= True
+        repair=1
 
     if action=='functionality report':
         print('weapons 5 to 9 offline')
@@ -237,20 +239,96 @@ while(ftl_overload==1):
         ftl_overload=0
 
 ftl_active=0
-options=['scan area','jump to ftl',"repair damaged area's"]
+options=['jump to ftl',"repair damaged areas"]
 while(question_answer==0)and(ftl_active==0):
     repaired=random.randint(0,100)
-    input('input:')
+    if(repaired==1)and(repair==1)and(canon_batterys1==False):
+        canon_batterys1= True
+    if(repaired==2)and(repair==1)and(canon_batterys2==False):
+        canon_batterys2= True
+    if(repaired==3)and(repair==1)and(canon_batterys3==False):
+        canon_batterys3= True
+    if(repaired==4)and(repair==1)and(canon_batterys4==False):
+        canon_batterys4= True
+    if(repaired==5)and(repair==1)and(canon_batterys5==False):
+        canon_batterys5= True
+    if(repaired==6)and(repair==1)and(canon_batterys6==False):
+        canon_batterys6= True
+    if(repaired==7)and(repair==1)and(canon_batterys7==False):
+        canon_batterys7= True
+    if(repaired==8)and(repair==1)and(canon_batterys8==False):
+        canon_batterys8= True
+    if(repaired==9)and(repair==1)and(canon_batterys9==False):
+        canon_batterys9= True
+    if(repaired==10)and(repair==1)and(mainweaponb==False):
+        mainweaponb= True
+    action=input('input:')
+    
+    if(action=="repair damaged areas"):
+        print("starting to repair damaged areas")
+        time.sleep(2)
+        repair=1
+    
+    if(action=='jump to ftl'):
+        print('plotting course to Gamma-429b')
+        time.sleep(3)
+        print('course plotted')
+        time.sleep(1)
+        print('we will jump to ftl in 20 seconds')
+        time.sleep(10)
+        print('10')
+        time.sleep(1)
+        print('9')
+        time.sleep(1)
+        print('8')
+        time.sleep(1)
+        print('7')
+        time.sleep(1)
+        print('6')
+        time.sleep(1)
+        print('5')
+        time.sleep(1)
+        print('4')
+        time.sleep(1)
+        print('3')
+        time.sleep(1)
+        print('2')
+        time.sleep(1)
+        print('1')
+        time.sleep(2)
+        print('we just jumped to ftl')
+        time.sleep(5)
+        print('systems opperational')
 
 #Mission 2
 #Introducing storyline
-import time
 print('You have arrived at Gamma-492b')
 print('scanners show nothing more than dust')
 print('We need water to cool down the engines!')
 #Interactive question_1
 scan=0
 while(scan==0):
+     repaired=random.randint(0,100)
+    if(repaired==1)and(repair==1)and(canon_batterys1==False):
+        canon_batterys1= True
+    if(repaired==2)and(repair==1)and(canon_batterys2==False):
+        canon_batterys2= True
+    if(repaired==3)and(repair==1)and(canon_batterys3==False):
+        canon_batterys3= True
+    if(repaired==4)and(repair==1)and(canon_batterys4==False):
+        canon_batterys4= True
+    if(repaired==5)and(repair==1)and(canon_batterys5==False):
+        canon_batterys5= True
+    if(repaired==6)and(repair==1)and(canon_batterys6==False):
+        canon_batterys6= True
+    if(repaired==7)and(repair==1)and(canon_batterys7==False):
+        canon_batterys7= True
+    if(repaired==8)and(repair==1)and(canon_batterys8==False):
+        canon_batterys8= True
+    if(repaired==9)and(repair==1)and(canon_batterys9==False):
+        canon_batterys9= True
+    if(repaired==10)and(repair==1)and(mainweaponb==False):
+        mainweaponb= True
     answer_1 = input('scan for nearby star systems?')
 
     #Morphing and comparing answer_1
@@ -267,10 +345,70 @@ while(scan==0):
 ftl_active=0
 while(ftl_active==0):#will repeat the question untill the ftl drive is active (will be active once ftl_active=1)
     options=['plot course to','repair damaged areas']
+     repaired=random.randint(0,100)
+    if(repaired==1)and(repair==1)and(canon_batterys1==False):
+        canon_batterys1= True
+        print('cannon 1 repaired')
+    if(repaired==2)and(repair==1)and(canon_batterys2==False):
+        canon_batterys2= True
+        print('cannon 2 repaired')
+    if(repaired==3)and(repair==1)and(canon_batterys3==False):
+        canon_batterys3= True
+        print('cannon 3 repaired')
+    if(repaired==4)and(repair==1)and(canon_batterys4==False):
+        canon_batterys4= True
+        print('cannon 4 repaired')
+    if(repaired==5)and(repair==1)and(canon_batterys5==False):
+        canon_batterys5= True
+        print('cannon 5 repaired')
+    if(repaired==6)and(repair==1)and(canon_batterys6==False):
+        canon_batterys6= True
+        print('cannon 6 repaired')
+    if(repaired==7)and(repair==1)and(canon_batterys7==False):
+        canon_batterys7= True
+        print('cannon 7 repaired')
+    if(repaired==8)and(repair==1)and(canon_batterys8==False):
+        canon_batterys8= True
+        print('cannon 8 repaired')
+    if(repaired==9)and(repair==1)and(canon_batterys9==False):
+        canon_batterys9= True
+        print('cannon 9 repaired')
+    if(repaired==10)and(repair==1)and(mainweaponb==False):
+        mainweaponb= True
+        print('main weapon repaired')
+    if(repaired==11)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==12)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==13)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==14)and(repair==1)and(shield_front==False):
+        shield_front==True
+        print('shield front repaired')
+    if(repaired==15)and(repair==1)and(shield_mid==False):
+        shield_mid=True
+        print('shield mid repaired')
     answer_2= input('input:')
 
     if answer_2=='options':
         print(options)
+        
+    if answer_2=='repair damaged areas':
+        print('starting to repair damaged areas')
+        time.sleep(2)
+        repair=1
 
     if answer_2=='plot course to':
         answer_3=input('    ')
