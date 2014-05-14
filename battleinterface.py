@@ -1,5 +1,6 @@
 
 
+
 power=10000
 canon_batterys1=500
 canon_battery1= True
@@ -86,7 +87,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     action=input('input:')#prompt for action
 
     if action=='fire weapons':
-        target=input('target:')
+        while(target!='1')and(target!='2')and(target!='3'):
+            target=input('target:')
+            if(target=='1')and(enemy_hull1<=0):
+                print('cannot find target')
+                target=0
+            if(target=='2')and(enemy_hull2<=0):
+                print('cannot find target')
+                target=0
+            if(target=='3')and(enemy_hull3<=0):
+                print('cannot find target')
+                target=0
         time.sleep(1)
         print('locking on')
         time.sleep(1)
@@ -577,7 +588,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             if(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
-        if(hull>0)and(shieldback>0)and(shieldmid>0)and(shieldfront>0)and(go==1):
+        if(hull>0)and(go==1):
             print('path calculated, prepairing for jump')
             print('jump in 20 seconds')
             time.sleep(7)
@@ -756,9 +767,10 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             time.sleep(1)
             print('1')
             time.sleep(2)
-            if(hull>0)and(shieldfront>0)and(shieldmid>0)and(shieldback>0)and(go==1):
-                print('jump succelsful')
-                ftl_active=1
+            jump=1
+        if(hull>0)and(shieldfront>0)and(shieldmid>0)and(shieldback>0)and(go==1)and(jump==1):
+            print('jump succelsful')
+            ftl_active=1
         elif(go==0):
             print('jump canceld')
         else:
