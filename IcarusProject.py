@@ -28,6 +28,7 @@ shield_front= True
 shieldmid=350
 shield_mid= True
 shieldback=200
+shield_back= True
 mainweapona=800 #full power is 1000
 mainweaponb= True
 question_answer=0
@@ -158,6 +159,64 @@ while(ftl_overload<1):
 question_answerd=0
 options=['scan area','repair damaged parts','functionality report']
 while(question_answerd==0):
+    repaired=random.randint(0,100)
+    if(repaired==1)and(repair==1)and(canon_batterys1==False):
+        canon_batterys1= True
+        print('cannon 1 repaired')
+    if(repaired==2)and(repair==1)and(canon_batterys2==False):
+        canon_batterys2= True
+        print('cannon 2 repaired')
+    if(repaired==3)and(repair==1)and(canon_batterys3==False):
+        canon_batterys3= True
+        print('cannon 3 repaired')
+    if(repaired==4)and(repair==1)and(canon_batterys4==False):
+        canon_batterys4= True
+        print('cannon 4 repaired')
+    if(repaired==5)and(repair==1)and(canon_batterys5==False):
+        canon_batterys5= True
+        print('cannon 5 repaired')
+    if(repaired==6)and(repair==1)and(canon_batterys6==False):
+        canon_batterys6= True
+        print('cannon 6 repaired')
+    if(repaired==7)and(repair==1)and(canon_batterys7==False):
+        canon_batterys7= True
+        print('cannon 7 repaired')
+    if(repaired==8)and(repair==1)and(canon_batterys8==False):
+        canon_batterys8= True
+        print('cannon 8 repaired')
+    if(repaired==9)and(repair==1)and(canon_batterys9==False):
+        canon_batterys9= True
+        print('cannon 9 repaired')
+    if(repaired==10)and(repair==1)and(mainweaponb==False):
+        mainweaponb= True
+        print('main weapon repaired')
+    if(repaired==11)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==12)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==13)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==14)and(repair==1)and(shield_front==False):
+        shield_front==True
+        print('shield front repaired')
+    if(repaired==15)and(repair==1)and(shield_mid==False):
+        shield_mid=True
+        print('shield mid repaired')
+    if(repaired==16)and(repair==1)and(shield_back==False):
+        shield_back= True
+        print('shield back repaired')
     action=input('input:')
 
     if action=='options':
@@ -195,6 +254,64 @@ problem_identify=0
 repair_program=0
 options=['diagnose ftl drive','repair ftl drive','run repair program']
 while(ftl_overload==1):
+    repaired=random.randint(0,100)
+    if(repaired==1)and(repair==1)and(canon_batterys1==False):
+        canon_batterys1= True
+        print('cannon 1 repaired')
+    if(repaired==2)and(repair==1)and(canon_batterys2==False):
+        canon_batterys2= True
+        print('cannon 2 repaired')
+    if(repaired==3)and(repair==1)and(canon_batterys3==False):
+        canon_batterys3= True
+        print('cannon 3 repaired')
+    if(repaired==4)and(repair==1)and(canon_batterys4==False):
+        canon_batterys4= True
+        print('cannon 4 repaired')
+    if(repaired==5)and(repair==1)and(canon_batterys5==False):
+        canon_batterys5= True
+        print('cannon 5 repaired')
+    if(repaired==6)and(repair==1)and(canon_batterys6==False):
+        canon_batterys6= True
+        print('cannon 6 repaired')
+    if(repaired==7)and(repair==1)and(canon_batterys7==False):
+        canon_batterys7= True
+        print('cannon 7 repaired')
+    if(repaired==8)and(repair==1)and(canon_batterys8==False):
+        canon_batterys8= True
+        print('cannon 8 repaired')
+    if(repaired==9)and(repair==1)and(canon_batterys9==False):
+        canon_batterys9= True
+        print('cannon 9 repaired')
+    if(repaired==10)and(repair==1)and(mainweaponb==False):
+        mainweaponb= True
+        print('main weapon repaired')
+    if(repaired==11)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==12)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==13)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==14)and(repair==1)and(shield_front==False):
+        shield_front==True
+        print('shield front repaired')
+    if(repaired==15)and(repair==1)and(shield_mid==False):
+        shield_mid=True
+        print('shield mid repaired')
+    if(repaired==16)and(repair==1)and(shield_back==False):
+        shield_back= True
+        print('shield back repaired')
     action=input('input:')
 
     if action=='options':
@@ -244,24 +361,61 @@ while(ftl_active==0):
     repaired=random.randint(0,100)
     if(repaired==1)and(repair==1)and(canon_batterys1==False):
         canon_batterys1= True
+        print('cannon 1 repaired')
     if(repaired==2)and(repair==1)and(canon_batterys2==False):
         canon_batterys2= True
+        print('cannon 2 repaired')
     if(repaired==3)and(repair==1)and(canon_batterys3==False):
         canon_batterys3= True
+        print('cannon 3 repaired')
     if(repaired==4)and(repair==1)and(canon_batterys4==False):
         canon_batterys4= True
+        print('cannon 4 repaired')
     if(repaired==5)and(repair==1)and(canon_batterys5==False):
         canon_batterys5= True
+        print('cannon 5 repaired')
     if(repaired==6)and(repair==1)and(canon_batterys6==False):
         canon_batterys6= True
+        print('cannon 6 repaired')
     if(repaired==7)and(repair==1)and(canon_batterys7==False):
         canon_batterys7= True
+        print('cannon 7 repaired')
     if(repaired==8)and(repair==1)and(canon_batterys8==False):
         canon_batterys8= True
+        print('cannon 8 repaired')
     if(repaired==9)and(repair==1)and(canon_batterys9==False):
         canon_batterys9= True
+        print('cannon 9 repaired')
     if(repaired==10)and(repair==1)and(mainweaponb==False):
         mainweaponb= True
+        print('main weapon repaired')
+    if(repaired==11)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==12)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==13)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==14)and(repair==1)and(shield_front==False):
+        shield_front==True
+        print('shield front repaired')
+    if(repaired==15)and(repair==1)and(shield_mid==False):
+        shield_mid=True
+        print('shield mid repaired')
+    if(repaired==16)and(repair==1)and(shield_back==False):
+        shield_back= True
+        print('shield back repaired')
     action=input('input:')
     
     if(action=='options'):
@@ -315,24 +469,61 @@ while(scan==0):
     repaired=random.randint(0,100)
     if(repaired==1)and(repair==1)and(canon_batterys1==False):
         canon_batterys1= True
+        print('cannon 1 repaired')
     if(repaired==2)and(repair==1)and(canon_batterys2==False):
         canon_batterys2= True
+        print('cannon 2 repaired')
     if(repaired==3)and(repair==1)and(canon_batterys3==False):
         canon_batterys3= True
+        print('cannon 3 repaired')
     if(repaired==4)and(repair==1)and(canon_batterys4==False):
         canon_batterys4= True
+        print('cannon 4 repaired')
     if(repaired==5)and(repair==1)and(canon_batterys5==False):
         canon_batterys5= True
+        print('cannon 5 repaired')
     if(repaired==6)and(repair==1)and(canon_batterys6==False):
         canon_batterys6= True
+        print('cannon 6 repaired')
     if(repaired==7)and(repair==1)and(canon_batterys7==False):
         canon_batterys7= True
+        print('cannon 7 repaired')
     if(repaired==8)and(repair==1)and(canon_batterys8==False):
         canon_batterys8= True
+        print('cannon 8 repaired')
     if(repaired==9)and(repair==1)and(canon_batterys9==False):
         canon_batterys9= True
+        print('cannon 9 repaired')
     if(repaired==10)and(repair==1)and(mainweaponb==False):
         mainweaponb= True
+        print('main weapon repaired')
+    if(repaired==11)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==12)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==13)and(repair==1)and(hull<2000):
+        hull=hull+20
+        print('hull repaired')
+        if(hull>2000):
+            hull=2000
+            print('hull fully repaired')
+    if(repaired==14)and(repair==1)and(shield_front==False):
+        shield_front==True
+        print('shield front repaired')
+    if(repaired==15)and(repair==1)and(shield_mid==False):
+        shield_mid=True
+        print('shield mid repaired')
+    if(repaired==16)and(repair==1)and(shield_back==False):
+        shield_back= True
+        print('shield back repaired')
     answer_1 = input('scan for nearby star systems?')
 
     #Morphing and comparing answer_1
@@ -404,6 +595,9 @@ while(ftl_active==0):#will repeat the question untill the ftl drive is active (w
     if(repaired==15)and(repair==1)and(shield_mid==False):
         shield_mid=True
         print('shield mid repaired')
+    if(repaired==16)and(repair==1)and(shield_back==False):
+        shield_back= True
+        print('shield back repaired')
     answer_2= input('input:')
 
     if answer_2=='options':
