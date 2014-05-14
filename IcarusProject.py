@@ -302,6 +302,7 @@ while(ftl_active==0):
         print('we just jumped to ftl')
         time.sleep(5)
         print('systems opperational')
+        ftl_active=1
 
 #Mission 2
 #Introducing storyline
