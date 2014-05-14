@@ -359,7 +359,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position1=='mid'):
-                    if(shieldback>0):
+                    if(shieldmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -413,7 +413,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position2=='mid'):
-                    if(shieldback>0):
+                    if(shieldmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -467,7 +467,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position3=='mid'):
-                    if(shieldback>0):
+                    if(shieldmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -498,7 +498,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
         time.sleep(1)
-        if(shieldfront==0)and(frontdammage==1):
+        if(shieldfront==0)and(frontdamage==1):
             rand=random.randint(0,40)
             if(rand==1):
                 canon_battery1= False
@@ -571,7 +571,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position1=='mid'):
-                    if(shieldback>0):
+                    if(shieldmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -622,7 +622,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position2=='mid'):
-                    if(shieldback>0):
+                    if(shieldmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -673,7 +673,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position3=='mid'):
-                    if(shieldback>0):
+                    if(shieldbmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -903,7 +903,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position1=='mid'):
-                    if(shieldback>0):
+                    if(shieldmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -957,7 +957,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position2=='mid'):
-                    if(shieldback>0):
+                    if(shieldmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -1011,7 +1011,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position3=='mid'):
-                    if(shieldback>0):
+                    if(shieldmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -1042,7 +1042,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
         time.sleep(1)
-        if(shieldfront==0)and(frontdammage==1):
+        if(shieldfront==0)and(frontdamage==1):
             rand=random.randint(0,40)
             if(rand==1):
                 canon_battery1= False
@@ -1192,7 +1192,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                                 hull=0
                                 print('signal lost')
                     elif(position1=='mid'):
-                        if(shieldback>0):
+                        if(shieldmid>0):
                             shieldmid=shieldmid-damage
                             if(shieldmid<0):
                                 print('mid shields depleted')
@@ -1246,7 +1246,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                                 hull=0
                                 print('signal lost')
                     elif(position2=='mid'):
-                        if(shieldback>0):
+                        if(shieldmid>0):
                             shieldmid=shieldmid-damage
                             if(shieldmid<0):
                                 print('mid shields depleted')
@@ -1300,7 +1300,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                                 hull=0
                                 print('signal lost')
                     elif(position3=='mid'):
-                        if(shieldback>0):
+                        if(shieldmid>0):
                             shieldmid=shieldmid-damage
                             if(shieldmid<0):
                                 print('mid shields depleted')
@@ -1331,7 +1331,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     print('enemy 3 is charging weapons')
                     enemy_weapon3=500
             time.sleep(1)
-            if(shieldfront==0)and(frontdammage==1):
+            if(shieldfront==0)and(frontdamage==1):
                 rand=random.randint(0,40)
                 if(rand==1):
                     canon_battery1= False
@@ -1405,7 +1405,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                                 hull=0
                                 print('signal lost')
                     elif(position1=='mid'):
-                        if(shieldback>0):
+                        if(shieldmid>0):
                             shieldmid=shieldmid-damage
                             if(shieldmid<0):
                                 print('mid shields depleted')
@@ -1459,7 +1459,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                                 hull=0
                                 print('signal lost')
                     elif(position2=='mid'):
-                        if(shieldback>0):
+                        if(shieldmid>0):
                             shieldmid=shieldmid-damage
                             if(shieldmid<0):
                                 print('mid shields depleted')
@@ -1513,7 +1513,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                                 hull=0
                                 print('signal lost')
                     elif(position3=='mid'):
-                        if(shieldback>0):
+                        if(shieldmid>0):
                             shieldmid=shieldmid-damage
                             if(shieldmid<0):
                                 print('mid shields depleted')
@@ -1544,7 +1544,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     print('enemy 3 is charging weapons')
                     enemy_weapon3=500
             time.sleep(1)
-            if(shieldfront==0)and(frontdammage==1):
+            if(shieldfront==0)and(frontdamage==1):
                 rand=random.randint(0,40)
                 if(rand==1):
                     canon_battery1= False
@@ -1647,7 +1647,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position1=='mid'):
-                    if(shieldback>0):
+                    if(shieldmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -1701,7 +1701,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position2=='mid'):
-                    if(shieldback>0):
+                    if(shieldmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -1755,7 +1755,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position3=='mid'):
-                    if(shieldback>0):
+                    if(shieldmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -1786,7 +1786,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
         time.sleep(1)
-        if(shieldfront==0)and(frontdammage==1):
+        if(shieldfront==0)and(frontdamage==1):
             rand=random.randint(0,40)
             if(rand==1):
                 canon_battery1= False
