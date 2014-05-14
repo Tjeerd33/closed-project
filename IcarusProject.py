@@ -264,6 +264,9 @@ while(ftl_active==0):
         mainweaponb= True
     action=input('input:')
     
+    if(action=='options'):
+        print(options)
+    
     if(action=="repair damaged areas"):
         print("starting to repair damaged areas")
         time.sleep(2)
