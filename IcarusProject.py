@@ -154,7 +154,7 @@ while(ftl_overload<1):
         ftl_overload=1
 
 question_answerd=0
-options=['scan area','repair damaged parts','full power to the shields','functionality report']
+options=['scan area','repair damaged parts','functionality report']
 while(question_answerd==0):
     action=input('input:')
 
@@ -175,38 +175,6 @@ while(question_answerd==0):
     if action=='repair damaged parts':
         print('started to repair damaged parts')
         damage_repair= True
-
-    if action=='full power to the shields':
-        print('transferring power to the shields')
-        energy_transferd=0
-        while(shieldfront<600)and(canon_batterys1>0):
-            canon_batterys1=canon_batterys1-1
-            shieldfront=shieldfront+1
-            energy_transferd=energy_transferd+1
-        time.sleep(2)
-        print('    ',energy_transferd,' energy transferred from cannon batteries 1 to the front shield')
-        energy_transferd=0
-        while(shieldfront<600)and(canon_batterys2>0):
-            canon_batterys2=canon_batterys2-1
-            shieldfront=shieldfront+1
-            energy_transferd=energy_transferd+1
-        time.sleep(2)
-        print('    ',energy_transferd,' energy transferred from cannon batteries 2 to the front shield')
-        energy_transferd=0
-        while(shieldmid<600)and(canon_batterys2>0):
-            canon_batterys2=canon_batterys2-1
-            shieldmid=shieldmid+1
-            energy_transferd=energy_transferd+1
-        print('    ',energy_transferd,' energy transferred from cannon batteries 2 to the mid shield')
-        energy_transferd=0
-        while(shieldmid<600)and(canon_batterys3>0):
-            canon_batterys3=canon_batterys3-1
-            shieldmid=shieldmid+1
-            energy_transferd=energy_transferd+1
-        print('    ',energy_transferd,' energy transferred from cannon batteries 3 to the mid shield')
-        time.sleep(4)
-        print('shields are fully powered and operational')
-        print('weapons offline')
 
     if action=='functionality report':
         print('weapons 5 to 9 offline')
@@ -256,10 +224,23 @@ while(ftl_overload==1):
     if(action=='rapair ftl drive'):
         if(problem_identify!=1)and(rapair_program!=1):
             print('unkown problem')
+        if(problem_identify==1)and(repair_program!=1):
+            print('repair routine unkown')
+        if(problem_identify==1)and(repair_program==1):
+            print('fixing problem')
+            time.sleep(10)
+            print('problem fixed)
+            ftl_overload=0
 
     if action=='smash random things till it works':
         print('it magically repaired itself, good job :D')
         ftl_overload=0
+
+ftl_active=0
+options=['scan area','jump to ftl',"repair damaged area's"]
+while(question_answer==0)and(ftl_active==0):
+    repaired=random.randint(0,100)
+    input('input:')
 
 #Mission 2
 #Introducing storyline
