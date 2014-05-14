@@ -221,12 +221,41 @@ print('1,323 lightyears')
 cargo_bay={}
 
 question_answerd=0
+problem_identify=0
+repair program=0
 options=['diagnose ftl drive','repair ftl drive','run repair program']
 while(ftl_overload==1):
     action=input('input:')
 
     if action=='options':
         print(options)
+        
+    if action=='diagnose ftl drive':
+        print('running diagnosis program')
+        time.sleep(8)
+        print('loading coordinate calculations')
+        time.sleep(2)
+        print('calculating power fluctuations')
+        time.sleep(3)
+        print('loading path calculating program')
+        time.sleep(5)
+        print('identify problem')
+        time.sleep(7)
+        problem_identify=1
+        print('problem identified')
+    
+    if(action=='run repair program'):
+        if(problem_identify!=1):
+            print('unkown problem')
+        if(problem_identify==1):
+            print('running repair program')
+            time.sleep(4)
+            print('repair systems found. problem can be fixed')
+            repair_program=1
+            
+    if(action=='rapair ftl drive'):
+        if(problem_identify!=1)and(rapair_program!=1):
+            print('unkown problem')
 
     if action=='smash random things till it works':
         print('it magically repaired itself, good job :D')
