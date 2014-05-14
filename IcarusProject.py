@@ -1,4 +1,3 @@
-Icarus project
 
 #Icarus project
 
@@ -161,31 +160,31 @@ options=['scan area','repair damaged parts','functionality report']
 while(question_answerd==0):
     repaired=random.randint(0,100)
     if(repaired==1)and(repair==1)and(canon_batterys1==False):
-        canon_batterys1= True
+        canon_battery1= True
         print('cannon 1 repaired')
     if(repaired==2)and(repair==1)and(canon_batterys2==False):
-        canon_batterys2= True
+        canon_battery2= True
         print('cannon 2 repaired')
     if(repaired==3)and(repair==1)and(canon_batterys3==False):
-        canon_batterys3= True
+        canon_battery3= True
         print('cannon 3 repaired')
     if(repaired==4)and(repair==1)and(canon_batterys4==False):
-        canon_batterys4= True
+        canon_battery4= True
         print('cannon 4 repaired')
     if(repaired==5)and(repair==1)and(canon_batterys5==False):
-        canon_batterys5= True
+        canon_battery5= True
         print('cannon 5 repaired')
     if(repaired==6)and(repair==1)and(canon_batterys6==False):
-        canon_batterys6= True
+        canon_battery6= True
         print('cannon 6 repaired')
     if(repaired==7)and(repair==1)and(canon_batterys7==False):
-        canon_batterys7= True
+        canon_battery7= True
         print('cannon 7 repaired')
     if(repaired==8)and(repair==1)and(canon_batterys8==False):
-        canon_batterys8= True
+        canon_battery8= True
         print('cannon 8 repaired')
     if(repaired==9)and(repair==1)and(canon_batterys9==False):
-        canon_batterys9= True
+        canon_battery9= True
         print('cannon 9 repaired')
     if(repaired==10)and(repair==1)and(mainweaponb==False):
         mainweaponb= True
@@ -256,31 +255,31 @@ options=['diagnose ftl drive','repair ftl drive','run repair program']
 while(ftl_overload==1):
     repaired=random.randint(0,100)
     if(repaired==1)and(repair==1)and(canon_batterys1==False):
-        canon_batterys1= True
+        canon_battery1= True
         print('cannon 1 repaired')
     if(repaired==2)and(repair==1)and(canon_batterys2==False):
-        canon_batterys2= True
+        canon_battery2= True
         print('cannon 2 repaired')
     if(repaired==3)and(repair==1)and(canon_batterys3==False):
-        canon_batterys3= True
+        canon_battery3= True
         print('cannon 3 repaired')
     if(repaired==4)and(repair==1)and(canon_batterys4==False):
-        canon_batterys4= True
+        canon_battery4= True
         print('cannon 4 repaired')
     if(repaired==5)and(repair==1)and(canon_batterys5==False):
-        canon_batterys5= True
+        canon_battery5= True
         print('cannon 5 repaired')
     if(repaired==6)and(repair==1)and(canon_batterys6==False):
-        canon_batterys6= True
+        canon_battery6= True
         print('cannon 6 repaired')
     if(repaired==7)and(repair==1)and(canon_batterys7==False):
-        canon_batterys7= True
+        canon_battery7= True
         print('cannon 7 repaired')
     if(repaired==8)and(repair==1)and(canon_batterys8==False):
-        canon_batterys8= True
+        canon_battery8= True
         print('cannon 8 repaired')
     if(repaired==9)and(repair==1)and(canon_batterys9==False):
-        canon_batterys9= True
+        canon_battery9= True
         print('cannon 9 repaired')
     if(repaired==10)and(repair==1)and(mainweaponb==False):
         mainweaponb= True
@@ -360,31 +359,31 @@ options=['jump to ftl',"repair damaged areas"]
 while(ftl_active==0):
     repaired=random.randint(0,100)
     if(repaired==1)and(repair==1)and(canon_batterys1==False):
-        canon_batterys1= True
+        canon_battery1= True
         print('cannon 1 repaired')
     if(repaired==2)and(repair==1)and(canon_batterys2==False):
-        canon_batterys2= True
+        canon_battery2= True
         print('cannon 2 repaired')
     if(repaired==3)and(repair==1)and(canon_batterys3==False):
-        canon_batterys3= True
+        canon_battery3= True
         print('cannon 3 repaired')
     if(repaired==4)and(repair==1)and(canon_batterys4==False):
-        canon_batterys4= True
+        canon_battery4= True
         print('cannon 4 repaired')
     if(repaired==5)and(repair==1)and(canon_batterys5==False):
-        canon_batterys5= True
+        canon_battery5= True
         print('cannon 5 repaired')
     if(repaired==6)and(repair==1)and(canon_batterys6==False):
-        canon_batterys6= True
+        canon_battery6= True
         print('cannon 6 repaired')
     if(repaired==7)and(repair==1)and(canon_batterys7==False):
-        canon_batterys7= True
+        canon_battery7= True
         print('cannon 7 repaired')
     if(repaired==8)and(repair==1)and(canon_batterys8==False):
-        canon_batterys8= True
+        canon_battery8= True
         print('cannon 8 repaired')
     if(repaired==9)and(repair==1)and(canon_batterys9==False):
-        canon_batterys9= True
+        canon_battery9= True
         print('cannon 9 repaired')
     if(repaired==10)and(repair==1)and(mainweaponb==False):
         mainweaponb= True
@@ -468,31 +467,31 @@ scan=0
 while(scan==0):
     repaired=random.randint(0,100)
     if(repaired==1)and(repair==1)and(canon_batterys1==False):
-        canon_batterys1= True
+        canon_battery1= True
         print('cannon 1 repaired')
     if(repaired==2)and(repair==1)and(canon_batterys2==False):
-        canon_batterys2= True
+        canon_battery2= True
         print('cannon 2 repaired')
     if(repaired==3)and(repair==1)and(canon_batterys3==False):
-        canon_batterys3= True
+        canon_battery3= True
         print('cannon 3 repaired')
     if(repaired==4)and(repair==1)and(canon_batterys4==False):
-        canon_batterys4= True
+        canon_battery4= True
         print('cannon 4 repaired')
     if(repaired==5)and(repair==1)and(canon_batterys5==False):
-        canon_batterys5= True
+        canon_battery5= True
         print('cannon 5 repaired')
     if(repaired==6)and(repair==1)and(canon_batterys6==False):
-        canon_batterys6= True
+        canon_battery6= True
         print('cannon 6 repaired')
     if(repaired==7)and(repair==1)and(canon_batterys7==False):
-        canon_batterys7= True
+        canon_battery7= True
         print('cannon 7 repaired')
     if(repaired==8)and(repair==1)and(canon_batterys8==False):
-        canon_batterys8= True
+        canon_battery8= True
         print('cannon 8 repaired')
     if(repaired==9)and(repair==1)and(canon_batterys9==False):
-        canon_batterys9= True
+        canon_battery9= True
         print('cannon 9 repaired')
     if(repaired==10)and(repair==1)and(mainweaponb==False):
         mainweaponb= True
@@ -542,31 +541,31 @@ while(ftl_active==0):#will repeat the question untill the ftl drive is active (w
     options=['plot course to','repair damaged areas']
     repaired=random.randint(0,100)
     if(repaired==1)and(repair==1)and(canon_batterys1==False):
-        canon_batterys1= True
+        canon_battery1= True
         print('cannon 1 repaired')
     if(repaired==2)and(repair==1)and(canon_batterys2==False):
-        canon_batterys2= True
+        canon_battery2= True
         print('cannon 2 repaired')
     if(repaired==3)and(repair==1)and(canon_batterys3==False):
-        canon_batterys3= True
+        canon_battery3= True
         print('cannon 3 repaired')
     if(repaired==4)and(repair==1)and(canon_batterys4==False):
-        canon_batterys4= True
+        canon_battery4= True
         print('cannon 4 repaired')
     if(repaired==5)and(repair==1)and(canon_batterys5==False):
-        canon_batterys5= True
+        canon_battery5= True
         print('cannon 5 repaired')
     if(repaired==6)and(repair==1)and(canon_batterys6==False):
-        canon_batterys6= True
+        canon_battery6= True
         print('cannon 6 repaired')
     if(repaired==7)and(repair==1)and(canon_batterys7==False):
-        canon_batterys7= True
+        canon_battery7= True
         print('cannon 7 repaired')
     if(repaired==8)and(repair==1)and(canon_batterys8==False):
-        canon_batterys8= True
+        canon_battery8= True
         print('cannon 8 repaired')
     if(repaired==9)and(repair==1)and(canon_batterys9==False):
-        canon_batterys9= True
+        canon_battery9= True
         print('cannon 9 repaired')
     if(repaired==10)and(repair==1)and(mainweaponb==False):
         mainweaponb= True
