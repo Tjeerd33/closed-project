@@ -223,7 +223,7 @@ while(ftl_overload==1):
             print('repair systems found. problem can be fixed')
             repair_program=1
             
-    if(action=='rapair ftl drive'):
+    if(action=='repair ftl drive'):
         if(problem_identify!=1)and(rapair_program!=1):
             print('unkown problem')
         if(problem_identify==1)and(repair_program!=1):
