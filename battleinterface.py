@@ -267,7 +267,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         frontdamage=1
                         if(hull<0):
                             hull=0
-            if(enemy_weapon1<=0):
+            elelif(enemy_weapon1<=0):
                 print('enemy 1 is charging weapons')
                 enemy_weapon1=500
         if(enemy_hull2>0):
@@ -375,7 +375,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         frontdamage=1
                         if(hull<0):
                             hull=0
-            if(enemy_weapon3<=0):
+            elif(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
         time.sleep(1)
@@ -495,7 +495,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         frontdamage=1
                         if(hull<0):
                             hull=0
-            if(enemy_weapon1<=0):
+            elif(enemy_weapon1<=0):
                 print('enemy 1 is charging weapons')
                 enemy_weapon1=500
         if(enemy_hull2>0):
@@ -603,7 +603,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         frontdamage=1
                         if(hull<0):
                             hull=0
-            if(enemy_weapon3<=0):
+            elif(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
         time.sleep(1)
@@ -901,7 +901,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         frontdamage=1
                         if(hull<0):
                             hull=0
-            if(enemy_weapon1<=0):
+            elif(enemy_weapon1<=0):
                 print('enemy 1 is charging weapons')
                 enemy_weapon1=500
         if(enemy_hull2>0):
@@ -1009,7 +1009,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         frontdamage=1
                         if(hull<0):
                             hull=0
-            if(enemy_weapon3<=0):
+            elif(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
         time.sleep(1)
@@ -1111,7 +1111,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         print('front shields are down, hull damaged')
                         if(hull<0):
                             hull=0
-            if(enemy_weapon1<=0):
+            elif(enemy_weapon1<=0):
                 print('enemy 1 is charging weapons')
                 enemy_weapon1=500
         if(enemy_hull2>0):
@@ -1213,7 +1213,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         print('front shields are down, hull damaged')
                         if(hull<0):
                             hull=0
-            if(enemy_weapon3<=0):
+            elif(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
         time.sleep(1)
@@ -1454,7 +1454,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         frontdamage=1
                         if(hull<0):
                             hull=0
-            if(enemy_weapon1<=0):
+            elif(enemy_weapon1<=0):
                 print('enemy 1 is charging weapons')
                 enemy_weapon1=500
         if(enemy_hull2>0):
@@ -1562,7 +1562,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         frontdamage=1
                         if(hull<0):
                             hull=0
-            if(enemy_weapon3<=0):
+            elif(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
         time.sleep(1)
@@ -1744,7 +1744,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             frontdamage=1
                             if(hull<0):
                                 hull=0
-                if(enemy_weapon1<=0):
+                elif(enemy_weapon1<=0):
                     print('enemy 1 is charging weapons')
                     enemy_weapon1=500
             if(enemy_hull2>0):
@@ -1852,7 +1852,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             frontdamage=1
                             if(hull<0):
                                 hull=0
-                if(enemy_weapon3<=0):
+                elif(enemy_weapon3<=0):
                     print('enemy 3 is charging weapons')
                     enemy_weapon3=500
             time.sleep(1)
@@ -1957,7 +1957,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             frontdamage=1
                             if(hull<0):
                                 hull=0
-                if(enemy_weapon1<=0):
+                elif(enemy_weapon1<=0):
                     print('enemy 1 is charging weapons')
                     enemy_weapon1=500
             if(enemy_hull2>0):
@@ -2065,7 +2065,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             frontdamage=1
                             if(hull<0):
                                 hull=0
-                if(enemy_weapon3<=0):
+                elif(enemy_weapon3<=0):
                     print('enemy 3 is charging weapons')
                     enemy_weapon3=500
             time.sleep(1)
@@ -2199,7 +2199,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         frontdamage=1
                         if(hull<0):
                             hull=0
-            if(enemy_weapon1<=0):
+            elif(enemy_weapon1<=0):
                 print('enemy 1 is charging weapons')
                 enemy_weapon1=500
         if(enemy_hull2>0):
@@ -2307,7 +2307,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         frontdamage=1
                         if(hull<0):
                             hull=0
-            if(enemy_weapon3<=0):
+            elif(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
         time.sleep(1)
