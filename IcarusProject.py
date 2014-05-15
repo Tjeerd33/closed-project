@@ -3,6 +3,7 @@
 
 #beginning conditions
 power=10000
+engines=10
 canon_batterys1=500
 canon_battery1= True
 canon_batterys2=500
