@@ -43,26 +43,109 @@ enemy_numbers=3
 positions=['front','mid','back']
 target=0
 go=1
+classes=['scout','scout','scout','battleship','battleship','transport','commandship']
 
 
 #enemy 1
-enemy_shields1=900
-enemy_hull1=1000
-enemy_weapon1=0
-enemy_weapons1= True
 position1=random.choice(positions)
+class1=random.choice(classes)
+if(class1=='scout'):
+    enemy_shields1=450
+    enemy_hull1=500
+    enemy_weapon1=0
+    enemy_weapons1= True
+    enemy1_damagemin=5
+    enemy1_damagemax=50
+elif(class1=='battleship'):
+    enemy_shields1=900
+    enemy_hull1=1000
+    enemy_weapon1=0
+    enemy_weapons1= True
+    enemy1_damagemin=10
+    enemy1_damagemax=100
+elif(class1=='transport'):
+    enemy_shields1=1000
+    enemy_hull1=1500
+    enemy_weapon1=0
+    enemy_weapons1= True
+    enemy1_damagemin=5
+    enemy1_damagemax=40
+elif(class1=='commandship'):
+    enemy_shields1=1500
+    enemy_hull1=2000
+    enemy_weapon1=40
+    enemy_weapons1= True
+    enemy1_damagemin=20
+    enemy1_damagemax=200
 #enemy 2
-enemy_shields2=900
-enemy_hull2=1000
-enemy_weapon2=0
-enemy_weapons2= True
 position2=random.choice(positions)
+class2=random.choice(classes)
+if(class2=='scout'):
+    enemy_shields2=450
+    enemy_hull2=500
+    enemy_weapon2=0
+    enemy_weapons2= True
+    enemy2_damagemin=5
+    enemy2_damagemax=50
+elif(class2=='battleship'):
+    enemy_shields2=900
+    enemy_hull2=1000
+    enemy_weapon2=0
+    enemy_weapons2= True
+    enemy2_damagemin=10
+    enemy2_damagemax=100
+elif(class2=='transport'):
+    enemy_shields2=1000
+    enemy_hull2=1500
+    enemy_weapon2=0
+    enemy_weapons2= True
+    enemy2_damagemin=5
+    enemy2_damagemax=40
+elif(class2=='commandship'):
+    enemy_shields2=1500
+    enemy_hull2=2000
+    enemy_weapon2=40
+    enemy_weapons2= True
+    enemy2_damagemin=20
+    enemy2_damagemax=200
 #enemy 3
-enemy_shields3=900
-enemy_hull3=1000
-enemy_weapon3=0
-enemy_weapons3= True
 position3=random.choice(positions)
+class3=random.choice(classes)
+if(class3=='scout'):
+    enemy_shields3=450
+    enemy_hull3=500
+    enemy_weapon3=0
+    enemy_weapons3= True
+    enemy3_damagemin=5
+    enemy3_damagemax=50
+elif(class3=='battleship'):
+    enemy_shields3=900
+    enemy_hull3=1000
+    enemy_weapon3=0
+    enemy_weapons3= True
+    enemy3_damagemin=10
+    enemy3_damagemax=100
+elif(class3=='transport'):
+    enemy_shields3=1000
+    enemy_hull3=1500
+    enemy_weapon3=0
+    enemy_weapons3= True
+    enemy3_damagemin=5
+    enemy3_damagemax=40
+elif(class3=='commandship'):
+    enemy_shields3=1500
+    enemy_hull3=2000
+    enemy_weapon3=40
+    enemy_weapons3= True
+    enemy3_damagemin=20
+    enemy3_damagemax=200
+#enemy 4
+position4=random.choice(positions)
+class4=random.choice(classes)
+enemy_shields4=0
+enemy_hull4=0
+enemy_weapons4=0
+enemy_weapons4= True
 
 ftl_active=0
 repair=0
@@ -203,6 +286,13 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             print('    ',enemy_hull3)
         print('density')
         time.sleep(1)
+        print('enemy classes are:')
+        if(enemyhull1>0):
+            print('    ',class1)
+        if(enemyhull2>0):
+            print('    ',class2)
+        if(enemyhull3>0):
+            print('    ',class3)
         print('planets in this system:')
         time.sleep(2)
         print(planets)
@@ -221,7 +311,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 1 is locking on')
                 time.sleep(1)
                 print('enemy 1 is discharging weapons')
-                damage= random.randint(10,100)
+                damage= random.randint(enemy1_damagemin,enemy1_damagemax)
                 enemy_weapon1=enemy_weapon1-damage
                 print('enemy 1 did',damage,'damage')
                 if(position1=='back'):
@@ -275,8 +365,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 2 is locking on')
                 time.sleep(1)
                 print('enemy 2 is discharging weapons')
-                damage= random.randint(10,100)
-                enemy_weapon1=enemy_weapon2-damage
+                damage= random.randint(enemy2_damagemin,enemy2_damagemax)
+                enemy_weapon2=enemy_weapon2-damage
                 print('enemy 2 did',damage,'damage')
                 if(position2=='back'):
                     if(shieldback>0):
@@ -329,7 +419,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
-                damage= random.randint(10,100)
+                damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
@@ -378,6 +468,60 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
+        if(enemy_hull4>0):
+            if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
+                print('enemy 4 is locking on')
+                time.sleep(1)
+                print('enemy 4 is discharging weapons')
+                damage= random.randint(enemy4_damagemin,enemy4_damagemax)
+                enemy_weapon4=enemy_weapon4-damage
+                print('enemy 4 did',damage,'damage')
+                if(position4=='back'):
+                    if(shieldback>0):
+                        shieldback=shieldback-damage
+                        if(shieldback<0):
+                            print('rear shields depleted')
+                            hull=hull+shieldback
+                            shieldback=0
+                            print('hull damaged')
+                    elif(shieldback==0):
+                        hull=hull-damage
+                        print('rear shields are down, hull damaged')
+                        backdamage=1
+                        if(hull<0):
+                            hull=0
+                            print('signal lost')
+                elif(position4=='mid'):
+                    if(shieldmid>0):
+                        shieldmid=shieldmid-damage
+                        if(shieldmid<0):
+                            print('mid shields depleted')
+                            hull=hull+shieldmid
+                            shieldmid=0
+                            print('hull damaged')
+                    elif(shieldmid==0):
+                        hull=hull-damage
+                        print('mid shields are down, hull damaged')
+                        middamage=1
+                        if(hull<0):
+                            hull=0
+                elif(position4=='front'):
+                    if(shieldfront>0):
+                        shieldfront=shieldfront-damage
+                        if(shieldfront<0):
+                            print('front shields depleted')
+                            hull=hull+shieldfront
+                            shieldfront=0
+                            print('hull damaged')
+                    elif(shieldfront==0):
+                        hull=hull-damage
+                        print('front shields are down, hull damaged')
+                        frontdamage=1
+                        if(hull<0):
+                            hull=0
+            elif(enemy_weapon4<=0):
+                print('enemy 4 is charging weapons')
+                enemy_weapon4=500
         time.sleep(1)
         if(shieldfront==0)and(frontdamage==1):
             rand=random.randint(0,40)
@@ -424,6 +568,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(rand==3):
                 shieldback= False
                 print('shieldgenerator back offline')
+
         
 
     elif(action=='plot course'):
@@ -449,7 +594,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 1 is locking on')
                 time.sleep(1)
                 print('enemy 1 is discharging weapons')
-                damage= random.randint(10,100)
+                damage= random.randint(enemy1_damagemin,enemy1_damagemax)
                 enemy_weapon1=enemy_weapon1-damage
                 print('enemy 1 did',damage,'damage')
                 if(position1=='back'):
@@ -503,8 +648,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 2 is locking on')
                 time.sleep(1)
                 print('enemy 2 is discharging weapons')
-                damage= random.randint(10,100)
-                enemy_weapon1=enemy_weapon2-damage
+                damage= random.randint(enemy2_damagemin,enemy2_damagemax)
+                enemy_weapon2=enemy_weapon2-damage
                 print('enemy 2 did',damage,'damage')
                 if(position2=='back'):
                     if(shieldback>0):
@@ -557,7 +702,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
-                damage= random.randint(10,100)
+                damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
@@ -606,6 +751,60 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
+        if(enemy_hull4>0):
+            if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
+                print('enemy 4 is locking on')
+                time.sleep(1)
+                print('enemy 4 is discharging weapons')
+                damage= random.randint(enemy4_damagemin,enemy4_damagemax)
+                enemy_weapon4=enemy_weapon4-damage
+                print('enemy 4 did',damage,'damage')
+                if(position4=='back'):
+                    if(shieldback>0):
+                        shieldback=shieldback-damage
+                        if(shieldback<0):
+                            print('rear shields depleted')
+                            hull=hull+shieldback
+                            shieldback=0
+                            print('hull damaged')
+                    elif(shieldback==0):
+                        hull=hull-damage
+                        print('rear shields are down, hull damaged')
+                        backdamage=1
+                        if(hull<0):
+                            hull=0
+                            print('signal lost')
+                elif(position4=='mid'):
+                    if(shieldmid>0):
+                        shieldmid=shieldmid-damage
+                        if(shieldmid<0):
+                            print('mid shields depleted')
+                            hull=hull+shieldmid
+                            shieldmid=0
+                            print('hull damaged')
+                    elif(shieldmid==0):
+                        hull=hull-damage
+                        print('mid shields are down, hull damaged')
+                        middamage=1
+                        if(hull<0):
+                            hull=0
+                elif(position4=='front'):
+                    if(shieldfront>0):
+                        shieldfront=shieldfront-damage
+                        if(shieldfront<0):
+                            print('front shields depleted')
+                            hull=hull+shieldfront
+                            shieldfront=0
+                            print('hull damaged')
+                    elif(shieldfront==0):
+                        hull=hull-damage
+                        print('front shields are down, hull damaged')
+                        frontdamage=1
+                        if(hull<0):
+                            hull=0
+            elif(enemy_weapon4<=0):
+                print('enemy 4 is charging weapons')
+                enemy_weapon4=500
         time.sleep(1)
         if(shieldfront==0)and(frontdamage==1):
             rand=random.randint(0,40)
@@ -652,6 +851,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(rand==3):
                 shieldback= False
                 print('shieldgenerator back offline')
+
             
     elif(action=='quit'):
         hull=0
@@ -855,7 +1055,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 1 is locking on')
                 time.sleep(1)
                 print('enemy 1 is discharging weapons')
-                damage= random.randint(10,100)
+                damage= random.randint(enemy1_damagemin,enemy1_damagemax)
                 enemy_weapon1=enemy_weapon1-damage
                 print('enemy 1 did',damage,'damage')
                 if(position1=='back'):
@@ -909,8 +1109,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 2 is locking on')
                 time.sleep(1)
                 print('enemy 2 is discharging weapons')
-                damage= random.randint(10,100)
-                enemy_weapon1=enemy_weapon2-damage
+                damage= random.randint(enemy2_damagemin,enemy2_damagemax)
+                enemy_weapon2=enemy_weapon2-damage
                 print('enemy 2 did',damage,'damage')
                 if(position2=='back'):
                     if(shieldback>0):
@@ -963,7 +1163,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
-                damage= random.randint(10,100)
+                damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
@@ -1012,6 +1212,60 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
+        if(enemy_hull4>0):
+            if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
+                print('enemy 4 is locking on')
+                time.sleep(1)
+                print('enemy 4 is discharging weapons')
+                damage= random.randint(enemy4_damagemin,enemy4_damagemax)
+                enemy_weapon4=enemy_weapon4-damage
+                print('enemy 4 did',damage,'damage')
+                if(position4=='back'):
+                    if(shieldback>0):
+                        shieldback=shieldback-damage
+                        if(shieldback<0):
+                            print('rear shields depleted')
+                            hull=hull+shieldback
+                            shieldback=0
+                            print('hull damaged')
+                    elif(shieldback==0):
+                        hull=hull-damage
+                        print('rear shields are down, hull damaged')
+                        backdamage=1
+                        if(hull<0):
+                            hull=0
+                            print('signal lost')
+                elif(position4=='mid'):
+                    if(shieldmid>0):
+                        shieldmid=shieldmid-damage
+                        if(shieldmid<0):
+                            print('mid shields depleted')
+                            hull=hull+shieldmid
+                            shieldmid=0
+                            print('hull damaged')
+                    elif(shieldmid==0):
+                        hull=hull-damage
+                        print('mid shields are down, hull damaged')
+                        middamage=1
+                        if(hull<0):
+                            hull=0
+                elif(position4=='front'):
+                    if(shieldfront>0):
+                        shieldfront=shieldfront-damage
+                        if(shieldfront<0):
+                            print('front shields depleted')
+                            hull=hull+shieldfront
+                            shieldfront=0
+                            print('hull damaged')
+                    elif(shieldfront==0):
+                        hull=hull-damage
+                        print('front shields are down, hull damaged')
+                        frontdamage=1
+                        if(hull<0):
+                            hull=0
+            elif(enemy_weapon4<=0):
+                print('enemy 4 is charging weapons')
+                enemy_weapon4=500
         time.sleep(1)
         if(shieldfront==0)and(frontdamage==1):
             rand=random.randint(0,40)
@@ -1059,6 +1313,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 shieldback= False
                 print('shieldgenerator back offline')
 
+
     elif action=='start repairing':
         time.sleep(1)
         print('started repairs')
@@ -1068,7 +1323,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 1 is locking on')
                 time.sleep(1)
                 print('enemy 1 is discharging weapons')
-                damage=random.randint(10,100)
+                damage= random.randint(enemy1_damagemin,enemy1_damagemax)
                 enemy_weapon1=enemy_weapon1-damage
                 print('enemy 1 did',damage,'damage')
                 if(position1=='back'):
@@ -1082,6 +1337,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     elif(shieldback==0):
                         hull=hull-damage
                         print('rear shields are down, hull damaged')
+                        backdamage=1
                         if(hull<0):
                             hull=0
                             print('signal lost')
@@ -1096,6 +1352,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     elif(shieldmid==0):
                         hull=hull-damage
                         print('mid shields are down, hull damaged')
+                        middamage=1
                         if(hull<0):
                             hull=0
                 elif(position1=='front'):
@@ -1109,6 +1366,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     elif(shieldfront==0):
                         hull=hull-damage
                         print('front shields are down, hull damaged')
+                        frontdamage=1
                         if(hull<0):
                             hull=0
             elif(enemy_weapon1<=0):
@@ -1119,8 +1377,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 2 is locking on')
                 time.sleep(1)
                 print('enemy 2 is discharging weapons')
-                damage=random.randint(10,100)
-                enemy_weapon1=enemy_weapon2-damage
+                damage= random.randint(enemy2_damagemin,enemy2_damagemax)
+                enemy_weapon2=enemy_weapon2-damage
                 print('enemy 2 did',damage,'damage')
                 if(position2=='back'):
                     if(shieldback>0):
@@ -1133,6 +1391,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     elif(shieldback==0):
                         hull=hull-damage
                         print('rear shields are down, hull damaged')
+                        backdamage=1
                         if(hull<0):
                             hull=0
                             print('signal lost')
@@ -1147,6 +1406,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     elif(shieldmid==0):
                         hull=hull-damage
                         print('mid shields are down, hull damaged')
+                        middamage=1
                         if(hull<0):
                             hull=0
                 elif(position2=='front'):
@@ -1160,6 +1420,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     elif(shieldfront==0):
                         hull=hull-damage
                         print('front shields are down, hull damaged')
+                        frontdamage=1
                         if(hull<0):
                             hull=0
             elif(enemy_weapon2<=0):
@@ -1170,7 +1431,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
-                damage=random.randint(10,100)
+                damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
@@ -1184,11 +1445,12 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     elif(shieldback==0):
                         hull=hull-damage
                         print('rear shields are down, hull damaged')
+                        backdamage=1
                         if(hull<0):
                             hull=0
                             print('signal lost')
                 elif(position3=='mid'):
-                    if(shiel_mid>0):
+                    if(shieldmid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -1198,6 +1460,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     elif(shieldmid==0):
                         hull=hull-damage
                         print('mid shields are down, hull damaged')
+                        middamage=1
                         if(hull<0):
                             hull=0
                 elif(position3=='front'):
@@ -1211,13 +1474,68 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     elif(shieldfront==0):
                         hull=hull-damage
                         print('front shields are down, hull damaged')
+                        frontdamage=1
                         if(hull<0):
                             hull=0
             elif(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
+        if(enemy_hull4>0):
+            if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
+                print('enemy 4 is locking on')
+                time.sleep(1)
+                print('enemy 4 is discharging weapons')
+                damage= random.randint(enemy4_damagemin,enemy4_damagemax)
+                enemy_weapon4=enemy_weapon4-damage
+                print('enemy 4 did',damage,'damage')
+                if(position4=='back'):
+                    if(shieldback>0):
+                        shieldback=shieldback-damage
+                        if(shieldback<0):
+                            print('rear shields depleted')
+                            hull=hull+shieldback
+                            shieldback=0
+                            print('hull damaged')
+                    elif(shieldback==0):
+                        hull=hull-damage
+                        print('rear shields are down, hull damaged')
+                        backdamage=1
+                        if(hull<0):
+                            hull=0
+                            print('signal lost')
+                elif(position4=='mid'):
+                    if(shieldmid>0):
+                        shieldmid=shieldmid-damage
+                        if(shieldmid<0):
+                            print('mid shields depleted')
+                            hull=hull+shieldmid
+                            shieldmid=0
+                            print('hull damaged')
+                    elif(shieldmid==0):
+                        hull=hull-damage
+                        print('mid shields are down, hull damaged')
+                        middamage=1
+                        if(hull<0):
+                            hull=0
+                elif(position4=='front'):
+                    if(shieldfront>0):
+                        shieldfront=shieldfront-damage
+                        if(shieldfront<0):
+                            print('front shields depleted')
+                            hull=hull+shieldfront
+                            shieldfront=0
+                            print('hull damaged')
+                    elif(shieldfront==0):
+                        hull=hull-damage
+                        print('front shields are down, hull damaged')
+                        frontdamage=1
+                        if(hull<0):
+                            hull=0
+            elif(enemy_weapon4<=0):
+                print('enemy 4 is charging weapons')
+                enemy_weapon4=500
         time.sleep(1)
-        if(shieldfront==0):
+        if(shieldfront==0)and(frontdamage==1):
             rand=random.randint(0,40)
             if(rand==1):
                 canon_battery1= False
@@ -1228,7 +1546,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(rand==3):
                 shield_front= False
                 print('shieldgenerator front offline')
-        if(shieldmid==0):
+        if(shieldmid==0)and(middamage==1):
             rand=random.randint(0,40)
             if(rand==0):
                 canon_battery3= False
@@ -1248,7 +1566,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(rand==5):
                 shield_mid= False
                 print('shieldgenerator mid offline')
-        if(shieldback==0):
+        if(shieldback==0)and(backdamage==1):
             rand=random.randint(0,40)
             if(rand==0):
                 canon_battery7= False
@@ -1262,6 +1580,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(rand==3):
                 shieldback= False
                 print('shieldgenerator back offline')
+
 
     elif action=='fire weapons':
         while(target!='1')and(target!='2')and(target!='3'):
@@ -1408,7 +1727,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 1 is locking on')
                 time.sleep(1)
                 print('enemy 1 is discharging weapons')
-                damage= random.randint(10,100)
+                damage= random.randint(enemy1_damagemin,enemy1_damagemax)
                 enemy_weapon1=enemy_weapon1-damage
                 print('enemy 1 did',damage,'damage')
                 if(position1=='back'):
@@ -1462,8 +1781,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 2 is locking on')
                 time.sleep(1)
                 print('enemy 2 is discharging weapons')
-                damage= random.randint(10,100)
-                enemy_weapon1=enemy_weapon2-damage
+                damage= random.randint(enemy2_damagemin,enemy2_damagemax)
+                enemy_weapon2=enemy_weapon2-damage
                 print('enemy 2 did',damage,'damage')
                 if(position2=='back'):
                     if(shieldback>0):
@@ -1516,7 +1835,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
-                damage= random.randint(10,100)
+                damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
@@ -1565,6 +1884,60 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
+        if(enemy_hull4>0):
+            if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
+                print('enemy 4 is locking on')
+                time.sleep(1)
+                print('enemy 4 is discharging weapons')
+                damage= random.randint(enemy4_damagemin,enemy4_damagemax)
+                enemy_weapon4=enemy_weapon4-damage
+                print('enemy 4 did',damage,'damage')
+                if(position4=='back'):
+                    if(shieldback>0):
+                        shieldback=shieldback-damage
+                        if(shieldback<0):
+                            print('rear shields depleted')
+                            hull=hull+shieldback
+                            shieldback=0
+                            print('hull damaged')
+                    elif(shieldback==0):
+                        hull=hull-damage
+                        print('rear shields are down, hull damaged')
+                        backdamage=1
+                        if(hull<0):
+                            hull=0
+                            print('signal lost')
+                elif(position4=='mid'):
+                    if(shieldmid>0):
+                        shieldmid=shieldmid-damage
+                        if(shieldmid<0):
+                            print('mid shields depleted')
+                            hull=hull+shieldmid
+                            shieldmid=0
+                            print('hull damaged')
+                    elif(shieldmid==0):
+                        hull=hull-damage
+                        print('mid shields are down, hull damaged')
+                        middamage=1
+                        if(hull<0):
+                            hull=0
+                elif(position4=='front'):
+                    if(shieldfront>0):
+                        shieldfront=shieldfront-damage
+                        if(shieldfront<0):
+                            print('front shields depleted')
+                            hull=hull+shieldfront
+                            shieldfront=0
+                            print('hull damaged')
+                    elif(shieldfront==0):
+                        hull=hull-damage
+                        print('front shields are down, hull damaged')
+                        frontdamage=1
+                        if(hull<0):
+                            hull=0
+            elif(enemy_weapon4<=0):
+                print('enemy 4 is charging weapons')
+                enemy_weapon4=500
         time.sleep(1)
         if(shieldfront==0)and(frontdamage==1):
             rand=random.randint(0,40)
@@ -1611,6 +1984,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(rand==3):
                 shieldback= False
                 print('shieldgenerator back offline')
+
         
                 
     elif action=='options'or action=='?' or action=='help':
@@ -1656,9 +2030,12 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         print('    ',enemy_numbers)
         print('enemy postions:')
         time.sleep(3)
-        print('    ',position1)
-        print('    ',position2)
-        print('    ',position3)
+        if(hull1>0):
+            print('    ',position1)
+        if(hull2>0):
+            print('    ',position2)
+        if(hull3>0):
+            print('    ',position3)
         print('enemy shields are at:')
         time.sleep(2)
         if(enemy_hull1>0):
@@ -1676,6 +2053,14 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         if(enemy_hull3>0):
             print('    ',enemy_hull3)
         print('density')
+        if(scan==1):
+            print('enemy classes are:')
+            if(enemyhull1>0):
+                print('    ',class1)
+            if(enemyhull2>0):
+                print('    ',class2)
+            if(enemyhull3>0):
+                print('    ',class3)
 
     elif action=='jump to ftl':
         if(course_plot<1):
@@ -1698,7 +2083,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     print('enemy 1 is locking on')
                     time.sleep(1)
                     print('enemy 1 is discharging weapons')
-                    damage= random.randint(10,100)
+                    damage= random.randint(enemy1_damagemin,enemy1_damagemax)
                     enemy_weapon1=enemy_weapon1-damage
                     print('enemy 1 did',damage,'damage')
                     if(position1=='back'):
@@ -1752,8 +2137,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     print('enemy 2 is locking on')
                     time.sleep(1)
                     print('enemy 2 is discharging weapons')
-                    damage= random.randint(10,100)
-                    enemy_weapon1=enemy_weapon2-damage
+                    damage= random.randint(enemy2_damagemin,enemy2_damagemax)
+                    enemy_weapon2=enemy_weapon2-damage
                     print('enemy 2 did',damage,'damage')
                     if(position2=='back'):
                         if(shieldback>0):
@@ -1806,7 +2191,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     print('enemy 3 is locking on')
                     time.sleep(1)
                     print('enemy 3 is discharging weapons')
-                    damage= random.randint(10,100)
+                    damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
                     enemy_weapon3=enemy_weapon3-damage
                     print('enemy 3 did',damage,'damage')
                     if(position3=='back'):
@@ -1855,6 +2240,60 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 elif(enemy_weapon3<=0):
                     print('enemy 3 is charging weapons')
                     enemy_weapon3=500
+            if(enemy_hull4>0):
+                if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
+                    print('enemy 4 is locking on')
+                    time.sleep(1)
+                    print('enemy 4 is discharging weapons')
+                    damage= random.randint(enemy4_damagemin,enemy4_damagemax)
+                    enemy_weapon4=enemy_weapon4-damage
+                    print('enemy 4 did',damage,'damage')
+                    if(position4=='back'):
+                        if(shieldback>0):
+                            shieldback=shieldback-damage
+                            if(shieldback<0):
+                                print('rear shields depleted')
+                                hull=hull+shieldback
+                                shieldback=0
+                                print('hull damaged')
+                        elif(shieldback==0):
+                            hull=hull-damage
+                            print('rear shields are down, hull damaged')
+                            backdamage=1
+                            if(hull<0):
+                                hull=0
+                                print('signal lost')
+                    elif(position4=='mid'):
+                        if(shieldmid>0):
+                            shieldmid=shieldmid-damage
+                            if(shieldmid<0):
+                                print('mid shields depleted')
+                                hull=hull+shieldmid
+                                shieldmid=0
+                                print('hull damaged')
+                        elif(shieldmid==0):
+                            hull=hull-damage
+                            print('mid shields are down, hull damaged')
+                            middamage=1
+                            if(hull<0):
+                                hull=0
+                    elif(position4=='front'):
+                        if(shieldfront>0):
+                            shieldfront=shieldfront-damage
+                            if(shieldfront<0):
+                                print('front shields depleted')
+                                hull=hull+shieldfront
+                                shieldfront=0
+                                print('hull damaged')
+                        elif(shieldfront==0):
+                            hull=hull-damage
+                            print('front shields are down, hull damaged')
+                            frontdamage=1
+                            if(hull<0):
+                                hull=0
+                elif(enemy_weapon4<=0):
+                    print('enemy 4 is charging weapons')
+                    enemy_weapon4=500
             time.sleep(1)
             if(shieldfront==0)and(frontdamage==1):
                 rand=random.randint(0,40)
@@ -1911,7 +2350,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     print('enemy 1 is locking on')
                     time.sleep(1)
                     print('enemy 1 is discharging weapons')
-                    damage= random.randint(10,100)
+                    damage= random.randint(enemy1_damagemin,enemy1_damagemax)
                     enemy_weapon1=enemy_weapon1-damage
                     print('enemy 1 did',damage,'damage')
                     if(position1=='back'):
@@ -1965,8 +2404,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     print('enemy 2 is locking on')
                     time.sleep(1)
                     print('enemy 2 is discharging weapons')
-                    damage= random.randint(10,100)
-                    enemy_weapon1=enemy_weapon2-damage
+                    damage= random.randint(enemy2_damagemin,enemy2_damagemax)
+                    enemy_weapon2=enemy_weapon2-damage
                     print('enemy 2 did',damage,'damage')
                     if(position2=='back'):
                         if(shieldback>0):
@@ -2019,7 +2458,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     print('enemy 3 is locking on')
                     time.sleep(1)
                     print('enemy 3 is discharging weapons')
-                    damage= random.randint(10,100)
+                    damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
                     enemy_weapon3=enemy_weapon3-damage
                     print('enemy 3 did',damage,'damage')
                     if(position3=='back'):
@@ -2068,6 +2507,60 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 elif(enemy_weapon3<=0):
                     print('enemy 3 is charging weapons')
                     enemy_weapon3=500
+            if(enemy_hull4>0):
+                if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
+                    print('enemy 4 is locking on')
+                    time.sleep(1)
+                    print('enemy 4 is discharging weapons')
+                    damage= random.randint(enemy4_damagemin,enemy4_damagemax)
+                    enemy_weapon4=enemy_weapon4-damage
+                    print('enemy 4 did',damage,'damage')
+                    if(position4=='back'):
+                        if(shieldback>0):
+                            shieldback=shieldback-damage
+                            if(shieldback<0):
+                                print('rear shields depleted')
+                                hull=hull+shieldback
+                                shieldback=0
+                                print('hull damaged')
+                        elif(shieldback==0):
+                            hull=hull-damage
+                            print('rear shields are down, hull damaged')
+                            backdamage=1
+                            if(hull<0):
+                                hull=0
+                                print('signal lost')
+                    elif(position4=='mid'):
+                        if(shieldmid>0):
+                            shieldmid=shieldmid-damage
+                            if(shieldmid<0):
+                                print('mid shields depleted')
+                                hull=hull+shieldmid
+                                shieldmid=0
+                                print('hull damaged')
+                        elif(shieldmid==0):
+                            hull=hull-damage
+                            print('mid shields are down, hull damaged')
+                            middamage=1
+                            if(hull<0):
+                                hull=0
+                    elif(position4=='front'):
+                        if(shieldfront>0):
+                            shieldfront=shieldfront-damage
+                            if(shieldfront<0):
+                                print('front shields depleted')
+                                hull=hull+shieldfront
+                                shieldfront=0
+                                print('hull damaged')
+                        elif(shieldfront==0):
+                            hull=hull-damage
+                            print('front shields are down, hull damaged')
+                            frontdamage=1
+                            if(hull<0):
+                                hull=0
+                elif(enemy_weapon4<=0):
+                    print('enemy 4 is charging weapons')
+                    enemy_weapon4=500
             time.sleep(1)
             if(shieldfront==0)and(frontdamage==1):
                 rand=random.randint(0,40)
@@ -2153,7 +2646,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 1 is locking on')
                 time.sleep(1)
                 print('enemy 1 is discharging weapons')
-                damage= random.randint(10,100)
+                damage= random.randint(enemy1_damagemin,enemy1_damagemax)
                 enemy_weapon1=enemy_weapon1-damage
                 print('enemy 1 did',damage,'damage')
                 if(position1=='back'):
@@ -2207,8 +2700,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 2 is locking on')
                 time.sleep(1)
                 print('enemy 2 is discharging weapons')
-                damage= random.randint(10,100)
-                enemy_weapon1=enemy_weapon2-damage
+                damage= random.randint(enemy2_damagemin,enemy2_damagemax)
+                enemy_weapon2=enemy_weapon2-damage
                 print('enemy 2 did',damage,'damage')
                 if(position2=='back'):
                     if(shieldback>0):
@@ -2261,7 +2754,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
-                damage= random.randint(10,100)
+                damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
@@ -2310,6 +2803,60 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(enemy_weapon3<=0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
+        if(enemy_hull4>0):
+            if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
+                print('enemy 4 is locking on')
+                time.sleep(1)
+                print('enemy 4 is discharging weapons')
+                damage= random.randint(enemy4_damagemin,enemy4_damagemax)
+                enemy_weapon4=enemy_weapon4-damage
+                print('enemy 4 did',damage,'damage')
+                if(position4=='back'):
+                    if(shieldback>0):
+                        shieldback=shieldback-damage
+                        if(shieldback<0):
+                            print('rear shields depleted')
+                            hull=hull+shieldback
+                            shieldback=0
+                            print('hull damaged')
+                    elif(shieldback==0):
+                        hull=hull-damage
+                        print('rear shields are down, hull damaged')
+                        backdamage=1
+                        if(hull<0):
+                            hull=0
+                            print('signal lost')
+                elif(position4=='mid'):
+                    if(shieldmid>0):
+                        shieldmid=shieldmid-damage
+                        if(shieldmid<0):
+                            print('mid shields depleted')
+                            hull=hull+shieldmid
+                            shieldmid=0
+                            print('hull damaged')
+                    elif(shieldmid==0):
+                        hull=hull-damage
+                        print('mid shields are down, hull damaged')
+                        middamage=1
+                        if(hull<0):
+                            hull=0
+                elif(position4=='front'):
+                    if(shieldfront>0):
+                        shieldfront=shieldfront-damage
+                        if(shieldfront<0):
+                            print('front shields depleted')
+                            hull=hull+shieldfront
+                            shieldfront=0
+                            print('hull damaged')
+                    elif(shieldfront==0):
+                        hull=hull-damage
+                        print('front shields are down, hull damaged')
+                        frontdamage=1
+                        if(hull<0):
+                            hull=0
+            elif(enemy_weapon4<=0):
+                print('enemy 4 is charging weapons')
+                enemy_weapon4=500
         time.sleep(1)
         if(shieldfront==0)and(frontdamage==1):
             rand=random.randint(0,40)
@@ -2356,5 +2903,6 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(rand==3):
                 shieldback= False
                 print('shieldgenerator back offline')
+
 
 input('pres enter to exit')  
