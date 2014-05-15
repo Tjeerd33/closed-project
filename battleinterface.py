@@ -183,15 +183,15 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         distance1=distance1+engines
         distance2=distance2+engines
         distance3=distance3+engines
-    if(distance1>2000):
+    if(distance1>2000)and(enemy_hull1>0):
         distance1=distance1-speed1
         if(distance1<100):
             distance1=100
-    if(distance2>2000):
+    if(distance2>2000)and(enemy_hull2>0):
         distance2=distance2-speed2
         if(distance2<100):
             distance2=100
-    if(distance3>2000):
+    if(distance3>2000)and(enemy_hull3>0):
         distance3=distance3-speed3
         if(distance3<100):
             distance3=100
@@ -305,8 +305,11 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         print('    ',enemy_numbers)
         print('enemy postions:')
         time.sleep(3)
-        print('    ',position1)
-        print('    ',position2)
+        if(enemy_hull1>0):
+            print('    ',position1)
+        if(enemy_hull2>0):
+            print('    ',position2)
+        if(enemy_hull3>0):
         print('    ',position3)
         print('enemy shields are at:')
         time.sleep(2)
