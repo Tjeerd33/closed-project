@@ -420,7 +420,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
-                damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
+                damage= random.randint(enemy3_damagemin,enemy3_damagemax)
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
@@ -703,7 +703,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
-                damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
+                damage= random.randint(enemy3_damagemin,enemy3_damagemax)
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
@@ -1164,7 +1164,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
-                damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
+                damage= random.randint(enemy3_damagemin,enemy3_damagemax)
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
@@ -1432,7 +1432,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
-                damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
+                damage= random.randint(enemy3_damagemin,enemy3_damagemax)
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
@@ -1836,7 +1836,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
-                damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
+                damage= random.randint(enemy3_damagemin,enemy3_damagemax)
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
@@ -2192,7 +2192,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     print('enemy 3 is locking on')
                     time.sleep(1)
                     print('enemy 3 is discharging weapons')
-                    damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
+                    damage= random.randint(enemy3_damagemin,enemy3_damagemax)
                     enemy_weapon3=enemy_weapon3-damage
                     print('enemy 3 did',damage,'damage')
                     if(position3=='back'):
@@ -2459,7 +2459,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     print('enemy 3 is locking on')
                     time.sleep(1)
                     print('enemy 3 is discharging weapons')
-                    damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
+                    damage= random.randint(enemy3_damagemin,enemy3_damagemax)
                     enemy_weapon3=enemy_weapon3-damage
                     print('enemy 3 did',damage,'damage')
                     if(position3=='back'):
@@ -2755,7 +2755,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
-                damage= random.randint(enemy3_damagemin,enemy3_damagemzx)
+                damage= random.randint(enemy3_damagemin,enemy3_damagemax)
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
