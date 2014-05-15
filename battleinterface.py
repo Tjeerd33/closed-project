@@ -173,13 +173,14 @@ course_plot=0
 rand=0
 scan=0
 engines=100
+engine= True
 options=['jump to ftl','fire weapons','start repairing','transfer power','status report',
 'plot course','scan area','quit']
 while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     ftl_cooldown=ftl_cooldown-1
     if(ftl_cooldown==0):
         print('ftl drive online')
-    if(engines>0):#calculate distance
+    if(engines>0)and(engine==True):#calculate distance
         distance1=distance1+engines
         distance2=distance2+engines
         distance3=distance3+engines
@@ -270,6 +271,18 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     if(repaired==16)and(repair==1)and(shield_back==False):
         shield_back= True
         print('shield back repaired')
+    if(repaired==17)and(repair==1)and(engine==False):
+        engine=True
+        print('engines repaired')
+    if(repaired==18)and(repair==1)and(engine==False):
+        engine=True
+        print('engines repaired')
+    if(repaired==19)and(repair==1)and(engine==False):
+        engine=True
+        print('engines repaired')
+    if(repaired==20)and(repair==1)and(engine==False):
+        engine=True
+        print('engines repaired')    
     time.sleep(1)
     if(hull<100):
         print('warning! hull is critically low')
@@ -310,7 +323,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         if(enemy_hull2>0):
             print('    ',position2)
         if(enemy_hull3>0):
-        print('    ',position3)
+            print('    ',position3)
         print('enemy shields are at:')
         time.sleep(2)
         if(enemy_hull1>0):
@@ -1589,49 +1602,52 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 enemy_weapon4=500
     time.sleep(1)
     if(shieldfront==0)and(frontdamage==1):
-        rand=random.randint(0,40)
-        if(rand==1):
+        rand=random.randint(0,30)
+        if(rand==1)and(canon_battery1==True):
             canon_battery1= False
             print('cannon battery 1 offline')
-        elif(rand==2):
+        elif(rand==2)and(canon_battery2==True):
             canon_battery2= False
             print('cannon battery 2 offline')
-        elif(rand==3):
+        elif(rand==3)and(shield_front):
             shield_front= False
             print('shieldgenerator front offline')
     if(shieldmid==0)and(middamage==1):
-        rand=random.randint(0,40)
-        if(rand==0):
+        rand=random.randint(0,30)
+        if(rand==8)and(canon_battery3==True):
             canon_battery3= False
             print('cannon battery 3 offline')
-        elif(rand==1):
+        elif(rand==1)and(canon_battery4==True):
             canon_battery4= False
             print('cannon battery 4 offline')
-        elif(rand==2):
+        elif(rand==2)and(canon_battery5==True):
             canon_battery5= False
             print('cannon battery 5 offline')
-        elif(rand==3):
+        elif(rand==3)and(mainweaponb==True):
             mainweaponb= False
             print('main weapon offline')
-        elif(rand==4):
+        elif(rand==4)and(canon_battery6==True):
             canon_battery6= False
             print('cannon battery 6 offline')
-        elif(rand==5):
+        elif(rand==5)and(shield_mid==True):
             shield_mid= False
             print('shieldgenerator mid offline')
     if(shieldback==0)and(backdamage==1):
-        rand=random.randint(0,40)
-        if(rand==0):
+        rand=random.randint(0,30)
+        if(rand==8)and(canon_battery7==True):
             canon_battery7= False
             print('cannon battery 7 offline')
-        elif(rand==1):
+        elif(rand==1)and(canon_battery8==True):
             canon_battery8= False
             print('cannon battery 8 offline')
-        elif(rand==2):
+        elif(rand==2)and(canon_battery9==True):
             canon_battery9= False
             print('cannon battery 9 offline')
-        elif(rand==3):
-            shieldback= False
+        elif(rand==3)and(shield_back==True):
+            shield_back= False
             print('shieldgenerator back offline')
+        elif(rand==4)and(engine==True):
+            engine= False
+            print('engines offline')
 
 input('press enter to exit')
