@@ -267,7 +267,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         frontdamage=1
                         if(hull<0):
                             hull=0
-            elelif(enemy_weapon1<=0):
+            elif(enemy_weapon1<=0):
                 print('enemy 1 is charging weapons')
                 enemy_weapon1=500
         if(enemy_hull2>0):
@@ -1188,7 +1188,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position3=='mid'):
-                    if(shieldbmid>0):
+                    if(shiel_mid>0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
