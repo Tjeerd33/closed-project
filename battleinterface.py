@@ -1,5 +1,6 @@
 
 power=10000
+engines=10
 canon_batterys1=500
 canon_battery1= True
 canon_batterys2=500
@@ -44,11 +45,14 @@ positions=['front','mid','back']
 target=0
 go=1
 classes=['scout','scout','scout','battleship','battleship','transport','commandship']
+ftl_cooldown=10
+jump=0
 
 
 #enemy 1
 position1=random.choice(positions)
 class1=random.choice(classes)
+distance1=random.randint(100,4000)
 if(class1=='scout'):
     enemy_shields1=450
     enemy_hull1=500
@@ -56,6 +60,7 @@ if(class1=='scout'):
     enemy_weapons1= True
     enemy1_damagemin=5
     enemy1_damagemax=50
+    speed1=600
 elif(class1=='battleship'):
     enemy_shields1=900
     enemy_hull1=1000
@@ -63,13 +68,15 @@ elif(class1=='battleship'):
     enemy_weapons1= True
     enemy1_damagemin=10
     enemy1_damagemax=100
+    speed1=400
 elif(class1=='transport'):
     enemy_shields1=1000
     enemy_hull1=1500
     enemy_weapon1=0
     enemy_weapons1= True
     enemy1_damagemin=5
-    enemy1_damagemax=40
+    enemy1_damagemax=50
+    speed1=300
 elif(class1=='commandship'):
     enemy_shields1=1500
     enemy_hull1=2000
@@ -77,9 +84,11 @@ elif(class1=='commandship'):
     enemy_weapons1= True
     enemy1_damagemin=20
     enemy1_damagemax=200
+    speed1=200
 #enemy 2
 position2=random.choice(positions)
 class2=random.choice(classes)
+distance2=random.randint(100,4000)
 if(class2=='scout'):
     enemy_shields2=450
     enemy_hull2=500
@@ -87,6 +96,7 @@ if(class2=='scout'):
     enemy_weapons2= True
     enemy2_damagemin=5
     enemy2_damagemax=50
+    speed2=600
 elif(class2=='battleship'):
     enemy_shields2=900
     enemy_hull2=1000
@@ -94,13 +104,15 @@ elif(class2=='battleship'):
     enemy_weapons2= True
     enemy2_damagemin=10
     enemy2_damagemax=100
+    speed2=400
 elif(class2=='transport'):
     enemy_shields2=1000
     enemy_hull2=1500
     enemy_weapon2=0
     enemy_weapons2= True
     enemy2_damagemin=5
-    enemy2_damagemax=40
+    enemy2_damagemax=50
+    speed2=300
 elif(class2=='commandship'):
     enemy_shields2=1500
     enemy_hull2=2000
@@ -108,9 +120,11 @@ elif(class2=='commandship'):
     enemy_weapons2= True
     enemy2_damagemin=20
     enemy2_damagemax=200
+    speed2=200
 #enemy 3
 position3=random.choice(positions)
 class3=random.choice(classes)
+distance3=random.randint(100,4000)
 if(class3=='scout'):
     enemy_shields3=450
     enemy_hull3=500
@@ -118,6 +132,7 @@ if(class3=='scout'):
     enemy_weapons3= True
     enemy3_damagemin=5
     enemy3_damagemax=50
+    speed3=600
 elif(class3=='battleship'):
     enemy_shields3=900
     enemy_hull3=1000
@@ -125,13 +140,15 @@ elif(class3=='battleship'):
     enemy_weapons3= True
     enemy3_damagemin=10
     enemy3_damagemax=100
+    speed3=400
 elif(class3=='transport'):
     enemy_shields3=1000
     enemy_hull3=1500
     enemy_weapon3=0
     enemy_weapons3= True
     enemy3_damagemin=5
-    enemy3_damagemax=40
+    enemy3_damagemax=50
+    speed3=300
 elif(class3=='commandship'):
     enemy_shields3=1500
     enemy_hull3=2000
@@ -139,9 +156,11 @@ elif(class3=='commandship'):
     enemy_weapons3= True
     enemy3_damagemin=20
     enemy3_damagemax=200
+    speed3=200
 #enemy 4
 position4=random.choice(positions)
 class4=random.choice(classes)
+distance4=random.randint(100,5000)
 enemy_shields4=0
 enemy_hull4=0
 enemy_weapons4=0
@@ -153,9 +172,29 @@ shield_total=shieldfront+shieldmid+shieldback
 course_plot=0
 rand=0
 scan=0
+engines=100
 options=['jump to ftl','fire weapons','start repairing','transfer power','status report',
 'plot course','scan area','quit']
 while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
+    ftl_cooldown=ftl_cooldown-1
+    if(ftl_cooldown==0):
+        print('ftl drive online')
+    if(engines>0):#calculate distance
+        distance1=distance1+engines
+        distance2=distance2+engines
+        distance3=distance3+engines
+    if(distance1>2000):
+        distance1=distance1-speed1
+        if(distance1<100):
+            distance1=100
+    if(distance2>2000):
+        distance2=distance2-speed2
+        if(distance2<100):
+            distance2=100
+    if(distance3>2000):
+        distance3=distance3-speed3
+        if(distance3<100):
+            distance3=100
     repaired= random.randint(0,90)
     options_active=0
     backdamage=0
@@ -294,6 +333,13 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             print('    ',class2)
         if(enemy_hull3>0):
             print('    ',class3)
+        print('enemy distance:')
+        if(enemy_hull1>0):
+            print('    ',distance1)
+        if(enemy_hull2>0):
+            print('    ',distance2)
+        if(enemy_hull3>0):
+            print('    ',distance3)
         print('planets in this system:')
         time.sleep(2)
         print(planets)
@@ -369,9 +415,10 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         print('main weapon:',mainweapona,'status:',mainweaponb)
         print('hull is at',hull,'density')
         print('power:',power)
+        print('engines:',engines)
         alter=input('alter:')
-        if(alter=='options'):
-            print('weapons or shields')
+        if(alter=='options')or(alter=='?')or(alter=='help'):
+            print('weapons, shields or engines')
         elif(alter=='weapons')or(alter=='weapon'):
             newcanon_batterys1=int(input('battery 1:   '))
             newcanon_batterys2=int(input('battery 2:   '))
@@ -384,9 +431,9 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             newcanon_batterys9=int(input('battery 9:   '))
             newmainweapona=int(input('main weapon: '))
             if(newcanon_batterys1>500)or(newcanon_batterys2>500)or(newcanon_batterys3>500)or(newcanon_batterys4>500)or(newcanon_batterys5>500)or(newcanon_batterys6>500)or(newcanon_batterys7>500)or(newcanon_batterys8>500)or(newcanon_batterys9>500)or(newmainweapona>800):
-                print('cannot maintain more than 500 power in normal weapons and can not maintain more than 800 power in main weapon')
+                print('cannot maintain more than 500 power in normal weapons and cannot maintain more than 800 power in main weapon')
             elif(newcanon_batterys1<0)or(canon_batterys2<0)or(newcanon_batterys3<0)or(newcanon_batterys4<0)or(newcanon_batterys5<0)or(newcanon_batterys6<0)or(newcanon_batterys7<0)or(newcanon_batterys8<0)or(newcanon_batterys9<0)or(newmainweapona<0):
-                print('error, power can not be lower than 0')
+                print('error, power cannot be lower than 0')
             elif(newcanon_batterys1<=500)or(newcanon_batterys2<=500)or(newcanon_batterys3<=500)or(newcanon_batterys4<=500)or(newcanon_batterys5<=500)or(newcanon_batterys6<=500)or(newcanon_batterys7<=500)or(newcanon_batterys8<=500)or(newcanon_batterys9<=500)or(newmainweapona<=800):
                 transport1=newcanon_batterys1-canon_batterys1
                 transport2=newcanon_batterys2-canon_batterys2
@@ -492,9 +539,9 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             elif(shield_back== False):
                 print('rear shield offline')
             if(newshieldmid>900)or(newshieldfront>900)or(newshieldback>900):
-                print('error shields can not contain more than 900 power')
+                print('error shields cannot contain more than 900 power')
             elif(newshieldmid<0)or(newshieldfront<0)or(newshieldback<0):
-                print('error shields can not contain less than 0 power')
+                print('error shields cannot contain less than 0 power')
             else:
                 transport1=newshieldmid-shieldmid
                 transport2=newshieldfront-shieldfront
@@ -527,6 +574,21 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                     print('transport 3 succesfull')
                     shieldback=newshieldback
                 time.sleep(1)
+        if(alter=='engines'):
+            newengines=int(input('engines:   '))
+            power=power-newengines
+            if(power<0):
+                power=power+newengines
+                print('error: insufficient power')
+            elif(newengines>400):
+                power=power+newengines
+                print('error: engines cannot contain more than 400 power')
+            elif(newengines<0):
+                power=power+newengines
+                print('error: power cannot be lower than 0')
+            else:
+                engines=newengines
+                print('transfer succesfull')
 
     elif action=='start repairing':
         time.sleep(1)
@@ -536,13 +598,13 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     elif action=='fire weapons':
         while(target!='1')and(target!='2')and(target!='3'):
             target=input('target:')
-            if(target=='1')and(enemy_hull1<=0):
+            if(target=='1')and(enemy_hull1<=0)or(distance1>2500):
                 print('cannot find target')
                 target=0
-            if(target=='2')and(enemy_hull2<=0):
+            if(target=='2')and(enemy_hull2<=0)or(distance2>2500):
                 print('cannot find target')
                 target=0
-            if(target=='3')and(enemy_hull3<=0):
+            if(target=='3')and(enemy_hull3<=0)or(distance3>2500):
                 print('cannot find target')
                 target=0
         time.sleep(1)
@@ -620,7 +682,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 mainweapona=0
             time.sleep(1)
         total_damage=damage1+damage2+damage3+damage4+damage5+damage6+damage7+damage8+damage9+damagemain 
-        if(target=='1'):
+        if(target=='1')and(distance1<2500):
             if(enemy_shields1>0):
                     enemy_shields1=enemy_shields1-total_damage
                     print('youd did',total_damage,"to enemy 1's shields")
@@ -637,7 +699,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 if(rand==1):
                     enemy_weapons1= False
                     print('enemy weapons disabled')
-        if(target=='2'):
+        if(target=='2')and(distance2<2500):
             if(enemy_shields2>0):
                 enemy_shields2=enemy_shields2-total_damage
                 print('youd did',total_damage,"to enemy 2's shields")
@@ -655,7 +717,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 if(rand==1):
                     enemy_weapons2= False
                     print('enemy weapons disabled')
-        if(target=='3'):
+        if(target=='3')and(distance3<2500):
             if(enemy_shields3>0):
                 enemy_shields3=enemy_shields3-total_damage
                 print('youd did',total_damage,"to enemy 3's shields")
@@ -678,6 +740,10 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     elif action=='options'or action=='?' or action=='help':
         print(options)
         options_active=1
+        print('maximum weapon power=400')
+        print('maximum main weapon power=800')
+        print('maximum shield power=900')
+        print('maximum engines power=400')
 
     elif action=='status report':#prints the status of all systems
         print('status report:')
@@ -714,10 +780,15 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         print('main weapon:',mainweapona,'status:',mainweaponb)
         print('hull is at',hull,'density')
         print('power:',power)
-        print("enemy's in this area:")
-        
+        time.sleep(1)
+        print('engines:',engines)
+        time.sleep(1)
+        print('ftl cooldown:',ftl_cooldown)
+        print('if ftl is less than 0 or 0: ftl drive online')
+        time.sleep(2)
+               
     elif action=='jump to ftl':
-        if(course_plot<1):
+        if(course_plot<1)and(ftl_cooldown<=0):
             print('calculating path to nearest star')
             destination='Gamma-492b'
             print('if shields are down the ship will be destroyed')
@@ -732,7 +803,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('error unkown command')
                 go=0
             time.sleep(2)
-            if(enemy_hull1>0):
+            if(enemy_hull1>0)and(distance1<2500):
                 if(enemy_weapon1>0)and(enemy_weapons1==True)and(hull>0):
                     print('enemy 1 is locking on')
                     time.sleep(1)
@@ -786,7 +857,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 elif(enemy_weapon1<=0):
                     print('enemy 1 is charging weapons')
                     enemy_weapon1=500
-            if(enemy_hull2>0):
+            if(enemy_hull2>0)and(distance2<2500):
                 if(enemy_weapon2>0)and(enemy_weapons2==True)and(hull>0):
                     print('enemy 2 is locking on')
                     time.sleep(1)
@@ -840,7 +911,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 elif(enemy_weapon2<=0):
                     print('enemy 2 is charging weapons')
                     enemy_weapon2=500
-            if(enemy_hull3>0):
+            if(enemy_hull3>0)and(distance3<2500):
                 if(enemy_weapon3>0)and(enemy_weapons3==True)and(hull>0):
                     print('enemy 3 is locking on')
                     time.sleep(1)
@@ -894,7 +965,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 elif(enemy_weapon3<=0):
                     print('enemy 3 is charging weapons')
                     enemy_weapon3=500
-            if(enemy_hull4>0):
+            if(enemy_hull4>0)and(distance4<2500):
                 if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
                     print('enemy 4 is locking on')
                     time.sleep(1)
@@ -994,12 +1065,12 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 elif(rand==3):
                     shieldback= False
                     print('shieldgenerator back offline')
-            if(hull>0)and(go==1):
+            if(hull>0)and(go==1)and(ftl_cooldown<=0):
                 if(course_plot<1):
                     print('path calculated, prepairing for jump')
-            print('jump in 20 seconds')
+                print('jump in 20 seconds')
             time.sleep(7)
-            if(enemy_hull1>0):
+            if(enemy_hull1>0)and(distance1<2500):
                 if(enemy_weapon1>0)and(enemy_weapons1==True)and(hull>0):
                     print('enemy 1 is locking on')
                     time.sleep(1)
@@ -1053,7 +1124,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 elif(enemy_weapon1<=0):
                     print('enemy 1 is charging weapons')
                     enemy_weapon1=500
-            if(enemy_hull2>0):
+            if(enemy_hull2>0)and(distance2<2500):
                 if(enemy_weapon2>0)and(enemy_weapons2==True)and(hull>0):
                     print('enemy 2 is locking on')
                     time.sleep(1)
@@ -1107,7 +1178,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 elif(enemy_weapon2<=0):
                     print('enemy 2 is charging weapons')
                     enemy_weapon2=500
-            if(enemy_hull3>0):
+            if(enemy_hull3>0)and(distance3<2500):
                 if(enemy_weapon3>0)and(enemy_weapons3==True)and(hull>0):
                     print('enemy 3 is locking on')
                     time.sleep(1)
@@ -1161,7 +1232,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 elif(enemy_weapon3<=0):
                     print('enemy 3 is charging weapons')
                     enemy_weapon3=500
-            if(enemy_hull4>0):
+            if(enemy_hull4>0)and(distance4<2500):
                 if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
                     print('enemy 4 is locking on')
                     time.sleep(1)
@@ -1261,7 +1332,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 elif(rand==3):
                     shieldback= False
                     print('shieldgenerator back offline')
-        if(hull>0)and(go==1):
+        if(hull>0)and(go==1)and(ftl_cooldown<=0):
             time.sleep(1)
             print('10')
             time.sleep(1)
@@ -1284,10 +1355,11 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             print('1')
             time.sleep(2)
             jump=1
-        if(hull>0)and(shieldfront>0)and(shieldmid>0)and(shieldback>0)and(go==1)and(jump==1):
+        if(hull>0)and(shieldfront>0)and(shieldmid>0)and(shieldback>0)and(go==1)and(jump==1)and(ftl_cooldown<=0):
             print('jump succesful')
             ftl_active=1
-        elif(go==0):
+        elif(go==0)or(ftl_cooldown<=0)or(shieldfront>0)or(shieldmid>0)or(shieldback>0):
+            print('failsafe override')
             print('jump canceld')
         else:
             print('signal lost')
@@ -1297,7 +1369,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         print('error: unkown command')
 
     if(enemy_hull1>0)and(options_active!=1):
-            if(enemy_weapon1>0)and(enemy_weapons1==True)and(hull>0):
+            if(enemy_weapon1>0)and(enemy_weapons1==True)and(hull>0)and(distance1<2500):
                 print('enemy 1 is locking on')
                 time.sleep(1)
                 print('enemy 1 is discharging weapons')
@@ -1351,7 +1423,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 1 is charging weapons')
                 enemy_weapon1=500
     if(enemy_hull2>0)and(options_active!=1):
-            if(enemy_weapon2>0)and(enemy_weapons2==True)and(hull>0):
+            if(enemy_weapon2>0)and(enemy_weapons2==True)and(hull>0)and(distance2<2500):
                 print('enemy 2 is locking on')
                 time.sleep(1)
                 print('enemy 2 is discharging weapons')
@@ -1405,7 +1477,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 2 is charging weapons')
                 enemy_weapon2=500
     if(enemy_hull3>0)and(options_active!=1):
-            if(enemy_weapon3>0)and(enemy_weapons3==True)and(hull>0):
+            if(enemy_weapon3>0)and(enemy_weapons3==True)and(hull>0)and(distance3<2500):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
@@ -1459,7 +1531,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
     if(enemy_hull4>0):
-            if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
+            if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0)and(distance4<2500):
                 print('enemy 4 is locking on')
                 time.sleep(1)
                 print('enemy 4 is discharging weapons')
