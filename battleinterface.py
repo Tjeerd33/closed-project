@@ -706,11 +706,11 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             newcanon_batterys8=int(input('battery 8:   '))
             newcanon_batterys9=int(input('battery 9:   '))
             newmainweapona=int(input('main weapon: '))
-            if(newcanon_batterys1>500)or(canon_batterys2>500)or(canon_batterys3>500)or(canon_batterys4>500)or(canon_batterys5>500)or(canon_batterys6>500)or(canon_batterys7>500)or(canon_batterys8>500)or(canon_batterys9>500)or(newmainweapona>800):
+            if(newcanon_batterys1>500)or(newcanon_batterys2>500)or(newcanon_batterys3>500)or(newcanon_batterys4>500)or(newcanon_batterys5>500)or(newcanon_batterys6>500)or(newcanon_batterys7>500)or(newcanon_batterys8>500)or(newcanon_batterys9>500)or(newmainweapona>800):
                 print('cannot maintain more than 500 power in normal weapons and can not maintain more than 800 power in main weapon')
-            elif(newcanon_batterys1<0)or(canon_batterys2<0)or(canon_batterys3<0)or(canon_batterys4<0)or(canon_batterys5<0)or(canon_batterys6<0)or(canon_batterys7<0)or(canon_batterys8<0)or(canon_batterys9<0)or(newmainweapona<0):
+            elif(newcanon_batterys1<0)or(canon_batterys2<0)or(newcanon_batterys3<0)or(newcanon_batterys4<0)or(newcanon_batterys5<0)or(newcanon_batterys6<0)or(newcanon_batterys7<0)or(newcanon_batterys8<0)or(newcanon_batterys9<0)or(newmainweapona<0):
                 print('error, power can not be lower than 0')
-            elif(newcanon_batterys1<=500)or(canon_batterys2<=500)or(canon_batterys3<=500)or(canon_batterys4<=500)or(canon_batterys5<=500)or(canon_batterys6<=500)or(canon_batterys7<=500)or(canon_batterys8<=500)or(canon_batterys9<=500)or(newmainweapona<=800):
+            elif(newcanon_batterys1<=500)or(newcanon_batterys2<=500)or(newcanon_batterys3<=500)or(newcanon_batterys4<=500)or(newcanon_batterys5<=500)or(newcanon_batterys6<=500)or(newcanon_batterys7<=500)or(newcanon_batterys8<=500)or(newcanon_batterys9<=500)or(newmainweapona<=800):
                 transport1=newcanon_batterys1-canon_batterys1
                 transport2=newcanon_batterys2-canon_batterys2
                 transport3=newcanon_batterys3-canon_batterys3
