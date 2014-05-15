@@ -157,6 +157,7 @@ options=['jump to ftl','fire weapons','start repairing','transfer power','status
 'plot course','scan area','quit']
 while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     repaired= random.randint(0,90)
+    options_used=0
     backdamage=0
     frontdamage=0
     middamage=0
@@ -287,11 +288,11 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         print('density')
         time.sleep(1)
         print('enemy classes are:')
-        if(enemyhull1>0):
+        if(enemy_hull1>0):
             print('    ',class1)
-        if(enemyhull2>0):
+        if(enemy_hull2>0):
             print('    ',class2)
-        if(enemyhull3>0):
+        if(enemy_hull3>0):
             print('    ',class3)
         print('planets in this system:')
         time.sleep(2)
@@ -2030,11 +2031,11 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         print('    ',enemy_numbers)
         print('enemy postions:')
         time.sleep(3)
-        if(hull1>0):
+        if(enemy_hull1>0):
             print('    ',position1)
-        if(hull2>0):
+        if(enemy_hull2>0):
             print('    ',position2)
-        if(hull3>0):
+        if(enemy_hull3>0):
             print('    ',position3)
         print('enemy shields are at:')
         time.sleep(2)
@@ -2055,11 +2056,11 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         print('density')
         if(scan==1):
             print('enemy classes are:')
-            if(enemyhull1>0):
+            if(hull1>0):
                 print('    ',class1)
-            if(enemyhull2>0):
+            if(hull2>0):
                 print('    ',class2)
-            if(enemyhull3>0):
+            if(enemy_hull3>0):
                 print('    ',class3)
 
     elif action=='jump to ftl':
