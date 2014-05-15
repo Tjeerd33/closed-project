@@ -460,7 +460,7 @@ while(ftl_active==0):
 
 #Mission 2
 #Introducing storyline
-print('You have arrived at Gamma-492b')
+print('You have arrived at Gamma-492b') #Spectraalklasse B (die andere is G) 
 print('scanners show nothing more than dust')
 print('We need nitrogen to cool down the engines!')
 #Interactive question_1
