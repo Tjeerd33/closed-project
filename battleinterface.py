@@ -612,145 +612,158 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         repair=1
 
     elif action=='fire weapons':
-        while(target!='1')and(target!='2')and(target!='3'):
+        while(target!='1')and(target!='2')and(target!='3')and(target!='untracable'):
             target=input('target:')
             if(target=='1')and(enemy_hull1<=0)or(distance1>2500):
                 print('cannot find target')
                 target=0
-            if(target=='2')and(enemy_hull2<=0)or(distance2>2500):
+            elif(target=='2')and(enemy_hull2<=0)or(distance2>2500):
                 print('cannot find target')
                 target=0
-            if(target=='3')and(enemy_hull3<=0)or(distance3>2500):
+            elif(target=='3')and(enemy_hull3<=0)or(distance3>2500):
                 print('cannot find target')
                 target=0
+            elif(distance1>2500)and(distance2>2500)and(distance3>2500):
+                print('no targets in range')
+                target='untracable'
         time.sleep(1)
-        print('locking on')
-        time.sleep(1)
-        print('target locked')
-        if(canon_batterys1>0)and(canon_battery1==True):
-            damage1=random.randint(10,40)
-            canon_batterys1=canon_batterys1-damage1
-            print('cannon 1 firing')
-            if(canon_batterys1<0):
-                canon_batterys1=0
+        if(target!='untracable'):
+            print('locking on')
             time.sleep(1)
-        if(canon_batterys2>0)and(canon_battery2==True):
-            damage2=random.randint(10,40)
-            canon_batterys2=canon_batterys2-damage2
-            print('cannon 2 firing')
-            if(canon_batterys2<0):
-                canon_batterys2=0
-            time.sleep(1)
-        if(canon_batterys3>0)and(canon_battery3==True):
-            damage3=random.randint(10,40)
-            canon_batterys3=canon_batterys3-damage3
-            print('cannon 3 firing')
-            if(canon_batterys3<0):
-                canon_batterys3=0
-            time.sleep(1)
-        if(canon_batterys4>0)and(canon_battery4==True):
-            damage4=random.randint(10,40)
-            canon_batterys4=canon_batterys4-damage4
-            print('cannon 4 firing')
-            if(canon_batterys4<0):
-                canon_batterys4=0
-            time.sleep(1)
-        if(canon_batterys5>0)and(canon_battery5==True):
-            damage5=random.randint(10,40)
-            canon_batterys5=canon_batterys5-damage5
-            print('cannon 5 firing')
-            if(canon_batterys5<0):
-                canon_batterys5=0
-            time.sleep(1)
-        if(canon_batterys6>0)and(canon_battery6==True):
-            damage6=random.randint(10,40)
-            canon_batterys6=canon_batterys6-damage6
-            print('cannon 6 firing')
-            if(canon_batterys6<0):
-                canon_batterys6=0
-            time.sleep(1)
-        if(canon_batterys7>0)and(canon_battery7==True):
-            damage7=random.randint(10,40)
-            canon_batterys7=canon_batterys7-damage7
-            print('cannon 7 firing')
-            if(canon_batterys7<0):
-                canon_batterys7=0
-            time.sleep(1)
-        if(canon_batterys8>0)and(canon_battery8==True):
-            damage8=random.randint(10,40)
-            canon_batterys8=canon_batterys8-damage8
-            print('cannon 8 firing')
-            if(canon_batterys8<0):
-                canon_batterys8=0
-            time.sleep(1)
-        if(canon_batterys9>0)and(canon_battery9==True):
-            damage9=random.randint(10,40)
-            canon_batterys9=canon_batterys9-damage9
-            print('cannon 9 firing')
-            if(canon_batterys9<0):
-                canon_batterys9=0
-            time.sleep(1)
-        if(mainweapona>0)and(mainweaponb==True):
-            damagemain=random.randint(20,80)
-            mainweapona=mainweapona-damagemain
-            print('mainweapon  firing')
-            if(mainweapona<0):
-                mainweapona=0
-            time.sleep(1)
-        total_damage=damage1+damage2+damage3+damage4+damage5+damage6+damage7+damage8+damage9+damagemain 
-        if(target=='1')and(distance1<2500):
-            if(enemy_shields1>0):
-                    enemy_shields1=enemy_shields1-total_damage
-                    print('youd did',total_damage,"to enemy 1's shields")
-                    if(enemy_shields1<0):
-                        enemy_hull1=enemy_hull1+enemy_shields1
-                        enemy_shields1=0
-            elif(enemy_shields1==0):
-                enemy_hull1=enemy_hull1-total_damage
-                print('you did',total_damage,"to enemy 1's hull")
-                if(enemy_hull1<=0):
-                    enemy_hull1=0
-                    print('enemy 1 destroyed')
-                rand=random.randint(0,20)
-                if(rand==1):
-                    enemy_weapons1= False
-                    print('enemy weapons disabled')
-        if(target=='2')and(distance2<2500):
-            if(enemy_shields2>0):
-                enemy_shields2=enemy_shields2-total_damage
-                print('youd did',total_damage,"to enemy 2's shields")
-                if(enemy_shields2<0):
-                        enemy_hull2=enemy_hull2+enemy_shields2
-                        enemy_shields2=0
-                        print('enemy shields depleted, hull damaged')
-            elif(enemy_shields2==0):
-                enemy_hull2=enemy_hull2-total_damage
-                print('you did',total_damage,"to enemy 2's hull")
-                if(enemy_hull2<=0):
-                    enemy_hull2=0
-                    print('enemy 2 destroyed')
-                rand=random.randint(0,20)
-                if(rand==1):
-                    enemy_weapons2= False
-                    print('enemy weapons disabled')
-        if(target=='3')and(distance3<2500):
-            if(enemy_shields3>0):
-                enemy_shields3=enemy_shields3-total_damage
-                print('youd did',total_damage,"to enemy 3's shields")
-                if(enemy_shields3<0):
-                        enemy_hull3=enemy_hull3+enemy_shields3
-                        enemy_shields3=0
-                        print('enemy shields depleted, hull damaged')
-            elif(enemy_shields3==0):
-                enemy_hull3=enemy_hull3-total_damage
-                print('you did',total_damage,"to enemy 3's hull")
-                if(enemy_hull3<=0):
-                    enemy_hull3=0
-                    print('enemy 3 destroyed')
-                rand=random.randint(0,20)
-                if(rand==1):
-                    enemy_weapons3= False
-                    print('enemy weapons disabled')
+            print('target locked')
+            if(canon_batterys1>0)and(canon_battery1==True):
+                damage1=random.randint(10,40)
+                canon_batterys1=canon_batterys1-damage1
+                print('cannon 1 firing')
+                if(canon_batterys1<0):
+                    canon_batterys1=0
+                time.sleep(1)
+            if(canon_batterys2>0)and(canon_battery2==True):
+                damage2=random.randint(10,40)
+                canon_batterys2=canon_batterys2-damage2
+                print('cannon 2 firing')
+                if(canon_batterys2<0):
+                    canon_batterys2=0
+                time.sleep(1)
+            if(canon_batterys3>0)and(canon_battery3==True):
+                damage3=random.randint(10,40)
+                canon_batterys3=canon_batterys3-damage3
+                print('cannon 3 firing')
+                if(canon_batterys3<0):
+                    canon_batterys3=0
+                time.sleep(1)
+            if(canon_batterys4>0)and(canon_battery4==True):
+                damage4=random.randint(10,40)
+                canon_batterys4=canon_batterys4-damage4
+                print('cannon 4 firing')
+                if(canon_batterys4<0):
+                    canon_batterys4=0
+                time.sleep(1)
+            if(canon_batterys5>0)and(canon_battery5==True):
+                damage5=random.randint(10,40)
+                canon_batterys5=canon_batterys5-damage5
+                print('cannon 5 firing')
+                if(canon_batterys5<0):
+                    canon_batterys5=0
+                time.sleep(1)
+            if(canon_batterys6>0)and(canon_battery6==True):
+                damage6=random.randint(10,40)
+                canon_batterys6=canon_batterys6-damage6
+                print('cannon 6 firing')
+                if(canon_batterys6<0):
+                    canon_batterys6=0
+                time.sleep(1)
+            if(canon_batterys7>0)and(canon_battery7==True):
+                damage7=random.randint(10,40)
+                canon_batterys7=canon_batterys7-damage7
+                print('cannon 7 firing')
+                if(canon_batterys7<0):
+                    canon_batterys7=0
+                time.sleep(1)
+            if(canon_batterys8>0)and(canon_battery8==True):
+                damage8=random.randint(10,40)
+                canon_batterys8=canon_batterys8-damage8
+                print('cannon 8 firing')
+                if(canon_batterys8<0):
+                    canon_batterys8=0
+                time.sleep(1)
+            if(canon_batterys9>0)and(canon_battery9==True):
+                damage9=random.randint(10,40)
+                canon_batterys9=canon_batterys9-damage9
+                print('cannon 9 firing')
+                if(canon_batterys9<0):
+                    canon_batterys9=0
+                time.sleep(1)
+            if(mainweapona>0)and(mainweaponb==True):
+                damagemain=random.randint(20,80)
+                mainweapona=mainweapona-damagemain
+                print('mainweapon  firing')
+                if(mainweapona<0):
+                    mainweapona=0
+                time.sleep(1)
+            total_damage=damage1+damage2+damage3+damage4+damage5+damage6+damage7+damage8+damage9+damagemain 
+            if(target=='1')and(distance1<2500):
+                if(enemy_shields1>0):
+                        enemy_shields1=enemy_shields1-total_damage
+                        print('youd did',total_damage,"to enemy 1's shields")
+                        if(enemy_shields1<0):
+                            enemy_hull1=enemy_hull1+enemy_shields1
+                            enemy_shields1=0
+                elif(enemy_shields1==0):
+                    enemy_hull1=enemy_hull1-total_damage
+                    print('you did',total_damage,"to enemy 1's hull")
+                    if(enemy_hull1<=0):
+                        enemy_hull1=0
+                        print('enemy 1 destroyed')
+                    rand=random.randint(0,20)
+                    if(rand==1):
+                        enemy_weapons1= False
+                        print('enemy weapons disabled')
+                    if(rand==2):
+                        speed1=0
+                        print('enemy engines disabled')
+            if(target=='2')and(distance2<2500):
+                if(enemy_shields2>0):
+                    enemy_shields2=enemy_shields2-total_damage
+                    print('youd did',total_damage,"to enemy 2's shields")
+                    if(enemy_shields2<0):
+                            enemy_hull2=enemy_hull2+enemy_shields2
+                            enemy_shields2=0
+                            print('enemy shields depleted, hull damaged')
+                elif(enemy_shields2==0):
+                    enemy_hull2=enemy_hull2-total_damage
+                    print('you did',total_damage,"to enemy 2's hull")
+                    if(enemy_hull2<=0):
+                        enemy_hull2=0
+                        print('enemy 2 destroyed')
+                    rand=random.randint(0,20)
+                    if(rand==1):
+                        enemy_weapons2= False
+                        print('enemy weapons disabled')
+                    if(rand==2):
+                        speed2=0
+                        print('enemy engines disabled')
+            if(target=='3')and(distance3<2500):
+                if(enemy_shields3>0):
+                    enemy_shields3=enemy_shields3-total_damage
+                    print('youd did',total_damage,"to enemy 3's shields")
+                    if(enemy_shields3<0):
+                            enemy_hull3=enemy_hull3+enemy_shields3
+                            enemy_shields3=0
+                            print('enemy shields depleted, hull damaged')
+                elif(enemy_shields3==0):
+                    enemy_hull3=enemy_hull3-total_damage
+                    print('you did',total_damage,"to enemy 3's hull")
+                    if(enemy_hull3<=0):
+                        enemy_hull3=0
+                        print('enemy 3 destroyed')
+                    rand=random.randint(0,20)
+                    if(rand==1):
+                        enemy_weapons3= False
+                        print('enemy weapons disabled')
+                    if(rand==2):
+                        speed3=0
+                        print('enemy engines disabled')
                 
                 
     elif action=='options'or action=='?' or action=='help':
