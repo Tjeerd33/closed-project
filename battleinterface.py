@@ -35,6 +35,7 @@ import random
 enemy_numbers=3
 
 #star system info
+starsclass='a1'
 planets=3
 planet_class=['gass giant','iron based','gass giant']
 starsystems=['Delta-37g2','Gamma-492b2']
@@ -612,7 +613,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         repair=1
 
     elif action=='fire weapons':
-        while(target!='1')and(target!='2')and(target!='3')and(target!='untracable'):
+        while(target!='1')and(target!='2')and(target!='3')and(target!='untracable')and(target!='quit'):
             target=input('target:')
             if(target=='1')and(enemy_hull1<=0)or(distance1>2500):
                 print('cannot find target')
@@ -627,7 +628,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('no targets in range')
                 target='untracable'
         time.sleep(1)
-        if(target!='untracable'):
+        if(target!='untracable')or(target=='1')or(target=='2')or(target=='3'):
             print('locking on')
             time.sleep(1)
             print('target locked')
