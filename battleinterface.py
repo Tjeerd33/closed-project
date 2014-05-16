@@ -770,7 +770,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     elif action=='options'or action=='?' or action=='help':
         print(options)
         options_active=1
-        print('maximum weapon power=400')
+        print('maximum weapon power=500')
         print('maximum main weapon power=800')
         print('maximum shield power=900')
         print('maximum engines power=400')
