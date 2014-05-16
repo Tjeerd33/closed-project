@@ -12,7 +12,7 @@ canon_batterys3=500
 canon_battery3= True
 canon_batterys4=300 #normal is 500
 canon_battery4= True
-canon_batterys5=0
+canon_batterys5=10
 canon_battery5= False
 canon_batterys6=0
 canon_battery6= False
@@ -23,17 +23,16 @@ canon_battery8= False
 canon_batterys9=0
 canon_battery9= False
 hull=1654 #full is 2000
-shieldfront=300 #shields max is 1000
+shieldfront=300 #shields max is 900
 shield_front= True
 shieldmid=350
 shield_mid= True
 shieldback=200
 shield_back= True
-mainweapona=800 #full power is 1000
+mainweapona=800 #full power is 800
 mainweaponb= True
-question_answer=0
+question_answerd=0
 ftl_overload=0
-options=['start engines','full power to the shields','jump to ftl']
 import time
 import random
 
