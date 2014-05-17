@@ -59,9 +59,8 @@ jump=0
 
 
 #enemy 1
-position1=random.choice(positions)
 class1=random.choice(classes)
-distance1=random.randint(100,4000)
+distance1=random.randint(-4000,4000)
 if(class1=='scout'):
     enemy_shields1=450
     enemy_hull1=500
@@ -103,9 +102,8 @@ elif(class1=='gunship'):
     enemy1_damagemax=100
     speed1=300
 #enemy 2
-position2=random.choice(positions)
 class2=random.choice(classes)
-distance2=random.randint(100,4000)
+distance2=random.randint(-4000,4000)
 if(class2=='scout'):
     enemy_shields2=450
     enemy_hull2=500
@@ -147,9 +145,8 @@ elif(class2=='gunship'):
     enemy2_damagemax=100
     speed2=300
 #enemy 3
-position3=random.choice(positions)
 class3=random.choice(classes)
-distance3=random.randint(100,4000)
+distance3=random.randint(-4000,4000)
 if(class3=='scout'):
     enemy_shields3=450
     enemy_hull3=500
@@ -199,6 +196,9 @@ enemy_hull4=0
 enemy_weapons4=0
 enemy_weapons4= True
 #battle presets
+salvage1=0
+salvage2=0
+salvage3=0
 ftl_active=0
 repair=0
 shield_total=shieldfront+shieldmid+shieldback
@@ -210,6 +210,24 @@ engine= True
 options=['jump to ftl','fire weapons','start repairing','transfer power','status    report',
 'plot course','scan area','toggle shield overdrive','fire drones','collect raw materials','toggle drone building','salvage','quit']#setting options
 while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump is made or ship is destroyed
+    if(distance1>1500):#positioning enemy's
+        position1='back'
+    elif(distance1<1500)and(distance1>-1500):
+        position1='mid'
+    elif(distance1<-1500):
+        position1='front'
+    if(distance2>1500):
+        position2='back'
+    elif(distance2<1500)and(distance1>-1500):
+        position2='mid'
+    elif(distance2<-1500):
+        position2='front'
+    if(distance3>1500):
+        position3='back'
+    elif(distance3<1500)and(distance3>-1500):
+        position3='mid'
+    elif(distance3<-1500):
+        position3='front'
     if(options_active==0):
         if(collecting==True)and(collectiontime>0):
             collectiontime=collectiontime-2
@@ -255,7 +273,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
             planetdistance['Icarus-3a']=planetdistance['Icarus-3a']-engines
             planetdistance['Icarus-3b']=planetdistance['Icarus-3b']-engines
             planetdistance['Icarus-3c']=planetdistance['Icarus-3c']-engines
-            if(planetdistance['Icarus-3a']<=-200):
+            if(planetdistance['Icarus-3a']>=-200):
                 if(planetdistance['Icarus-3a']<=200):
                     print('planet in orbital range')
                     orbital=input('do you want to orbit?')
@@ -268,7 +286,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                         if(planetdistance['Icarus-3a']<=200)and(planetdistance['Icarus-3a']>=-200)and(orbit==True):
                             print('you are in orbit around Icarus-3a')
                             orbita='Icarus-3a'
-            if(planetdistance['Icarus-3b']<=-200):
+            if(planetdistance['Icarus-3b']>=-200):
                 if(planetdistance['Icarus-3b']<=200):
                     print('planet in orbital range')
                     orbital=input('do you want to orbit?')
@@ -281,7 +299,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                         if(planetdistance['Icarus-3b']<=200)and(planetdistance['Icarus-3b']>=-200)and(orbit==True):
                             print('you are in orbit around Icarus-3b')
                             orbita='Icarus-3b'
-            elif(planetdistance['Icarus-3c']<=-200):
+            elif(planetdistance['Icarus-3c']>=-200):
                 if(planetdistance['Icarus-3c']<=200):
                     print('planet in orbital range')
                     orbital=input('do you want to orbit?')
@@ -303,8 +321,8 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
             planetdistance['Icarus-3a']=planetdistance['Icarus-3a']+engines
             planetdistance['Icarus-3b']=planetdistance['Icarus-3b']+engines
             planetdistance['Icarus-3c']=planetdistance['Icarus-3c']+engines
-            if(planetdistance['Icarus-3a']>-200)or(planetdistance['Icarus-3b']>-200)or(planetdistance['Icarus-3c']>-200):
-                if(planetdistance['Icarus-3a']<=200)or(planetdistance['Icarus-3b']<=200)or(planetdistance['Icarus-3c']<=200):
+            if(planetdistance['Icarus-3a']>=-200):
+                if(planetdistance['Icarus-3a']<=200):
                     print('planet in orbital range')
                     orbital=input('do you want to orbit?')
                     if(orbital=='yes')or(orbital=='Yes')or(orbital=='ja'):
@@ -316,18 +334,47 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                         if(planetdistance['Icarus-3a']<=200)and(planetdistance['Icarus-3a']>=-200)and(orbit==True):
                             print('you are in orbit around Icarus-3a')
                             orbita='Icarus-3a'
-                        elif(planetdistance['Icarus-3b']<=200)and(planetdistance['Icarus-3b']>=-200)and(orbit==True):
+            if(planetdistance['Icarus-3b']>=-200):
+                if(planetdistance['Icarus-3b']<=200):
+                    print('planet in orbital range')
+                    orbital=input('do you want to orbit?')
+                    if(orbital=='yes')or(orbital=='Yes')or(orbital=='ja'):
+                        engines=0
+                        time.sleep(2)
+                        print('we are now in orbit')
+                        orbit= True
+                        print('start engines to break from orbit')
+                        if(planetdistance['Icarus-3b']<=200)and(planetdistance['Icarus-3b']>=-200)and(orbit==True):
                             print('you are in orbit around Icarus-3b')
                             orbita='Icarus-3b'
-                        elif(planetdistance['Icarus-3c']<=200)and(planetdistance['Icarus-3c']>=-200)and(orbit==True):
+            elif(planetdistance['Icarus-3c']>=-200):
+                if(planetdistance['Icarus-3c']<=200):
+                    print('planet in orbital range')
+                    orbital=input('do you want to orbit?')
+                    if(orbital=='yes')or(orbital=='Yes')or(orbital=='ja'):
+                        engines=0
+                        time.sleep(2)
+                        print('we are now in orbit')
+                        orbit= True
+                        print('start engines to break from orbit')
+                        if(planetdistance['Icarus-3c']<=200)and(planetdistance['Icarus-3c']>=-200)and(orbit==True):
                             print('you are in orbit around Icarus-3c')
-                            orbita='Icarus-3c' 
-        if(distance1>2000)and(enemy_hull1>0):#calculate enemy distance
-            distance1=distance1-speed1
-        if(distance2>2000)and(enemy_hull2>0):
-            distance2=distance2-speed2
-        if(distance3>2000)and(enemy_hull3>0):
-            distance3=distance3-speed3
+                            orbita='Icarus-3c'
+        if(distance1>2000)or(distance1<-2000)and(enemy_hull1>0):#calculate enemy distance
+            if(distance1>0):
+                distance1=distance1-speed1
+            elif(distance1<0):
+                distance1=distance1-speed1
+        if(distance2>2000)or(distance2<-2000)and(enemy_hull2>0):
+            if(distance2>0):
+                distance2=distance2-speed2
+            elif(distance2<0):
+                distance2=distance2+speed2
+        if(distance3>2000)or(distance3<-2000)and(enemy_hull3>0):
+            if(distance3>0):
+                distance3=distance3-speed3
+            elif(distance3<0):
+                distance3=distance3+speed3
         repaired= random.randint(0,90)
         #resetting some intergers
         backdamage=0
@@ -444,7 +491,43 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
         options_active=0
     action=input('input:')#prompt for action
 
-    if(action=='collect raw materials'):
+    if(action=='salvage'):
+        if(enemy_hull1==0)and(distance1<=200)and(distance1>=-200)and(salvage1<1):
+            print('salveging remains of enemy 1')
+            time.sleep(5)
+            extraelectronics=random.randint(1,20)
+            print('found some electronics parts:',extraelectronics)
+            cargobay['electronics']=cargobay['electronics']+extraelectronics
+            extrametal=random.randint(1,40)
+            print('found some metal:',extrametal)
+            cargobay['metal']=cargobay['metal']+extrametal
+            salvage1=1
+        elif(enemy_hull2==0)and(distance2<=200)and(distance2>=-200)and(salvage2<1):
+            print('salveging remains of enemy 2')
+            time.sleep(5)
+            extraelectronics=random.randint(1,20)
+            print('found some electronics parts:',extraelectronics)
+            cargobay['electronics']=cargobay['electronics']+extraelectronics
+            extrametal=random.randint(1,40)
+            print('found some metal:',extrametal)
+            cargobay['metal']=cargobay['metal']+extrametal
+            salvage2=1
+        elif(enemy_hull3==0)and(distance3<=200)and(distance3>=-200)and(salvage3<1):
+            print('salveging remains of enemy 3')
+            time.sleep(5)
+            extraelectronics=random.randint(1,20)
+            print('found some electronics parts:',extraelectronics)
+            cargobay['electronics']=cargobay['electronics']+extraelectronics
+            extrametal=random.randint(1,40)
+            print('found some metal:',extrametal)
+            cargobay['metal']=cargobay['metal']+extrametal
+            salvage3=1
+        else:
+            print('can olny salvage destroyed enemy ships')
+            print('cannot salvage if enemy is out of range(200,-200)')
+            print('cannot salvage enemy more than once')
+
+    elif(action=='collect raw materials'):
         if(orbit==False):
             print('you can only do this in orbit')
             time.sleep(2)
@@ -791,7 +874,11 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                 print('error: engines cannot contain more than 400 power')
             elif(newengines<0):
                 power=power+newengines
+                power=power+newengines
                 print('reversed course')
+                engines=newengines
+            elif(newengines<-400):
+                print('error: engines cannot contain more than 400 power')
             else:
                 engines=newengines
                 print('transfer succesfull')
@@ -1039,7 +1126,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                 print('error unkown command')
                 go=0
             time.sleep(2)
-            if(enemy_hull1>0)and(distance1<2500):
+            if(enemy_hull1>0)and(distance1<2500)and(distance1>-2500):
                 if(enemy_weapon1>0)and(enemy_weapons1==True)and(hull>0):
                     print('enemy 1 is locking on')
                     time.sleep(1)
@@ -1094,7 +1181,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                     print('enemy 1 is charging weapons')
                     enemy_weapon1=500
             if(enemy_hull2>0)and(distance2<2500):
-                if(enemy_weapon2>0)and(enemy_weapons2==True)and(hull>0):
+                if(enemy_weapon2>0)and(enemy_weapons2==True)and(hull>0)and(distance2>-2500):
                     print('enemy 2 is locking on')
                     time.sleep(1)
                     print('enemy 2 is discharging weapons')
@@ -1148,7 +1235,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                     print('enemy 2 is charging weapons')
                     enemy_weapon2=500
             if(enemy_hull3>0)and(distance3<2500):
-                if(enemy_weapon3>0)and(enemy_weapons3==True)and(hull>0):
+                if(enemy_weapon3>0)and(enemy_weapons3==True)and(hull>0)and(distance3>-2500):
                     print('enemy 3 is locking on')
                     time.sleep(1)
                     print('enemy 3 is discharging weapons')
@@ -1201,7 +1288,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                 elif(enemy_weapon3<=0):
                     print('enemy 3 is charging weapons')
                     enemy_weapon3=500
-            if(enemy_hull4>0)and(distance4<2500):
+            if(enemy_hull4>0)and(distance4<2500)and(distance4>-2500):
                 if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
                     print('enemy 4 is locking on')
                     time.sleep(1)
@@ -1306,7 +1393,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                     print('path calculated, prepairing for jump')
                 print('jump in 20 seconds')
             time.sleep(7)
-            if(enemy_hull1>0)and(distance1<2500):
+            if(enemy_hull1>0)and(distance1<2500)and(distance1>-2500):
                 if(enemy_weapon1>0)and(enemy_weapons1==True)and(hull>0):
                     print('enemy 1 is locking on')
                     time.sleep(1)
@@ -1360,7 +1447,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                 elif(enemy_weapon1<=0):
                     print('enemy 1 is charging weapons')
                     enemy_weapon1=500
-            if(enemy_hull2>0)and(distance2<2500):
+            if(enemy_hull2>0)and(distance2<2500)and(distance2>-2500):
                 if(enemy_weapon2>0)and(enemy_weapons2==True)and(hull>0):
                     print('enemy 2 is locking on')
                     time.sleep(1)
@@ -1414,7 +1501,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                 elif(enemy_weapon2<=0):
                     print('enemy 2 is charging weapons')
                     enemy_weapon2=500
-            if(enemy_hull3>0)and(distance3<2500):
+            if(enemy_hull3>0)and(distance3<2500)and(distance3>-2500):
                 if(enemy_weapon3>0)and(enemy_weapons3==True)and(hull>0):
                     print('enemy 3 is locking on')
                     time.sleep(1)
@@ -1468,7 +1555,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                 elif(enemy_weapon3<=0):
                     print('enemy 3 is charging weapons')
                     enemy_weapon3=500
-            if(enemy_hull4>0)and(distance4<2500):
+            if(enemy_hull4>0)and(distance4<2500)and(distance4>-2500):
                 if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0):
                     print('enemy 4 is locking on')
                     time.sleep(1)
@@ -1604,8 +1691,8 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
     else:
         print('error: unkown command')
 
-    if(enemy_hull1>0)and(options_active!=1):
-            if(enemy_weapon1>0)and(enemy_weapons1==True)and(hull>0)and(distance1<2500):
+    if(enemy_hull1>0)and(options_active!=1)and(ftl_active!=1):
+            if(enemy_weapon1>0)and(enemy_weapons1==True)and(hull>0)and(distance1<2500)and(distance1>-2500):
                 print('enemy 1 is locking on')
                 time.sleep(1)
                 print('enemy 1 is discharging weapons')
@@ -1689,7 +1776,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                 print('enemy 1 is charging weapons')
                 enemy_weapon1=500
     if(enemy_hull2>0)and(options_active!=1):
-            if(enemy_weapon2>0)and(enemy_weapons2==True)and(hull>0)and(distance2<2500):
+            if(enemy_weapon2>0)and(enemy_weapons2==True)and(hull>0)and(distance2<2500)and(distance2>-2500):
                 print('enemy 2 is locking on')
                 time.sleep(1)
                 print('enemy 2 is discharging weapons')
@@ -1773,7 +1860,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                 print('enemy 2 is charging weapons')
                 enemy_weapon2=500
     if(enemy_hull3>0)and(options_active!=1):
-            if(enemy_weapon3>0)and(enemy_weapons3==True)and(hull>0)and(distance3<2500):
+            if(enemy_weapon3>0)and(enemy_weapons3==True)and(hull>0)and(distance3<2500)and(distance3>-2500):
                 print('enemy 3 is locking on')
                 time.sleep(1)
                 print('enemy 3 is discharging weapons')
@@ -1857,7 +1944,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                 print('enemy 3 is charging weapons')
                 enemy_weapon3=500
     if(enemy_hull4>0):
-            if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0)and(distance4<2500):
+            if(enemy_weapon4>0)and(enemy_weapons4==True)and(hull>0)and(distance4<2500)and(distance4>-2500):
                 print('enemy 4 is locking on')
                 time.sleep(1)
                 print('enemy 4 is discharging weapons')
