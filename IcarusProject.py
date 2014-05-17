@@ -35,6 +35,8 @@ question_answerd=0
 ftl_overload=0
 import time
 import random
+cargobay={'nitrogen':400,'drones':40,'metal':50,'hydrogen':500}
+shieldoverdrive=0
 
 #mission 1 earth
 print('you can use options at all time to display your options')
