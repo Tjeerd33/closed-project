@@ -38,8 +38,8 @@ cargobay={'nitrogen':400,'drones':40,'metal':50,'hydrogen':500}
 
 #star system info
 starsclass='a1'
-planets=3
-planet_class=['gass giant','iron based','gass giant']
+planets={'Icarus-3a':('gas planet'),'Icarus-3b':('Iron based planet'),'Icarus-3c':('gas planet')}
+planetdistance={'Icarus-3a':2352,'Icarus-3b':329905,'Icarus-3c':6568223}
 starsystems=['Delta-37g2','Gamma-492b2']
 
 #battle interface
@@ -178,7 +178,7 @@ scan=0
 engines=100
 engine= True
 options=['jump to ftl','fire weapons','start repairing','transfer power','status report',
-'plot course','scan area','toggle shield overdrive','quit']
+'plot course','scan area','toggle shield overdrive','fire drones','quit']
 while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     ftl_cooldown=ftl_cooldown-1
     if(ftl_cooldown==0):
@@ -313,7 +313,43 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     damagemain=0
     action=input('input:')#prompt for action
 
-    if(action=='toggle shield overdrive'):
+    if(action=='fire drones'):
+        while(target!='1')and(target!='2')and(target!='3')and(target!='untracable')and(target!='quit'):
+            target=input('target:')
+            if(target=='1')and(enemy_hull1<=0):
+                print('cannot find target')
+                target=0
+            elif(target=='2')and(enemy_hull2<=0):
+                print('cannot find target')
+                target=0
+            elif(target=='3')and(enemy_hull3<=0):
+                print('cannot find target')
+                target=0
+            dronenumbers=int(input('numbers:'))
+            if(cargobay['drones']-dronenumbers<0):
+                print('not enough drones')
+            elif(cargobay['drones']-dronenumbers>=0):
+                cargobay['drones']=cargobay['drones']-dronenumbers
+                if(target=='1'):
+                    enemy_hull1=enemy_hull1-(50*dronenumbers)
+                    print('drones hit! enemy hull damaged')
+                    if(enemy_hull1<=0):
+                        enemy_hull1=0
+                        print('enemy 1 destroyed')
+                if(target=='2'):
+                    enemy_hull2=enemy_hull2-(50*dronenumbers)
+                    print('drones hit! enemy hull damaged')
+                    if(enemy_hull2<=0):
+                        enemy_hull2=0
+                        print('enemy 2 destroyed')
+                if(target=='3'):
+                    enemy_hull3=enemy_hull3-(50*dronenumbers)
+                    print('drones hit! enemy hull damaged')
+                    if(enemy_hull3<=0):
+                        enemy_hull3=0
+                        print('enemy 3 destroyed')
+
+    elif(action=='toggle shield overdrive'):
         time.sleep(1)
         if(shieldoverdrive==0):
             print('shield overdrive activated')
@@ -373,10 +409,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         time.sleep(2)
         print(planets)
         time.sleep(1)
-        print('class:')
+        print(planetdistance)
         time.sleep(2)
-        print(planet_class)
-        time.sleep(1)
         scan=1
         print('systems nearby:')
         time.sleep(2)
@@ -625,21 +659,23 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         repair=1
 
     elif action=='fire weapons':
-        while(target!='1')and(target!='2')and(target!='3')and(target!='untracable')and(target!='quit'):
+        while(target!='1')and(target!='2')and(target!='3')and(target!='untracable')and(target!='quit')and(target!='x'):
             target=input('target:')
-            if(target=='1')and(enemy_hull1<=0)or(distance1>2500):
+            if((target=='1')and(enemy_hull1<=0))or((target=='1')and(distance1>2500)):
                 print('cannot find target')
                 target=0
-            elif(target=='2')and(enemy_hull2<=0)or(distance2>2500):
+            if((target=='2')and(enemy_hull2<=0))or((target=='2')and(distance2>2500)):
                 print('cannot find target')
                 target=0
-            elif(target=='3')and(enemy_hull3<=0)or(distance3>2500):
+            if((target=='3')and(enemy_hull3<=0))or((target=='3')anda(distance3>2500)):
                 print('cannot find target')
                 target=0
-            elif(distance1>2500)and(distance2>2500)and(distance3>2500):
+            if((distance1>2500)and(distance2>2500))and(distance3>2500):
                 print('no targets in range')
                 target='untracable'
         time.sleep(1)
+        if(target=='x'):
+            target=random.choice('1','2','3')
         if(target!='untracable')or(target=='1')or(target=='2')or(target=='3'):
             print('locking on')
             time.sleep(1)
