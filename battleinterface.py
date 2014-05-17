@@ -33,6 +33,7 @@ ftl_overload=0
 import time
 import random
 enemy_numbers=3
+shieldoverdrive=0
 
 #star system info
 starsclass='a1'
@@ -176,7 +177,7 @@ scan=0
 engines=100
 engine= True
 options=['jump to ftl','fire weapons','start repairing','transfer power','status report',
-'plot course','scan area','quit']
+'plot course','scan area','toggle shield overdrive','quit']
 while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     ftl_cooldown=ftl_cooldown-1
     if(ftl_cooldown==0):
@@ -311,7 +312,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     damagemain=0
     action=input('input:')#prompt for action
 
-    if(action=='scan area'):
+    if(action=='toggle shield overdrive'):
+        time.sleep(1)
+        if(shieldoverdrive==0):
+            print('shield overdrive activated')
+            shieldoverdrive=1
+            time.sleep(1)
+        elif(shieldoverdrive==1):
+            print('shield overdrive deactivated')
+            time.sleep(1)
+
+    elif(action=='scan area'):
         print('scanning area')
         time.sleep(2)
         print("enemy's in this area:")
@@ -770,7 +781,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     elif action=='options'or action=='?' or action=='help':
         print(options)
         options_active=1
-        print('maximum weapon power=500')
+        print('maximum weapon power=400')
         print('maximum main weapon power=800')
         print('maximum shield power=900')
         print('maximum engines power=400')
@@ -1407,7 +1418,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 enemy_weapon1=enemy_weapon1-damage
                 print('enemy 1 did',damage,'damage')
                 if(position1=='back'):
-                    if(shieldback>0):
+                    if(shieldback>0)and(shieldoverdrive==1)and(damage<power):
+                        power=power-damage
+                        print('shield overdrive active')
+                        time.sleep(1)
+                        print('shields are holding, power is dropping')
+                    elif(shieldoverdrive==1)and(damage>power):
+                        print('failsave override')
+                        time.sleep(1)
+                        print('shield overdrive shut down')
+                        shieldoverdrive=0
+                    if(shieldback>0)and(shieldoverdrive==0):
                         shieldback=shieldback-damage
                         if(shieldback<0):
                             print('rear shields depleted')
@@ -1422,7 +1443,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position1=='mid'):
-                    if(shieldmid>0):
+                    if(shieldmid>0)and(shieldoverdrive==1)and(damage<power):
+                        power=power-damage
+                        print('shield overdrive active')
+                        time.sleep(1)
+                        print('shields are holding, power is dropping')
+                    elif(shieldoverdrive==1)and(damage>power):
+                        print('failsave override')
+                        time.sleep(1)
+                        print('shield overdrive shut down')
+                        shieldoverdrive=0
+                    if(shieldmid>0)and(shieldoverdrive==0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -1436,7 +1467,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         if(hull<0):
                             hull=0
                 elif(position1=='front'):
-                    if(shieldfront>0):
+                    if(shieldfront>0)and(shieldoverdrive==1)and(damage<power):
+                        power=power-damage
+                        print('shield overdrive active')
+                        time.sleep(1)
+                        print('shields are holding, power is dropping')
+                    elif(shieldoverdrive==1)and(damage>power):
+                        print('failsave override')
+                        time.sleep(1)
+                        print('shield overdrive shut down')
+                        shieldoverdrive=0
+                    if(shieldfront>0)and(shieldoverdrive==0):
                         shieldfront=shieldfront-damage
                         if(shieldfront<0):
                             print('front shields depleted')
@@ -1461,7 +1502,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 enemy_weapon2=enemy_weapon2-damage
                 print('enemy 2 did',damage,'damage')
                 if(position2=='back'):
-                    if(shieldback>0):
+                    if(shieldback>0)and(shieldoverdrive==1)and(damage<power):
+                        power=power-damage
+                        print('shield overdrive active')
+                        time.sleep(1)
+                        print('shields are holding, power is dropping')
+                    elif(shieldoverdrive==1)and(damage>power):
+                        print('failsave override')
+                        time.sleep(1)
+                        print('shield overdrive shut down')
+                        shieldoverdrive=0
+                    if(shieldback>0)and(shieldoverdrive==0):
                         shieldback=shieldback-damage
                         if(shieldback<0):
                             print('rear shields depleted')
@@ -1476,7 +1527,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position2=='mid'):
-                    if(shieldmid>0):
+                    if(shieldmid>0)and(shieldoverdrive==1)and(damage<power):
+                        power=power-damage
+                        print('shield overdrive active')
+                        time.sleep(1)
+                        print('shields are holding, power is dropping')
+                    elif(shieldoverdrive==1)and(damage>power):
+                        print('failsave override')
+                        time.sleep(1)
+                        print('shield overdrive shut down')
+                        shieldoverdrive=0
+                    if(shieldmid>0)and(shieldoverdrive==0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -1490,7 +1551,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         if(hull<0):
                             hull=0
                 elif(position2=='front'):
-                    if(shieldfront>0):
+                    if(shieldfront>0)and(shieldoverdrive==1)and(damage<power):
+                        power=power-damage
+                        print('shield overdrive active')
+                        time.sleep(1)
+                        print('shields are holding, power is dropping')
+                    elif(shieldoverdrive==1)and(damage>power):
+                        print('failsave override')
+                        time.sleep(1)
+                        print('shield overdrive shut down')
+                        shieldoverdrive=0
+                    if(shieldfront>0)and(shieldoverdrive==0):
                         shieldfront=shieldfront-damage
                         if(shieldfront<0):
                             print('front shields depleted')
@@ -1515,7 +1586,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 enemy_weapon3=enemy_weapon3-damage
                 print('enemy 3 did',damage,'damage')
                 if(position3=='back'):
-                    if(shieldback>0):
+                    if(shieldback>0)and(shieldoverdrive==1)and(damage<power):
+                        power=power-damage
+                        print('shield overdrive active')
+                        time.sleep(1)
+                        print('shields are holding, power is dropping')
+                    elif(shieldoverdrive==1)and(damage>power):
+                        print('failsave override')
+                        time.sleep(1)
+                        print('shield overdrive shut down')
+                        shieldoverdrive=0
+                    if(shieldback>0)and(shieldoverdrive==0):
                         shieldback=shieldback-damage
                         if(shieldback<0):
                             print('rear shields depleted')
@@ -1530,7 +1611,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position3=='mid'):
-                    if(shieldmid>0):
+                    if(shieldmid>0)and(shieldoverdrive==1)and(damage<power):
+                        power=power-damage
+                        print('shield overdrive active')
+                        time.sleep(1)
+                        print('shields are holding, power is dropping')
+                    elif(shieldoverdrive==1)and(damage>power):
+                        print('failsave override')
+                        time.sleep(1)
+                        print('shield overdrive shut down')
+                        shieldoverdrive=0
+                    if(shieldmid>0)and(shieldoverdrive==0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -1544,7 +1635,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         if(hull<0):
                             hull=0
                 elif(position3=='front'):
-                    if(shieldfront>0):
+                    if(shieldfront>0)and(shieldoverdrive==1)and(damage<power):
+                        power=power-damage
+                        print('shield overdrive active')
+                        time.sleep(1)
+                        print('shields are holding, power is dropping')
+                    elif(shieldoverdrive==1)and(damage>power):
+                        print('failsave override')
+                        time.sleep(1)
+                        print('shield overdrive shut down')
+                        shieldoverdrive=0
+                    if(shieldfront>0)and(shieldoverdrive==0):
                         shieldfront=shieldfront-damage
                         if(shieldfront<0):
                             print('front shields depleted')
@@ -1569,7 +1670,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 enemy_weapon4=enemy_weapon4-damage
                 print('enemy 4 did',damage,'damage')
                 if(position4=='back'):
-                    if(shieldback>0):
+                    if(shieldmid>0)and(shieldoverdrive==1)and(damage<power):
+                        power=power-damage
+                        print('shield overdrive active')
+                        time.sleep(1)
+                        print('shields are holding, power is dropping')
+                    elif(shieldoverdrive==1)and(damage>power):
+                        print('failsave override')
+                        time.sleep(1)
+                        print('shield overdrive shut down')
+                        shieldoverdrive=0
+                    if(shieldback>0)and(shieldoverdrive==0):
                         shieldback=shieldback-damage
                         if(shieldback<0):
                             print('rear shields depleted')
@@ -1584,7 +1695,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                             hull=0
                             print('signal lost')
                 elif(position4=='mid'):
-                    if(shieldmid>0):
+                    if(shieldmid>0)and(shieldoverdrive==1)and(damage<power):
+                        power=power-damage
+                        print('shield overdrive active')
+                        time.sleep(1)
+                        print('shields are holding, power is dropping')
+                    elif(shieldoverdrive==1)and(damage>power):
+                        print('failsave override')
+                        time.sleep(1)
+                        print('shield overdrive shut down')
+                        shieldoverdrive=0
+                    if(shieldmid>0)and(shieldoverdrive==0):
                         shieldmid=shieldmid-damage
                         if(shieldmid<0):
                             print('mid shields depleted')
@@ -1598,7 +1719,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                         if(hull<0):
                             hull=0
                 elif(position4=='front'):
-                    if(shieldfront>0):
+                    if(shieldfront>0)and(shieldoverdrive==1)and(damage<power):
+                        power=power-damage
+                        print('shield overdrive active')
+                        time.sleep(1)
+                        print('shields are holding, power is dropping')
+                    elif(shieldoverdrive==1)and(damage>power):
+                        print('failsave override')
+                        time.sleep(1)
+                        print('shield overdrive shut down')
+                        shieldoverdrive=0
+                    if(shieldfront>0)and(shieldoverdrive==0):
                         shieldfront=shieldfront-damage
                         if(shieldfront<0):
                             print('front shields depleted')
