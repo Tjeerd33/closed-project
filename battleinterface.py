@@ -187,18 +187,15 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         distance1=distance1+engines
         distance2=distance2+engines
         distance3=distance3+engines
+        planetdistance('Icarus-3a')=planetdistance('Icarus-3a')-engines
+        planetdistance('Icarus-3b')=planetdistance('Icarus-3b')-engines
+        planetdistance('Icarus-3c')=planetdistance('Icarus-3c')-engines
     if(distance1>2000)and(enemy_hull1>0):
         distance1=distance1-speed1
-        if(distance1<100):
-            distance1=100
     if(distance2>2000)and(enemy_hull2>0):
         distance2=distance2-speed2
-        if(distance2<100):
-            distance2=100
     if(distance3>2000)and(enemy_hull3>0):
         distance3=distance3-speed3
-        if(distance3<100):
-            distance3=100
     repaired= random.randint(0,90)
     options_active=0
     backdamage=0
