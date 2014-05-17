@@ -34,20 +34,26 @@ import time
 import random
 enemy_numbers=3
 shieldoverdrive=0
-cargobay={'nitrogen':400,'drones':40,'metal':50,'hydrogen':500}
+cargobay={'nitrogen':400,'drones':40,'metal':50,'hydrogen':500,'electronics':10}
+orbit=False
+collecting=False
+collectiontime=0
+engines=300
+engine= True
+options_active=0
 
 #star system info
+system='Taurie-48a1'
 starsclass='a1'
 planets={'Icarus-3a':('gas planet'),'Icarus-3b':('Iron based planet'),'Icarus-3c':('gas planet')}
 planetdistance={'Icarus-3a':2352,'Icarus-3b':329905,'Icarus-3c':6568223}
 starsystems=['Delta-37g2','Gamma-492b2']
 
 #battle interface
-enemy_numbers=3
 positions=['front','mid','back']
 target=0
 go=1
-classes=['scout','scout','scout','battleship','battleship','transport','commandship']
+classes=['scout','scout','scout','scout','battleship','battleship','battleship','gunship','gunship','transport','transport','commandship']
 ftl_cooldown=10
 jump=0
 
@@ -85,9 +91,17 @@ elif(class1=='commandship'):
     enemy_hull1=2000
     enemy_weapon1=40
     enemy_weapons1= True
-    enemy1_damagemin=20
+    enemy1_damagemin=50
     enemy1_damagemax=200
     speed1=200
+elif(class1=='gunship'):
+    enemy_shields1=500
+    enemy_hull1=500
+    enemy_weapon1=200
+    enemy_weapons1= True
+    enemy1_damagemin=100
+    enemy1_damagemax=100
+    speed1=300
 #enemy 2
 position2=random.choice(positions)
 class2=random.choice(classes)
@@ -121,9 +135,17 @@ elif(class2=='commandship'):
     enemy_hull2=2000
     enemy_weapon2=40
     enemy_weapons2= True
-    enemy2_damagemin=20
+    enemy2_damagemin=50
     enemy2_damagemax=200
     speed2=200
+elif(class2=='gunship'):
+    enemy_shields2=500
+    enemy_hull2=500
+    enemy_weapon2=200
+    enemy_weapons2= True
+    enemy2_damagemin=100
+    enemy2_damagemax=100
+    speed2=300
 #enemy 3
 position3=random.choice(positions)
 class3=random.choice(classes)
@@ -157,9 +179,17 @@ elif(class3=='commandship'):
     enemy_hull3=2000
     enemy_weapon3=40
     enemy_weapons3= True
-    enemy3_damagemin=20
+    enemy3_damagemin=50
     enemy3_damagemax=200
     speed3=200
+elif(class3=='gunship'):
+    enemy_shields3=500
+    enemy_hull3=500
+    enemy_weapon3=200
+    enemy_weapons3= True
+    enemy3_damagemin=100
+    enemy3_damagemax=100
+    speed3=300
 #enemy 4
 position4=random.choice(positions)
 class4=random.choice(classes)
@@ -168,7 +198,7 @@ enemy_shields4=0
 enemy_hull4=0
 enemy_weapons4=0
 enemy_weapons4= True
-
+#battle presets
 ftl_active=0
 repair=0
 shield_total=shieldfront+shieldmid+shieldback
@@ -177,140 +207,257 @@ rand=0
 scan=0
 engines=100
 engine= True
-options=['jump to ftl','fire weapons','start repairing','transfer power','status report',
-'plot course','scan area','toggle shield overdrive','fire drones','quit']
-while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
-    ftl_cooldown=ftl_cooldown-1
-    if(ftl_cooldown==0):
-        print('ftl drive online')
-    if(engines>0)and(engine==True):#calculate distance
-        distance1=distance1+engines
-        distance2=distance2+engines
-        distance3=distance3+engines
-        planetdistance('Icarus-3a')=planetdistance('Icarus-3a')-engines
-        planetdistance('Icarus-3b')=planetdistance('Icarus-3b')-engines
-        planetdistance('Icarus-3c')=planetdistance('Icarus-3c')-engines
-    if(distance1>2000)and(enemy_hull1>0):
-        distance1=distance1-speed1
-    if(distance2>2000)and(enemy_hull2>0):
-        distance2=distance2-speed2
-    if(distance3>2000)and(enemy_hull3>0):
-        distance3=distance3-speed3
-    repaired= random.randint(0,90)
-    options_active=0
-    backdamage=0
-    frontdamage=0
-    middamage=0
-    if(enemy_hull1>0):
-        number1=1
-    elif(enemy_hull1<=0):
-        number1=0
-    if(enemy_hull2>0):
-        number2=1
-    elif(enemy_hull2<=0):
-        number2=0
-    if(enemy_hull3>0):
-        number3=1
-    elif(enemy_hull3<=0):
-        number3=0
-    enemy_numbers=number1+number2+number3
-    if(repaired==1)and(repair==1)and(canon_batterys1==False):
-        canon_battery1= True
-        print('cannon 1 repaired')
-    if(repaired==2)and(repair==1)and(canon_batterys2==False):
-        canon_battery2= True
-        print('cannon 2 repaired')
-    if(repaired==3)and(repair==1)and(canon_batterys3==False):
-        canon_battery3= True
-        print('cannon 3 repaired')
-    if(repaired==4)and(repair==1)and(canon_batterys4==False):
-        canon_battery4= True
-        print('cannon 4 repaired')
-    if(repaired==5)and(repair==1)and(canon_batterys5==False):
-        canon_battery5= True
-        print('cannon 5 repaired')
-    if(repaired==6)and(repair==1)and(canon_batterys6==False):
-        canon_battery6= True
-        print('cannon 6 repaired')
-    if(repaired==7)and(repair==1)and(canon_batterys7==False):
-        canon_battery7= True
-        print('cannon 7 repaired')
-    if(repaired==8)and(repair==1)and(canon_batterys8==False):
-        canon_battery8= True
-        print('cannon 8 repaired')
-    if(repaired==9)and(repair==1)and(canon_batterys9==False):
-        canon_battery9= True
-        print('cannon 9 repaired')
-    if(repaired==10)and(repair==1)and(mainweaponb==False):
-        mainweaponb= True
-        print('main weapon repaired')
-    if(repaired==11)and(repair==1)and(hull<2000):
-        hull=hull+20
-        print('hull repaired')
-        if(hull>2000):
-            hull=2000
-            print('hull fully repaired')
-    if(repaired==12)and(repair==1)and(hull<2000):
-        hull=hull+20
-        print('hull repaired')
-        if(hull>2000):
-            hull=2000
-            print('hull fully repaired')
-    if(repaired==13)and(repair==1)and(hull<2000):
-        hull=hull+20
-        print('hull repaired')
-        if(hull>2000):
-            hull=2000
-            print('hull fully repaired')
-    if(repaired==14)and(repair==1)and(shield_front==False):
-        shield_front==True
-        print('shield front repaired')
-    if(repaired==15)and(repair==1)and(shield_mid==False):
-        shield_mid=True
-        print('shield mid repaired')
-    if(repaired==16)and(repair==1)and(shield_back==False):
-        shield_back= True
-        print('shield back repaired')
-    if(repaired==17)and(repair==1)and(engine==False):
-        engine=True
-        print('engines repaired')
-    if(repaired==18)and(repair==1)and(engine==False):
-        engine=True
-        print('engines repaired')
-    if(repaired==19)and(repair==1)and(engine==False):
-        engine=True
-        print('engines repaired')
-    if(repaired==20)and(repair==1)and(engine==False):
-        engine=True
-        print('engines repaired')    
-    time.sleep(1)
-    if(hull<100):
-        print('warning! hull is critically low')
+options=['jump to ftl','fire weapons','start repairing','transfer power','status    report',
+'plot course','scan area','toggle shield overdrive','fire drones','collect raw materials','toggle drone building','salvage','quit']#setting options
+while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump is made or ship is destroyed
+    if(options_active==0):
+        if(collecting==True)and(collectiontime>0):
+            collectiontime=collectiontime-2
+        elif(collecting==True)and(collectiontime==0)and(orbit==True):
+            print('the probe is back')
+            time.sleep(1)
+            if(orbita=='Icarus-3a'):
+                extrahydrogen=random.randint(30,400)
+                cargobay['hydrogen']=cargobay['hydrogen']+extrahydrogen
+                print('collected',extrahydrogen,'hydrogen')
+                time.sleep(1)
+                extranitrogen=random.randint(50,800)
+                cargobay['nitrogen']=cargobay['nitrogen']+extranitrogen
+                print('collected',extranitrogen,'nitrogen')
+                time.sleep(1)
+                collecting=False
+            elif(orbita=='Icarus-3b'):
+                extrametal=random.randint(100,200)
+                print('collected',extrametal,'metal')
+                cargobay['metal']=cargobay['metal']+extrametal
+                time.sleep(1)
+                collecting=False
+            elif(orbita=='Icarus-3c'):
+                extrahydrogen=random.randint(40,800)
+                cargobay['hydrogen']=cargobay['hydrogen']+extrahydrogen
+                print('collected',extrahydrogen,'hydrogen')
+                time.sleep(1)
+                extranitrogen=random.randint(900,1000)
+                cargobay['nitrogen']=cargobay['nitrogen']+extranitrogen
+                print('collected',extranitrogen,'nitrogen')
+                time.sleep(1)
+                collecting=False
         time.sleep(1)
-    if(shieldfront==0):
-        print('warning! front shield is down')
+        ftl_cooldown=ftl_cooldown-1#counting down until you can use ftl
+        if(ftl_cooldown==0):
+            print('ftl drive online')
+        if(engines>0)and(engine==True):#calculate distance
+            orbit=False
+            distance1=distance1+engines
+            distance2=distance2+engines
+            distance3=distance3+engines
+            cargobay['hydrogen']=cargobay['hydrogen']+engines/100#collecting space dust
+            planetdistance['Icarus-3a']=planetdistance['Icarus-3a']-engines
+            planetdistance['Icarus-3b']=planetdistance['Icarus-3b']-engines
+            planetdistance['Icarus-3c']=planetdistance['Icarus-3c']-engines
+            if(planetdistance['Icarus-3a']<=-200):
+                if(planetdistance['Icarus-3a']<=200):
+                    print('planet in orbital range')
+                    orbital=input('do you want to orbit?')
+                    if(orbital=='yes')or(orbital=='Yes')or(orbital=='ja'):
+                        engines=0
+                        time.sleep(2)
+                        print('we are now in orbit')
+                        orbit= True
+                        print('start engines to break from orbit')
+                        if(planetdistance['Icarus-3a']<=200)and(planetdistance['Icarus-3a']>=-200)and(orbit==True):
+                            print('you are in orbit around Icarus-3a')
+                            orbita='Icarus-3a'
+            if(planetdistance['Icarus-3b']<=-200):
+                if(planetdistance['Icarus-3b']<=200):
+                    print('planet in orbital range')
+                    orbital=input('do you want to orbit?')
+                    if(orbital=='yes')or(orbital=='Yes')or(orbital=='ja'):
+                        engines=0
+                        time.sleep(2)
+                        print('we are now in orbit')
+                        orbit= True
+                        print('start engines to break from orbit')
+                        if(planetdistance['Icarus-3b']<=200)and(planetdistance['Icarus-3b']>=-200)and(orbit==True):
+                            print('you are in orbit around Icarus-3b')
+                            orbita='Icarus-3b'
+            elif(planetdistance['Icarus-3c']<=-200):
+                if(planetdistance['Icarus-3c']<=200):
+                    print('planet in orbital range')
+                    orbital=input('do you want to orbit?')
+                    if(orbital=='yes')or(orbital=='Yes')or(orbital=='ja'):
+                        engines=0
+                        time.sleep(2)
+                        print('we are now in orbit')
+                        orbit= True
+                        print('start engines to break from orbit')
+                        if(planetdistance['Icarus-3c']<=200)and(planetdistance['Icarus-3c']>=-200)and(orbit==True):
+                            print('you are in orbit around Icarus-3c')
+                            orbita='Icarus-3c'
+        elif(engines<0)and(engine==True):#calculate reversed distance
+            orbit=False
+            distance1=distance1-engines
+            distance2=distance2-engines
+            distance3=distance3-engines
+            cargobay['hydrogen']=cargobay['hydrogen']-engines/100#collecting space dust
+            planetdistance['Icarus-3a']=planetdistance['Icarus-3a']+engines
+            planetdistance['Icarus-3b']=planetdistance['Icarus-3b']+engines
+            planetdistance['Icarus-3c']=planetdistance['Icarus-3c']+engines
+            if(planetdistance['Icarus-3a']>-200)or(planetdistance['Icarus-3b']>-200)or(planetdistance['Icarus-3c']>-200):
+                if(planetdistance['Icarus-3a']<=200)or(planetdistance['Icarus-3b']<=200)or(planetdistance['Icarus-3c']<=200):
+                    print('planet in orbital range')
+                    orbital=input('do you want to orbit?')
+                    if(orbital=='yes')or(orbital=='Yes')or(orbital=='ja'):
+                        engines=0
+                        time.sleep(2)
+                        print('we are now in orbit')
+                        orbit= True
+                        print('start engines to break from orbit')
+                        if(planetdistance['Icarus-3a']<=200)and(planetdistance['Icarus-3a']>=-200)and(orbit==True):
+                            print('you are in orbit around Icarus-3a')
+                            orbita='Icarus-3a'
+                        elif(planetdistance['Icarus-3b']<=200)and(planetdistance['Icarus-3b']>=-200)and(orbit==True):
+                            print('you are in orbit around Icarus-3b')
+                            orbita='Icarus-3b'
+                        elif(planetdistance['Icarus-3c']<=200)and(planetdistance['Icarus-3c']>=-200)and(orbit==True):
+                            print('you are in orbit around Icarus-3c')
+                            orbita='Icarus-3c' 
+        if(distance1>2000)and(enemy_hull1>0):#calculate enemy distance
+            distance1=distance1-speed1
+        if(distance2>2000)and(enemy_hull2>0):
+            distance2=distance2-speed2
+        if(distance3>2000)and(enemy_hull3>0):
+            distance3=distance3-speed3
+        repaired= random.randint(0,90)
+        #resetting some intergers
+        backdamage=0
+        frontdamage=0
+        middamage=0
+        if(enemy_hull1>0):
+            number1=1
+        elif(enemy_hull1<=0):
+            number1=0
+        if(enemy_hull2>0):
+            number2=1
+        elif(enemy_hull2<=0):
+            number2=0
+        if(enemy_hull3>0):
+            number3=1
+        elif(enemy_hull3<=0):
+            number3=0
+        enemy_numbers=number1+number2+number3#update enemy numbers
+        if(repaired==1)and(repair==1)and(canon_batterys1==False):#checking repair status
+            canon_battery1= True
+            print('cannon 1 repaired')
+        if(repaired==2)and(repair==1)and(canon_batterys2==False):
+            canon_battery2= True
+            print('cannon 2 repaired')
+        if(repaired==3)and(repair==1)and(canon_batterys3==False):
+            canon_battery3= True
+            print('cannon 3 repaired')
+        if(repaired==4)and(repair==1)and(canon_batterys4==False):
+            canon_battery4= True
+            print('cannon 4 repaired')
+        if(repaired==5)and(repair==1)and(canon_batterys5==False):
+            canon_battery5= True
+            print('cannon 5 repaired')
+        if(repaired==6)and(repair==1)and(canon_batterys6==False):
+            canon_battery6= True
+            print('cannon 6 repaired')
+        if(repaired==7)and(repair==1)and(canon_batterys7==False):
+            canon_battery7= True
+            print('cannon 7 repaired')
+        if(repaired==8)and(repair==1)and(canon_batterys8==False):
+            canon_battery8= True
+            print('cannon 8 repaired')
+        if(repaired==9)and(repair==1)and(canon_batterys9==False):
+            canon_battery9= True
+            print('cannon 9 repaired')
+        if(repaired==10)and(repair==1)and(mainweaponb==False):
+            mainweaponb= True
+            print('main weapon repaired')
+        if(repaired==11)and(repair==1)and(hull<2000):
+            hull=hull+20
+            print('hull repaired')
+            if(hull>2000):
+                hull=2000
+                print('hull fully repaired')
+        if(repaired==12)and(repair==1)and(hull<2000):
+            hull=hull+20
+            print('hull repaired')
+            if(hull>2000):
+                hull=2000
+                print('hull fully repaired')
+        if(repaired==13)and(repair==1)and(hull<2000):
+            hull=hull+20
+            print('hull repaired')
+            if(hull>2000):
+                hull=2000
+                print('hull fully repaired')
+        if(repaired==14)and(repair==1)and(shield_front==False):
+            shield_front==True
+            print('shield front repaired')
+        if(repaired==15)and(repair==1)and(shield_mid==False):
+            shield_mid=True
+            print('shield mid repaired')
+        if(repaired==16)and(repair==1)and(shield_back==False):
+            shield_back= True
+            print('shield back repaired')
+        if(repaired==17)and(repair==1)and(engine==False):
+            engine=True
+            print('engines repaired')
+        if(repaired==18)and(repair==1)and(engine==False):
+            engine=True
+            print('engines repaired')
+        if(repaired==19)and(repair==1)and(engine==False):
+            engine=True
+            print('engines repaired')
+        if(repaired==20)and(repair==1)and(engine==False):
+            engine=True
+            print('engines repaired')    
         time.sleep(1)
-    if(shieldmid==0):
-        print('warning! mid shield is down')
-        time.sleep(1)
-    if(shieldback==0):
-        print('warning! rear shield is down')
-        time.sleep(1)
-    target=0
-    #preset for damage
-    damage1=0
-    damage2=0
-    damage3=0
-    damage4=0
-    damage5=0
-    damage6=0
-    damage7=0
-    damage8=0
-    damage9=0
-    damagemain=0
+        if(hull<100):
+            print('warning! hull is critically low')
+            time.sleep(1)
+        if(shieldfront==0):
+            print('warning! front shield is down')
+            time.sleep(1)
+        if(shieldmid==0):
+            print('warning! mid shield is down')
+            time.sleep(1)
+        if(shieldback==0):
+            print('warning! rear shield is down')
+            time.sleep(1)
+        target=0
+        #preset for damage
+        damage1=0
+        damage2=0
+        damage3=0
+        damage4=0
+        damage5=0
+        damage6=0
+        damage7=0
+        damage8=0
+        damage9=0
+        damagemain=0
+    elif(options_active>0):
+        options_active=0
     action=input('input:')#prompt for action
 
-    if(action=='fire drones'):
+    if(action=='collect raw materials'):
+        if(orbit==False):
+            print('you can only do this in orbit')
+            time.sleep(2)
+        elif(orbit==True):
+            time.sleep(1)
+            print('launched capsule')
+            collectiontime=10
+            time.sleep(1)
+            print('it will take some time to find materials')
+            collecting=True
+            time.sleep(1)
+
+    elif(action=='fire drones'):
         while(target!='1')and(target!='2')and(target!='3')and(target!='untracable')and(target!='quit'):
             target=input('target:')
             if(target=='1')and(enemy_hull1<=0):
@@ -355,6 +502,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         elif(shieldoverdrive==1):
             print('shield overdrive deactivated')
             time.sleep(1)
+            shieldoverdrive=0
 
     elif(action=='scan area'):
         print('scanning area')
@@ -380,12 +528,9 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             print('    ',enemy_shields3)
         print('enemy hull is at')
         time.sleep(2)
-        if(enemy_hull1>0):
-            print('    ',enemy_hull1)
-        if(enemy_hull2>0):
-            print('    ',enemy_hull2)
-        if(enemy_hull3>0):
-            print('    ',enemy_hull3)
+        print('    ',enemy_hull1)
+        print('    ',enemy_hull2)
+        print('    ',enemy_hull3)
         print('density')
         time.sleep(1)
         print('enemy classes are:')
@@ -396,16 +541,17 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         if(enemy_hull3>0):
             print('    ',class3)
         print('enemy distance:')
-        if(enemy_hull1>0):
-            print('    ',distance1)
-        if(enemy_hull2>0):
-            print('    ',distance2)
-        if(enemy_hull3>0):
-            print('    ',distance3)
+        print('enemy 1:')
+        print('    ',distance1)
+        print('enemy 2:')
+        print('    ',distance2)
+        print('enemy3:')
+        print('    ',distance3)
         print('planets in this system:')
         time.sleep(2)
         print(planets)
         time.sleep(1)
+        print('planet distance:')
         print(planetdistance)
         time.sleep(2)
         scan=1
@@ -645,7 +791,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
                 print('error: engines cannot contain more than 400 power')
             elif(newengines<0):
                 power=power+newengines
-                print('error: power cannot be lower than 0')
+                print('reversed course')
             else:
                 engines=newengines
                 print('transfer succesfull')
@@ -664,7 +810,7 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
             if((target=='2')and(enemy_hull2<=0))or((target=='2')and(distance2>2500)):
                 print('cannot find target')
                 target=0
-            if((target=='3')and(enemy_hull3<=0))or((target=='3')anda(distance3>2500)):
+            if((target=='3')and(enemy_hull3<=0))or((target=='3')and(distance3>2500)):
                 print('cannot find target')
                 target=0
             if((distance1>2500)and(distance2>2500))and(distance3>2500):
@@ -815,10 +961,23 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
     elif action=='options'or action=='?' or action=='help':
         print(options)
         options_active=1
-        print('maximum weapon power=400')
+        print('maximum weapon power=500')
         print('maximum main weapon power=800')
         print('maximum shield power=900')
         print('maximum engines power=400')
+        print('enemy class explenation:')
+        print('scout: low fire power and low defenses they are fast and you cannot outrun them')
+        print('battleship: medium fire power and medium defenses. they are as fast as you are  so if you have a head start you can outrun them')
+        print('gunship: high fire power but weak shields and hull, they are slightly slower    than you')
+        print('transport: low fire power but strong defenses, they are slightly slower than you')
+        print('commandship: high fire power and strong defenses, you can easily outrun them')
+        print('')
+        print('drones: medium damage guided missels: they deal 50 damage per drone directly to the enemy hull. They are very limited but can be build from metal hydrogen and electronics')
+        print('tip!: engines can be set to negative')
+        print('tip!: if you break from orbit you will not collecet the probe you send before')
+        print("tip!: minimum fire distance is 2500 for you and the enemy's")
+        print('tip!: drones can be fired from any distance')
+        print('tip!: you can recharge at a g2 type star')
 
     elif action=='status report':#prints the status of all systems
         print('status report:')
