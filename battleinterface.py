@@ -34,6 +34,7 @@ import time
 import random
 enemy_numbers=3
 shieldoverdrive=0
+cargobay={'nitrogen':400,'drones':40,'metal':50,'hydrogen':500}
 
 #star system info
 starsclass='a1'
@@ -827,6 +828,8 @@ while(enemy_numbers>0)and(hull>0)and(ftl_active==0):
         print('ftl cooldown:',ftl_cooldown)
         print('if ftl is less than 0 or 0: ftl drive online')
         time.sleep(2)
+        print('cargo bay:',cargobay)
+        time.sleep(1)
                
     elif action=='jump to ftl':
         if(course_plot<1)and(ftl_cooldown<=0):
