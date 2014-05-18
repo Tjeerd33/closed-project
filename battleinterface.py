@@ -492,7 +492,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
     action=input('input:')#prompt for action
 
     if(action=='salvage'):
-        if(enemy_hull1==0)and(distance1<=200)and(distance1>=-200)and(salvage1<1):
+        if(enemy_hull1==0)and(distance1<=400)and(distance1>=-400)and(salvage1<1):
             print('salveging remains of enemy 1')
             time.sleep(5)
             extraelectronics=random.randint(1,20)
@@ -502,7 +502,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
             print('found some metal:',extrametal)
             cargobay['metal']=cargobay['metal']+extrametal
             salvage1=1
-        elif(enemy_hull2==0)and(distance2<=200)and(distance2>=-200)and(salvage2<1):
+        elif(enemy_hull2==0)and(distance2<=400)and(distance2>=-400)and(salvage2<1):
             print('salveging remains of enemy 2')
             time.sleep(5)
             extraelectronics=random.randint(1,20)
@@ -512,7 +512,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
             print('found some metal:',extrametal)
             cargobay['metal']=cargobay['metal']+extrametal
             salvage2=1
-        elif(enemy_hull3==0)and(distance3<=200)and(distance3>=-200)and(salvage3<1):
+        elif(enemy_hull3==0)and(distance3<=400)and(distance3>=-400)and(salvage3<1):
             print('salveging remains of enemy 3')
             time.sleep(5)
             extraelectronics=random.randint(1,20)
