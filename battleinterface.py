@@ -314,9 +314,9 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                             orbita='Icarus-3c'
         elif(engines<0)and(engine==True):#calculate reversed distance
             orbit=False
-            distance1=distance1-engines
-            distance2=distance2-engines
-            distance3=distance3-engines
+            distance1=distance1+engines
+            distance2=distance2+engines
+            distance3=distance3+engines
             cargobay['hydrogen']=cargobay['hydrogen']-engines/100#collecting space dust
             planetdistance['Icarus-3a']=planetdistance['Icarus-3a']+engines
             planetdistance['Icarus-3b']=planetdistance['Icarus-3b']+engines
@@ -360,17 +360,17 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                         if(planetdistance['Icarus-3c']<=200)and(planetdistance['Icarus-3c']>=-200)and(orbit==True):
                             print('you are in orbit around Icarus-3c')
                             orbita='Icarus-3c'
-        if(distance1>2000)or(distance1<-2000)and(enemy_hull1>0):#calculate enemy distance
+        if(distance1>1500)or(distance1<-1500)and(enemy_hull1>0):#calculate enemy distance
             if(distance1>0):
                 distance1=distance1-speed1
             elif(distance1<0):
-                distance1=distance1-speed1
-        if(distance2>2000)or(distance2<-2000)and(enemy_hull2>0):
+                distance1=distance1+speed1
+        if(distance2>1500)or(distance2<-1500)and(enemy_hull2>0):
             if(distance2>0):
                 distance2=distance2-speed2
             elif(distance2<0):
                 distance2=distance2+speed2
-        if(distance3>2000)or(distance3<-2000)and(enemy_hull3>0):
+        if(distance3>1500)or(distance3<-1500)and(enemy_hull3>0):
             if(distance3>0):
                 distance3=distance3-speed3
             elif(distance3<0):
