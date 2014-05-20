@@ -1690,6 +1690,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
 
     else:
         print('error: unkown command')
+        options_active=1
 
     if(enemy_hull1>0)and(options_active!=1)and(ftl_active!=1):
             if(enemy_weapon1>0)and(enemy_weapons1==True)and(hull>0)and(distance1<2500)and(distance1>-2500):
