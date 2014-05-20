@@ -41,6 +41,7 @@ collectiontime=0
 engines=300
 engine= True
 options_active=0
+wait=0
 
 #star system info
 system='Taurie-48a1'
@@ -260,7 +261,6 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
                 print('collected',extranitrogen,'nitrogen')
                 time.sleep(1)
                 collecting=False
-        time.sleep(1)
         ftl_cooldown=ftl_cooldown-1#counting down until you can use ftl
         if(ftl_cooldown==0):
             print('ftl drive online')
@@ -393,35 +393,35 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
         elif(enemy_hull3<=0):
             number3=0
         enemy_numbers=number1+number2+number3#update enemy numbers
-        if(repaired==1)and(repair==1)and(canon_batterys1==False):#checking repair status
-            canon_battery1= True
+        if(repaired==1)and(repair==1)and(canon_battery1==False):#checking repair status
+            canon_battery1=True
             print('cannon 1 repaired')
-        if(repaired==2)and(repair==1)and(canon_batterys2==False):
-            canon_battery2= True
+        if(repaired==2)and(repair==1)and(canon_battery2==False):
+            canon_battery2=True
             print('cannon 2 repaired')
-        if(repaired==3)and(repair==1)and(canon_batterys3==False):
-            canon_battery3= True
+        if(repaired==3)and(repair==1)and(canon_battery3==False):
+            canon_battery3=True
             print('cannon 3 repaired')
-        if(repaired==4)and(repair==1)and(canon_batterys4==False):
-            canon_battery4= True
+        if(repaired==4)and(repair==1)and(canon_battery4==False):
+            canon_battery4=True
             print('cannon 4 repaired')
-        if(repaired==5)and(repair==1)and(canon_batterys5==False):
-            canon_battery5= True
+        if(repaired==5)and(repair==1)and(canon_battery5==False):
+            canon_battery5=True
             print('cannon 5 repaired')
-        if(repaired==6)and(repair==1)and(canon_batterys6==False):
-            canon_battery6= True
+        if(repaired==6)and(repair==1)and(canon_battery6==False):
+            canon_battery6=True
             print('cannon 6 repaired')
-        if(repaired==7)and(repair==1)and(canon_batterys7==False):
-            canon_battery7= True
+        if(repaired==7)and(repair==1)and(canon_battery7==False):
+            canon_battery7=True
             print('cannon 7 repaired')
-        if(repaired==8)and(repair==1)and(canon_batterys8==False):
+        if(repaired==8)and(repair==1)and(canon_battery8==False):
             canon_battery8= True
             print('cannon 8 repaired')
-        if(repaired==9)and(repair==1)and(canon_batterys9==False):
-            canon_battery9= True
+        if(repaired==9)and(repair==1)and(canon_battery9==False):
+            canon_battery9=True
             print('cannon 9 repaired')
         if(repaired==10)and(repair==1)and(mainweaponb==False):
-            mainweaponb= True
+            mainweaponb=True
             print('main weapon repaired')
         if(repaired==11)and(repair==1)and(hull<2000):
             hull=hull+20
@@ -462,7 +462,6 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
         if(repaired==20)and(repair==1)and(engine==False):
             engine=True
             print('engines repaired')    
-        time.sleep(1)
         if(hull<100):
             print('warning! hull is critically low')
             time.sleep(1)
@@ -489,9 +488,17 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
         damagemain=0
     elif(options_active>0):
         options_active=0
-    action=input('input:')#prompt for action
+    if(wait<1):
+        action=input('input:')#prompt for action
 
-    if(action=='salvage'):
+    if(action=='wait'):
+        wait=int(input('how many turns?'))
+        action='waiting'
+
+    elif(action=='waiting'):
+        wait=wait-1
+
+    elif(action=='salvage'):
         if(enemy_hull1==0)and(distance1<=400)and(distance1>=-400)and(salvage1<1):
             print('salveging remains of enemy 1')
             time.sleep(5)
