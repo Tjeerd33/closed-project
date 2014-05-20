@@ -209,7 +209,7 @@ scan=0
 engines=100
 engine= True
 options=['jump to ftl','fire weapons','start repairing','transfer power','status    report',
-'plot course','scan area','toggle shield overdrive','fire drones','collect raw materials','toggle drone building','salvage','quit']#setting options
+'plot course','scan area','toggle shield overdrive','fire drones','collect raw materials','toggle drone building','salvage','wait','quit']#setting options
 while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump is made or ship is destroyed
     if(distance1>1500):#positioning enemy's
         position1='back'
@@ -488,6 +488,8 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
         damagemain=0
     elif(options_active>0):
         options_active=0
+    if(orbit==True):
+        wait=0
     if(wait<1):
         action=input('input:')#prompt for action
 
@@ -1072,6 +1074,7 @@ while(hull>0)and(ftl_active==0)and(system=='Taurie-48a1'):#loop until ftl jump i
         print("tip!: minimum fire distance is 2500 for you and the enemy's")
         print('tip!: drones can be fired from any distance')
         print('tip!: you can recharge at a g2 type star')
+        print('tip!: if you have the option wait active and you will go into orbit you will stop waiting')
 
     elif action=='status report':#prints the status of all systems
         print('status report:')
