@@ -49,7 +49,7 @@ print('the ship is completely drone operated')
 print('it is controlled through a series of entangled particles')
 print('http://en.wikipedia.org/wiki/Quantum_entanglement')
 print('all systems online')
-while(question_answer<1):
+while(question_answerd<1):
     action=input('what will you do? ')
     if(action=='options'):
         print(options)
